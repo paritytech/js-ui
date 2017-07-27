@@ -17,15 +17,30 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import Api from '@parity/api';
+
 import { nodeOrStringProptype } from '@parity/shared/util/proptypes';
 
 import styles from './dappLink.css';
 
 export function topNavigate (to) {
-  window.parent.location.hash = to;
+  window.parent.location.hash = (to || '')
+    .split('/')
+    .map((part, index) => {
+      if (index === 1 && part.substr(0, 2) !== '0x') {
+        return Api.util.sha3(part);
+      }
+
+      return part;
+    })
+    .join('/');
 }
 
 export default class DappLink extends Component {
+  static contextTypes = {
+    api: PropTypes.object.isRequired
+  };
+
   static propTypes = {
     children: nodeOrStringProptype().isRequired,
     className: PropTypes.string,
