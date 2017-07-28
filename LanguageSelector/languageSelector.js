@@ -18,10 +18,21 @@ import { observer } from 'mobx-react';
 import React, { Component } from 'react';
 import { FormattedMessage } from 'react-intl';
 
-import { LocaleStore } from '~/i18n';
+// FIXME: Re-enable locales
+// import { LocaleStore } from '~/i18n';
 import { FeaturesStore, FEATURES } from '../Features';
 
 import Dropdown from '../Form/Dropdown';
+
+const LocaleStore = {
+  get: () => {
+    console.warn('js-ui: i18n in `LanguageSelector` disabled');
+
+    return {
+      locales: []
+    };
+  }
+}
 
 @observer
 export default class LanguageSelector extends Component {

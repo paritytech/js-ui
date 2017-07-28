@@ -18,10 +18,22 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 
-import VaultStore from '@parity/dapp-vaults/store';
+// FIXME: Re-enable vaults
+// import VaultStore from '@parity/dapp-vaults/store';
 
 import VaultSelector from './VaultSelector';
 import InputAddress from '../InputAddress';
+
+const VaultStore = {
+  get: () => {
+    console.warn('js-ui: Vaults in `Form/VaultSelect` disabled');
+
+    return {
+      vaultsOpened: [],
+      loadVaults: () => {}
+    };
+  }
+}
 
 export default class VaultSelect extends Component {
   static contextTypes = {

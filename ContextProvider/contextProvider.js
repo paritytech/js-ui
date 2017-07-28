@@ -19,7 +19,19 @@ import PropTypes from 'prop-types';
 import { IntlProvider } from 'react-intl';
 import { observer } from 'mobx-react';
 
-import { LocaleStore } from '~/i18n';
+// FIXME: Re-enable locales
+// import { LocaleStore } from '~/i18n';
+const LocaleStore = {
+  get: () => {
+    console.warn('js-ui: i18n in `ContextProvider` disabled');
+
+    return {
+      locale: 'en',
+      locales: [],
+      messages: {}
+    };
+  }
+}
 
 @observer
 export default class ContextProvider extends Component {
