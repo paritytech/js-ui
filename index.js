@@ -16,6 +16,8 @@
 
 import 'semantic-ui-css/semantic.min.css';
 
+import packageJson from './package.json';
+
 export AccountCard from './AccountCard';
 export Actionbar, { Export as ActionbarExport, Import as ActionbarImport, Search as ActionbarSearch, Sort as ActionbarSort } from './Actionbar';
 export Badge from './Badge';
@@ -71,3 +73,9 @@ export TxList from './TxList';
 export VaultCard from './VaultCard';
 export VaultTag from './VaultTag';
 export Warning from './Warning';
+
+const _version = packageJson.version;
+
+export {
+  _version
+};
