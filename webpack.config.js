@@ -14,13 +14,15 @@
 // You should have received a copy of the GNU General Public License
 // along with Parity.  If not, see <http://www.gnu.org/licenses/>.
 
+const path = require('path');
+
 module.exports = {
   context: __dirname,
   entry: {
     bundle: ['./index.js']
   },
   output: {
-    path: __dirname,
+    path: path.join(__dirname, '.build'),
     filename: '[name].js',
     library: '[name].js',
     libraryTarget: 'umd'
