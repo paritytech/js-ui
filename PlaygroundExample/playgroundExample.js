@@ -15,35 +15,32 @@
 // along with Parity.  If not, see <http://www.gnu.org/licenses/>.
 
 import React from 'react';
+import PropTypes from 'prop-types';
+import reactElementToJSXString from 'react-element-to-jsx-string';
 
-import PlaygroundExample from './PlaygroundExample/playgroundExample';
+import styles from './playground.css';
 
-import ConnectedCurrencySymbol, { CurrencySymbol } from './currencySymbol';
-
-export default function CurrencySymbolExample () {
+export default function PlaygroundExample ({ children, name }) {
   return (
-    <div>
-      <PlaygroundExample name='Connected Currency Symbol'>
-        <ConnectedCurrencySymbol />
-      </PlaygroundExample>
-
-      <PlaygroundExample name='Simple Currency Symbol'>
-        <CurrencySymbol
-          netChain='testnet'
-        />
-      </PlaygroundExample>
-
-      <PlaygroundExample name='ETC Currency Symbol'>
-        <CurrencySymbol
-          netChain='classic'
-        />
-      </PlaygroundExample>
-
-      <PlaygroundExample name='EXP Currency Symbol'>
-        <CurrencySymbol
-          netChain='expanse'
-        />
-      </PlaygroundExample>
+    <div className={ styles.exampleContainer }>
+      {
+        name
+          ? <p>{ name }</p>
+          : null
+      }
+      <div className={ styles.example }>
+        <div className={ styles.code }>
+          <code>{ reactElementToJSXString(children) }</code>
+        </div>
+        <div className={ styles.component }>
+          { children }
+        </div>
+      </div>
     </div>
   );
 }
+
+PlaygroundExample.propTypes = {
+  children: PropTypes.node,
+  name: PropTypes.string
+};

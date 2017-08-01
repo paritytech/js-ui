@@ -16,7 +16,7 @@
 
 import React from 'react';
 
-import PlaygroundExample from '@parity/dapp-playground/playgroundExample';
+import PlaygroundExample from './PlaygroundExample/playgroundExample';
 
 import QrCode from './';
 
