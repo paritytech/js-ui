@@ -16,7 +16,7 @@
 
 import React from 'react';
 
-import PlaygroundExample from './PlaygroundExample/playgroundExample';
+import PlaygroundExample from '../PlaygroundExample/playgroundExample';
 
 import QrCode from './';
 

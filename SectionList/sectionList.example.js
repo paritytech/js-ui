@@ -16,7 +16,7 @@
 
 import React, { Component } from 'react';
 
-import PlaygroundExample from './PlaygroundExample/playgroundExample';
+import PlaygroundExample from '../PlaygroundExample/playgroundExample';
 
 import SectionList from './';
 
