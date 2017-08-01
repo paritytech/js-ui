@@ -89,7 +89,8 @@
     "redux": "3.6.0",
     "semantic-ui-css": "2.2.11",
     "semantic-ui-react": "0.71.2",
-    "zxcvbn": "4.4.1"
+    "zxcvbn": "4.4.1",
+    "react-element-to-jsx-string": "6.0.0"
   },
   "peerDependencies": {}
 }
