@@ -15,30 +15,10 @@
 /* along with Parity.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-@import '../_layout.css';
+$pendingHeight: 190px;
+$finishedHeight: 120px;
 
-.container {
-  box-sizing: border-box;
-  padding: 1em 0 0 2em;
-  flex: 0 0 $statusWidth;
-}
+$embedWidth: 920px;
+$statusWidth: 270px;
 
-.rejectToggle {
-  display: block;
-  cursor: pointer;
-  color: #00e;
-  opacity: .7;
-  transition: opacity .5s;
-}
-
-.rejectToggle:hover {
-  opacity: 1;
-  text-decoration: underline;
-}
-
-.rejectToggle svg {
-  position: relative;
-  width: 18px !important;
-  height: 18px !important;
-  top: 3px;
-}
+$accountPadding: 75px;
