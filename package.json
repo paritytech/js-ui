@@ -55,9 +55,9 @@
     "webpack": "^3.3.0"
   },
   "dependencies": {
-    "@parity/api": "paritytech/js-api#1c7cc5561c4e8db0d0b58f22d8bc8baa243909a5",
-    "@parity/shared": "paritytech/js-shared#a83c71946d30d5b3bf976860a676add29c48ee24",
-    "@parity/etherscan": "paritytech/js-etherscan#efe859ac7d2a8a3cc05e01c689b7fa58f47f8b87",
+    "@parity/api": "paritytech/js-api",
+    "@parity/shared": "paritytech/js-shared",
+    "@parity/etherscan": "paritytech/js-etherscan",
     "bignumber.js": "3.0.1",
     "brace": "0.9.0",
     "date-difference": "1.0.0",
