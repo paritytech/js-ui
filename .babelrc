@@ -1,7 +1,10 @@
 {
   "presets": [
-    "es2017", "es2016", "es2015",
-    "stage-0", "react"
+    "es2017",
+    "es2016",
+    ["es2015", { "modules": false }],
+    "stage-0",
+    "react"
   ],
   "plugins": [
     "transform-decorators-legacy",
@@ -14,17 +17,6 @@
     "production": {
       "plugins": [
         "transform-react-remove-prop-types"
-      ]
-    },
-    "development": {
-      "plugins": [
-        [ "react-intl", { "messagesDir": "./.build/i18n/" } ],
-        "react-hot-loader/babel"
-      ]
-    },
-    "test": {
-      "plugins": [
-        [ "babel-plugin-webpack-alias", { "config": "webpack/test.js" } ]
       ]
     }
   }
