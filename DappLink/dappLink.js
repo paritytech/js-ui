@@ -14,53 +14,33 @@
 // You should have received a copy of the GNU General Public License
 // along with Parity.  If not, see <http://www.gnu.org/licenses/>.
 
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-
-import Api from '@parity/api';
 
 import { nodeOrStringProptype } from '@parity/shared/util/proptypes';
 
 import styles from './dappLink.css';
 
-export function topNavigate (to) {
-  window.parent.location.hash = (to || '')
-    .split('/')
-    .map((part, index) => {
-      if (index === 1 && part.substr(0, 2) !== '0x') {
-        return Api.util.sha3(part);
-      }
+export default function DappLink ({ children, className, to }, { api }) {
+  const [, appId, params] = to.split('/');
+  const onClick = () => api.shell.loadApp(appId, params);
 
-      return part;
-    })
-    .join('/');
+  return (
+    <div
+      className={ [styles.link, className].join(' ') }
+      onClick={ onClick }
+    >
+      { children }
+    </div>
+  );
 }
 
-export default class DappLink extends Component {
-  static contextTypes = {
-    api: PropTypes.object.isRequired
-  };
+DappLink.contextTypes = {
+  api: PropTypes.object.isRequired
+};
 
-  static propTypes = {
-    children: nodeOrStringProptype().isRequired,
-    className: PropTypes.string,
-    to: PropTypes.string.isRequired
-  };
-
-  render () {
-    const { children, className } = this.props;
-
-    return (
-      <div
-        className={ [styles.link, className].join(' ') }
-        onClick={ this.onClick }
-      >
-        { children }
-      </div>
-    );
-  }
-
-  onClick = () => {
-    topNavigate(this.props.to);
-  }
-}
+DappLink.propTypes = {
+  children: nodeOrStringProptype().isRequired,
+  className: PropTypes.string,
+  to: PropTypes.string.isRequired
+};
