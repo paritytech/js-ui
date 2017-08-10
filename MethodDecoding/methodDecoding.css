@@ -56,7 +56,6 @@
 
 .description {
   line-height: 2em;
-  padding-bottom: 0.5em;
 }
 
 .name,
@@ -70,15 +69,18 @@
 .highlight {
 }
 
-.inputs, .addressContainer {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
+.inputs,
+.addressContainer {
   padding-left: 2em;
 }
 
+.addressContainer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
 .input {
-  margin-top: -16px;
   font-family: inherit !important;
 }
 
