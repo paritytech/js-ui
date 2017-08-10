@@ -31,7 +31,7 @@ export default function TokenImage ({ token }, { api }) {
       ? api.dappsUrl
       : '';
 
-    imagesrc = `${host}${imageurl}`;
+    imagesrc = `${host || ''}${imageurl}`;
   }
 
   return (
