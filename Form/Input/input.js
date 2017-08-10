@@ -118,8 +118,6 @@ export default class Input extends Component {
       ? value
       : defaultValue;
 
-    console.log('Input', displayValue, parseI18NString(this.context, `${displayValue}`));
-
     return (
       <LabelWrapper
         className={ `${styles.container} ${className}` }
