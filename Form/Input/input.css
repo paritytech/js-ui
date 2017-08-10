@@ -20,6 +20,8 @@
 
 .copy {
   margin-right: 0.5em;
+  margin-top: 0.5em;
+  vertical-align: bottom;
 }
 
 .input {
