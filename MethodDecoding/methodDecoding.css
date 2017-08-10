@@ -84,11 +84,6 @@
   font-family: inherit !important;
 }
 
-.inputs [data-address-img] {
-  position: absolute;
-  top: -16px;
-}
-
 .etherValue,
 .tokenValue {
 }
