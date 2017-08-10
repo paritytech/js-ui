@@ -16,6 +16,12 @@
 */
 .container {
   position: relative;
+
+  [data-address-img] {
+    position: absolute;
+    top: 2px;
+    left: 8px;
+  }
 }
 
 .input input {
@@ -65,10 +71,4 @@
 
 .iconDisabled {
   left: 24px;
-}
-
-[data-address-img] {
-  position: absolute;
-  top: 2px;
-  left: 8px;
 }
