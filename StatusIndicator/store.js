@@ -43,17 +43,8 @@ export default class Store {
   }
 
   fetchHealth = () => {
-    // Support Parity-Extension.
-    const uiUrl = this._api.transport.uiUrlWithProtocol || '';
-
-    return fetch(`${uiUrl}/api/health`)
-      .then((response) => {
-        if (!response.ok) {
-          return null;
-        }
-
-        return response.json();
-      })
+    this._api.parity
+      .nodeHealth()
       .then(this.setHealth);
   }
 
