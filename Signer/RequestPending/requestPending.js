@@ -25,7 +25,7 @@ export default class RequestPending extends Component {
   static propTypes = {
     className: PropTypes.string,
     date: PropTypes.instanceOf(Date).isRequired,
-    elementRequest: PropTypes.element,
+    elementRequest: PropTypes.any,
     focus: PropTypes.bool,
     gasLimit: PropTypes.object.isRequired,
     id: PropTypes.object.isRequired,
