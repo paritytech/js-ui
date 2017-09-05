@@ -40,6 +40,8 @@ class TransactionPending extends Component {
     accounts: PropTypes.object.isRequired,
     className: PropTypes.string,
     date: PropTypes.instanceOf(Date).isRequired,
+    elementDetails: PropTypes.element,
+    elementForm: PropTypes.element,
     focus: PropTypes.bool,
     gasLimit: PropTypes.object,
     id: PropTypes.object.isRequired,
@@ -101,17 +103,19 @@ class TransactionPending extends Component {
   renderTransaction () {
     const transaction = this.gasStore.overrideTransaction(this.props.transaction);
 
-    const { accounts, className, focus, id, isSending, netVersion, origin, signerStore } = this.props;
+    const { accounts, className, elementDetails, elementForm, focus, id, isSending, netVersion, origin, signerStore } = this.props;
     const { totalValue } = this.state;
     const { balances, externalLink } = signerStore;
     const { from, value } = transaction;
     const fromBalance = balances[from];
     const account = accounts[from] || {};
     const disabled = account.hardware && !this.hardwareStore.isConnected(from);
+    const MainDetails = elementDetails || TransactionMainDetails;
+    const PendingForm = elementForm || TransactionPendingForm;
 
     return (
       <div className={ `${styles.container} ${className}` }>
-        <TransactionMainDetails
+        <MainDetails
           className={ styles.transactionDetails }
           disabled={ disabled }
           externalLink={ externalLink }
@@ -125,7 +129,7 @@ class TransactionPending extends Component {
           transaction={ transaction }
           value={ value }
         />
-        <TransactionPendingForm
+        <PendingForm
           account={ account }
           address={ from }
           disabled={ disabled }

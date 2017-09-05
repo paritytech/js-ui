@@ -31,6 +31,8 @@ export default class TransactionPendingForm extends Component {
     address: PropTypes.string.isRequired,
     className: PropTypes.string,
     disabled: PropTypes.bool,
+    elementConfirm: PropTypes.element,
+    elementReject: PropTypes.element,
     focus: PropTypes.bool,
     netVersion: PropTypes.string.isRequired,
     isSending: PropTypes.bool.isRequired,
@@ -70,16 +72,18 @@ export default class TransactionPendingForm extends Component {
   }
 
   renderForm () {
-    const { account, address, disabled, focus, isSending, netVersion, onConfirm, onReject, dataToSign } = this.props;
+    const { account, address, disabled, elementConfirm, elementReject, focus, isSending, netVersion, onConfirm, onReject, dataToSign } = this.props;
+    const FormReject = elementReject || TransactionPendingFormReject;
+    const FormConfirm = elementConfirm || TransactionPendingFormConfirm;
 
     if (this.state.isRejectOpen) {
       return (
-        <TransactionPendingFormReject onReject={ onReject } />
+        <FormReject onReject={ onReject } />
       );
     }
 
     return (
-      <TransactionPendingFormConfirm
+      <FormConfirm
         address={ address }
         account={ account }
         disabled={ disabled }
