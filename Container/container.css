@@ -16,7 +16,7 @@
 */
 
 $background: white;
-$backgroundHover: rgba(250, 250, 255, 1);
+$backgroundHover: rgba(253, 253, 254, 1);
 $backgroundLight: rgba(18, 18, 18, 0.5);
 $borderColor: rgba(242, 242, 242, 1);
 $shadow: 0.25em 0.25em 0.25em rgba(0, 0, 0, 0.125);
