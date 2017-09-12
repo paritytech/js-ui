@@ -43,7 +43,6 @@ $shadow: 0.25em 0.25em 0.25em rgba(0, 0, 0, 0.125);
     top: 100%;
     opacity: 0;
     z-index: 100;
-
   }
 
   &:hover {
@@ -58,6 +57,11 @@ $shadow: 0.25em 0.25em 0.25em rgba(0, 0, 0, 0.125);
       display: block;
       opacity: 1;
     }
+  }
+
+  .title {
+    margin-left: -72px;
+    padding-left: 72px
   }
 }
 

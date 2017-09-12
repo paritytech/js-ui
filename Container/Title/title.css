@@ -15,7 +15,8 @@
 /* along with Parity.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-$backgroundTitle: rgba(240, 240, 255, 1);
+$backgroundTitle: #eef;
+$backgroundGradient: linear-gradient(to right, #fff 0%, #eef 100%);
 $bylineColor: #aaa;
 $bylineLineHeight: 1.2rem;
 $bylineMaxHeight: 2.4rem;
@@ -55,6 +56,7 @@ $smallFontSize: 0.75rem;
 
 .title {
   background: $backgroundTitle;
+  background: $backgroundGradient;
   line-height: $titleLineHeight;
   margin: 0 0 0.5em 0;
   overflow: hidden;

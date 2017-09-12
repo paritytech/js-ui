@@ -140,7 +140,10 @@ export default class Container extends Component {
     }
 
     return (
-      <Title title={ title } />
+      <Title
+        clssName={ styles.title }
+        title={ title }
+      />
     );
   }
 }
