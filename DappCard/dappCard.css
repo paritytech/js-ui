@@ -46,8 +46,10 @@ i.image {
 
 .title,
 .titleLink {
-  margin-left: -72px !important;
-  padding-left: 72px !important;
+  h3 {
+    margin-left: -72px !important;
+    padding-left: 72px !important;
+  }
 }
 
 .title {
