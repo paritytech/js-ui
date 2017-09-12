@@ -59,7 +59,7 @@ $shadow: 0.25em 0.25em 0.25em rgba(0, 0, 0, 0.125);
     }
   }
 
-  .title {
+  .title h3 {
     margin-left: -72px;
     padding-left: 72px
   }
