@@ -15,6 +15,7 @@
 /* along with Parity.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+$backgroundTitle: rgba(240, 240, 255, 1);
 $bylineColor: #aaa;
 $bylineLineHeight: 1.2rem;
 $bylineMaxHeight: 2.4rem;
@@ -53,9 +54,11 @@ $smallFontSize: 0.75rem;
 }
 
 .title {
+  background: $backgroundTitle;
   line-height: $titleLineHeight;
-  margin: 0;
+  margin: 0 0 0.5em 0;
   overflow: hidden;
+  padding: 0.5em 0.75em;
   text-overflow: ellipsis;
   text-transform: uppercase;
   white-space: nowrap;

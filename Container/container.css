@@ -16,7 +16,7 @@
 */
 
 $background: rgba(254, 254, 254, 1);
-$backgroundHover: rgba(252, 252, 252, 1);
+$backgroundHover: rgba(240, 240, 255, 1);
 $backgroundLight: rgba(18, 18, 18, 0.5);
 $borderColor: rgba(242, 242, 242, 1);
 $shadow: 0.25em 0.25em 0.25em rgba(0, 0, 0, 0.125);
@@ -65,7 +65,7 @@ $shadow: 0.25em 0.25em 0.25em rgba(0, 0, 0, 0.125);
 .padded {
   background-color: transparent !important;
   border-radius: 0 !important;
-  border: 1px solid $borderColor;
+  /* border: 1px solid $borderColor; */
   box-shadow: none !important;
   height: 100%;
   position: relative;
