@@ -29,7 +29,22 @@ function Balance ({ balance, className, showOnlyEth, tokens }) {
     return null;
   }
 
-  let body = Object.keys(balance)
+  let body = Object
+    .keys(balance)
+    .sort((tokenIdA, tokenIdB) => {
+      const tokenA = tokens[tokenIdA];
+      const tokenB = tokens[tokenIdB];
+
+      if (tokenA.native) {
+        return -1;
+      }
+
+      if (tokenB.native) {
+        return 1;
+      }
+
+      return (tokenA.name || tokenA.tag || '').localeCompare(tokenB.name || tokenB.tag || '');
+    })
     .map((tokenId) => {
       const token = tokens[tokenId];
       const balanceValue = balance[tokenId];
@@ -53,8 +68,8 @@ function Balance ({ balance, className, showOnlyEth, tokens }) {
         decimals = 1;
       }
 
-      const value = new BigNumber(balanceValue).div(bnf).toFormat(decimals);
-
+      const rawValue = new BigNumber(balanceValue).div(bnf);
+      const value = rawValue.toFormat(decimals);
       const classNames = [styles.balance];
       let details = null;
 
@@ -65,7 +80,7 @@ function Balance ({ balance, className, showOnlyEth, tokens }) {
             className={ styles.value }
             key='value'
           >
-            <span title={ value }>
+            <span title={ `${rawValue.toFormat()} ${token.tag}` }>
               { value }
             </span>
           </div>,
