@@ -29,7 +29,7 @@ export default function Title ({ actions, byline, className, description, isOffs
   return (
     <div className={ className }>
       <div>
-        <h3 className={ [styles.title, isOffset ? 'offset' : ''].join(' ') }>
+        <h3 className={ [styles.title, isOffset && styles.offset].join(' ') }>
           <div className={ styles.text }>
             { title }
           </div>
