@@ -40,7 +40,7 @@ export Features, { FEATURES, FeaturesStore } from './Features';
 export Form, { AddressSelect, Checkbox, DappUrlInput, Dropdown, FileSelect, Input, InputAddress, InputAddressSelect, InputChip, InputDateTime, Label, RadioButtons, Slider, Toggle, TypedInput, VaultSelect, Tab } from './Form';
 export GasPriceEditor from './GasPriceEditor';
 export GasPriceSelector from './GasPriceSelector';
-export GrandientBg from './GrandientBg';
+export GradientBg from './GradientBg';
 export IconCache from './IconCache';
 export Icons from './Icons';
 export IdentityIcon from './IdentityIcon';
