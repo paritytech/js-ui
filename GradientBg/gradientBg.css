@@ -19,3 +19,8 @@ $backgroundFrom: #405161;
 $backgroundTo: #2c3742;
 $backgroundGradient: linear-gradient(to bottom, $backgroundFrom 0%, $backgroundTo 100%);
 $backgroundColor: $backgroundFrom;
+
+.background {
+  background: $backgroundColor;
+  background: $backgroundGradient;
+}
