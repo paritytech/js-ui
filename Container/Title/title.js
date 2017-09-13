@@ -25,12 +25,14 @@ import Description from './Description';
 
 import styles from './title.css';
 
-export default function Title ({ actions, byline, className, description, title }) {
+export default function Title ({ actions, byline, className, description, isOffset, title }) {
   return (
     <div className={ className }>
       <div>
-        <h3 className={ styles.title }>
-          { title }
+        <h3 className={ [styles.title, isOffset ? 'offset' : ''].join(' ') }>
+          <div className={ styles.text }>
+            { title }
+          </div>
         </h3>
         <Byline byline={ byline } />
         <Description description={ description } />
@@ -45,5 +47,6 @@ Title.propTypes = {
   byline: nodeOrStringProptype(),
   className: PropTypes.string,
   description: nodeOrStringProptype(),
+  isOffset: PropTypes.bool,
   title: nodeOrStringProptype()
 };

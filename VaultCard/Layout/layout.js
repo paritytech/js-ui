@@ -59,6 +59,7 @@ export default class Layout extends Component {
         <div className={ styles.info }>
           <Title
             byline={ meta.description }
+            isOffset
             title={ name }
           />
           { children }

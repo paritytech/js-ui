@@ -59,9 +59,17 @@ $smallFontSize: 0.75rem;
   background: $backgroundGradient;
   line-height: $titleLineHeight;
   margin: 0 0 0.5em 0;
-  overflow: hidden;
   padding: 0.5em 0.75em;
-  text-overflow: ellipsis;
-  text-transform: uppercase;
-  white-space: nowrap;
+
+  &.offset {
+    margin-left: -72px;
+    padding-left: 72px;
+  }
+
+  .text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
 }

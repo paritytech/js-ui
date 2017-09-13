@@ -72,6 +72,7 @@ export default class DappCard extends Component {
                 ? styles.titleLink
                 : styles.title
             }
+            isOffset
             title={ app.name }
             byline={ app.description }
           />

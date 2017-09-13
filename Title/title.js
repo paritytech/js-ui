@@ -26,7 +26,7 @@ import Waiting from './Waiting';
 
 import styles from './title.css';
 
-export default function Title ({ activeStep, busy, busySteps, byline, className, description, isSubTitle, steps, title }) {
+export default function Title ({ activeStep, busy, busySteps, byline, className, description, isOffset, isSubTitle, steps, title }) {
   if (!title && !steps) {
     return null;
   }
@@ -45,6 +45,7 @@ export default function Title ({ activeStep, busy, busySteps, byline, className,
       <ContainerTitle
         byline={ byline }
         description={ description }
+        isOffset
         title={
           steps
             ? steps[activeStep || 0]
@@ -73,6 +74,7 @@ Title.propTypes = {
   busySteps: PropTypes.array,
   byline: nodeOrStringProptype(),
   className: PropTypes.string,
+  isOffset: PropTypes.bool,
   isSubTitle: PropTypes.bool,
   steps: PropTypes.array,
   title: nodeOrStringProptype()
