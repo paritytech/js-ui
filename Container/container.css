@@ -16,8 +16,8 @@
 */
 
 $background: #f9f9f9;
-$backgroundGradient: linear-gradient(to bottom, white 0%, $background 100%);
-$backgroundHover: $background;
+$backgroundHover: white;
+$backgroundGradient: linear-gradient(to bottom, $backgroundHover 0%, $background 100%);
 $backgroundLight: rgba(18, 18, 18, 0.5);
 $borderColor: rgba(242, 242, 242, 1);
 $shadow: 0.25em 0.25em 0.25em rgba(0, 0, 0, 0.125);
