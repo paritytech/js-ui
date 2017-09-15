@@ -17,6 +17,8 @@
 
 .layout,
 .layoutPadded {
+  background: #fcfcfc;
+
   &>div {
     margin-bottom: 0.5em;
   }

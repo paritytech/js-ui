@@ -15,14 +15,16 @@
 /* along with Parity.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-$background: white;
-$backgroundHover: rgba(254, 254, 254, 1);
+$background: #f9f9f9;
+$backgroundGradient: linear-gradient(to bottom, white 0%, $background 100%);
+$backgroundHover: $background;
 $backgroundLight: rgba(18, 18, 18, 0.5);
 $borderColor: rgba(242, 242, 242, 1);
 $shadow: 0.25em 0.25em 0.25em rgba(0, 0, 0, 0.125);
 
 .container {
   background: $background;
+  background: $backgroundGradient;
   flex: 1;
   height: 100%;
   padding: 0em;

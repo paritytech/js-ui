@@ -55,8 +55,8 @@ $smallFontSize: 0.75rem;
 }
 
 .title {
-  background: $backgroundTitle;
-  background: $backgroundGradient;
+  /* background: $backgroundTitle;
+  background: $backgroundGradient; */
   line-height: $titleLineHeight;
   margin: 0 0 0.5em 0;
   overflow-x: visible !important;
