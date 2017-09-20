@@ -39,6 +39,7 @@ export default class IdentityIcon extends Component {
     className: PropTypes.string,
     disabled: PropTypes.bool,
     inline: PropTypes.bool,
+    onClick: PropTypes.func,
     padded: PropTypes.bool,
     tiny: PropTypes.bool
   }
@@ -86,7 +87,7 @@ export default class IdentityIcon extends Component {
   }
 
   render () {
-    const { address, button, className, center, disabled, inline, padded, tiny } = this.props;
+    const { address, button, className, center, disabled, inline, onClick, padded, tiny } = this.props;
     const { iconsrc } = this.state;
     const classes = [
       styles.icon,
@@ -114,6 +115,7 @@ export default class IdentityIcon extends Component {
         <ContractIcon
           className={ classes }
           data-address-img
+          onClick={ onClick }
           style={ {
             background: '#eee',
             height: size,
@@ -126,6 +128,7 @@ export default class IdentityIcon extends Component {
         <CancelIcon
           className={ classes }
           data-address-img
+          onClick={ onClick }
           style={ {
             background: '#333',
             height: size,
@@ -140,6 +143,7 @@ export default class IdentityIcon extends Component {
         className={ classes }
         data-address-img
         height={ size }
+        onClick={ onClick }
         width={ size }
         src={ iconsrc }
       />
