@@ -25,7 +25,7 @@ import styles from './statusIndicator.css';
 
 const statuses = ['bad', 'needsAttention', 'ok'];
 
-function StatusIndicator ({ id, status, title = [], tooltipPlacement, type = 'signal' }, { api }) {
+function StatusIndicator ({ className, id, status, title = [], tooltipPlacement, type = 'signal' }, { api }) {
   const store = Store.get(api);
   const checkStatus = status || store.overall.status;
   const message = title.length
@@ -33,7 +33,7 @@ function StatusIndicator ({ id, status, title = [], tooltipPlacement, type = 'si
     : store.overall.message;
 
   return (
-    <span className={ styles.status }>
+    <span className={ [styles.status, className].join(' ') }>
       <span
         className={ `${styles[type]} ${styles[checkStatus]}` }
         data-tip={ message.length }
@@ -77,14 +77,15 @@ function StatusIndicator ({ id, status, title = [], tooltipPlacement, type = 'si
 }
 
 StatusIndicator.propTypes = {
-  type: PropTypes.oneOf([
-    'radial', 'signal'
-  ]),
+  className: PropTypes.string,
   id: PropTypes.string.isRequired,
   status: PropTypes.oneOf(statuses),
   title: PropTypes.arrayOf(PropTypes.node),
   tooltipPlacement: PropTypes.oneOf([
     'left', 'top', 'bottom', 'right'
+  ]),
+  type: PropTypes.oneOf([
+    'radial', 'signal'
   ])
 };
 
