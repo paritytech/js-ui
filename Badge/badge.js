@@ -19,9 +19,12 @@ import PropTypes from 'prop-types';
 
 import styles from './badge.css';
 
-export default function Badge ({ className, color = 'default', value }) {
+export default function Badge ({ className, color = 'default', onClick, value }) {
   return (
-    <div className={ `${styles.bubble} ${styles[color]} ${className}` }>
+    <div
+      className={ `${styles.bubble} ${styles[color]} ${className}` }
+      onClick={ onClick }
+    >
       { value }
     </div>
   );
@@ -30,5 +33,6 @@ export default function Badge ({ className, color = 'default', value }) {
 Badge.propTypes = {
   className: PropTypes.string,
   color: PropTypes.string,
+  onClick: PropTypes.func,
   value: PropTypes.any
 };
