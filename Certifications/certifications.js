@@ -101,7 +101,10 @@ function mapStateToProps (_, initProps) {
     const certifications = state.certifications[address] || [];
     const dappsUrl = state.api.dappsUrl;
 
-    return { certifications, dappsUrl };
+    return {
+      certifications,
+      dappsUrl
+    };
   };
 }
 

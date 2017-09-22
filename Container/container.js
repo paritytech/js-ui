@@ -14,136 +14,95 @@
 // You should have received a copy of the GNU General Public License
 // along with Parity.  If not, see <http://www.gnu.org/licenses/>.
 
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router';
 
 import { nodeOrStringProptype } from '@parity/shared/util/proptypes';
 
-import DappLink from '../DappLink';
+import Link from './Link';
 import Title from './Title';
 
 import styles from './container.css';
 
-export default class Container extends Component {
-  static propTypes = {
-    children: PropTypes.node,
-    className: PropTypes.string,
-    compact: PropTypes.bool,
-    dappLink: PropTypes.bool,
-    hover: PropTypes.node,
-    light: PropTypes.bool,
-    link: PropTypes.string,
-    onClick: PropTypes.func,
-    onFocus: PropTypes.func,
-    style: PropTypes.object,
-    tabIndex: PropTypes.number,
-    title: nodeOrStringProptype()
+export function Container ({ children, className, compact, dappLink, hover, light, link, onClick, onFocus, style, tabIndex, title }) {
+  const props = {};
+
+  if (Number.isInteger(tabIndex)) {
+    props.tabIndex = tabIndex;
   }
 
-  render () {
-    const { children, className, compact, light, link, onClick, onFocus, style, tabIndex } = this.props;
-    const props = {};
+  const card = (
+    <div
+      className={
+        compact
+          ? styles.compact
+          : styles.padded
+      }
+      onClick={ onClick }
+      onFocus={ onFocus }
+    >
+      <Title title={ title } />
+      { children }
+    </div>
+  );
 
-    if (Number.isInteger(tabIndex)) {
-      props.tabIndex = tabIndex;
-    }
+  const hoverCard = (
+    hover
+      ? (
+        <div className={ styles.hoverOverlay }>
+          { hover }
+        </div>
+      )
+      : null
+  );
 
-    const card = (
-      <div
-        className={
-          compact
-            ? styles.compact
-            : styles.padded
-        }
-        onClick={ onClick }
-        onFocus={ onFocus }
-      >
-        { this.renderTitle() }
-        { children }
-      </div>
-    );
-
-    return (
-      <div
-        className={
-          [
-            styles.container,
-            light
-              ? styles.light
-              : '',
-            className
-          ].join(' ')
-        }
-        style={ style }
-        { ...props }
-      >
-        {
-          link
-            ? this.renderLink(link, card)
-            : (
-              <div className={ styles.cardContainer }>
-                { card }
-                { this.renderHover() }
-              </div>
-            )
-        }
-      </div>
-    );
-  }
-
-  renderLink (link, card) {
-    const { dappLink } = this.props;
-
-    if (dappLink) {
-      return (
-        <DappLink
-          className={ styles.link }
-          to={ link }
-        >
-          { card }
-          { this.renderHover() }
-        </DappLink>
-      );
-    }
-
-    return (
-      <Link
-        className={ styles.link }
-        to={ link }
-      >
-        { card }
-        { this.renderHover() }
-      </Link>
-    );
-  }
-
-  renderHover () {
-    const { hover } = this.props;
-
-    if (!hover) {
-      return null;
-    }
-
-    return (
-      <div className={ styles.hoverOverlay }>
-        { hover }
-      </div>
-    );
-  }
-
-  renderTitle () {
-    const { title } = this.props;
-
-    if (!title) {
-      return null;
-    }
-
-    return (
-      <Title
-        clssName={ styles.title }
-        title={ title }
-      />
-    );
-  }
+  return (
+    <div
+      className={
+        [
+          styles.container,
+          light
+            ? styles.light
+            : '',
+          className
+        ].join(' ')
+      }
+      style={ style }
+      { ...props }
+    >
+      {
+        link
+          ? (
+            <Link
+              isDappLink={ dappLink }
+              link={ link }
+            >
+              { card }
+              { hoverCard }
+            </Link>
+          )
+          : (
+            <div className={ styles.cardContainer }>
+              { card }
+              { hoverCard }
+            </div>
+          )
+      }
+    </div>
+  );
 }
+
+Container.propTypes = {
+  children: PropTypes.node,
+  className: PropTypes.string,
+  compact: PropTypes.bool,
+  dappLink: PropTypes.bool,
+  hover: PropTypes.node,
+  light: PropTypes.bool,
+  link: PropTypes.string,
+  onClick: PropTypes.func,
+  onFocus: PropTypes.func,
+  style: PropTypes.object,
+  tabIndex: PropTypes.number,
+  title: nodeOrStringProptype()
+};

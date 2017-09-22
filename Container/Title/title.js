@@ -26,6 +26,10 @@ import Description from './Description';
 import styles from './title.css';
 
 export default function Title ({ actions, byline, className, description, isOffset, title }) {
+  if (!title && !byline && !description) {
+    return null;
+  }
+
   return (
     <div className={ className }>
       <div>

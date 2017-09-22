@@ -44,7 +44,6 @@ Button.propTypes = {
   active: PropTypes.bool,
   animated: PropTypes.bool,
   basic: PropTypes.bool,
-  backgroundColor: PropTypes.string,
   className: PropTypes.string,
   color: PropTypes.string,
   disabled: PropTypes.bool,
