@@ -21,7 +21,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import { txLink } from '@parity/etherscan/links';
+import { txLink } from '@parity/etherscan';
 
 import DappLink from '../../DappLink';
 import IdentityIcon from '../../IdentityIcon';

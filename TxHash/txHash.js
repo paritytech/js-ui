@@ -21,7 +21,7 @@ import { FormattedMessage } from 'react-intl';
 import { connect } from 'react-redux';
 
 import { DEFAULT_GAS } from '@parity/shared/util/constants';
-import { txLink } from '@parity/etherscan/links';
+import { txLink } from '@parity/etherscan';
 
 import Warning from '../Warning';
 import Progress from '../Progress';
