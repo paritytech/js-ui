@@ -47,7 +47,7 @@
     "eslint-plugin-standard": "^3.0.1"
   },
   "dependencies": {
-    "@parity/api": "paritytech/js-api",
+    "@parity/api": "^2",
     "@parity/shared": "paritytech/js-shared",
     "@parity/etherscan": "paritytech/js-etherscan",
     "bignumber.js": "3.0.1",
