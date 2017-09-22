@@ -24,7 +24,7 @@ import Title from './Title';
 
 import styles from './container.css';
 
-export function Container ({ children, className, compact, dappLink, hover, light, link, onClick, onFocus, style, tabIndex, title }) {
+export default function Container ({ children, className, compact, dappLink, hover, light, link, onClick, onFocus, style, tabIndex, title }) {
   const props = {};
 
   if (Number.isInteger(tabIndex)) {
