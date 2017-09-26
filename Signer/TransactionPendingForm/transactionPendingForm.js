@@ -33,8 +33,8 @@ export default class TransactionPendingForm extends Component {
     disabled: PropTypes.bool,
     elementConfirm: PropTypes.any,
     elementReject: PropTypes.any,
-    focus: PropTypes.bool,
     netVersion: PropTypes.string.isRequired,
+    isFocussed: PropTypes.bool,
     isSending: PropTypes.bool.isRequired,
     onConfirm: PropTypes.func.isRequired,
     onReject: PropTypes.func.isRequired,
@@ -53,7 +53,7 @@ export default class TransactionPendingForm extends Component {
 
   static defaultProps = {
     account: {},
-    focus: false
+    isFocussed: false
   };
 
   state = {
@@ -72,7 +72,7 @@ export default class TransactionPendingForm extends Component {
   }
 
   renderForm () {
-    const { account, address, disabled, elementConfirm, elementReject, focus, isSending, netVersion, onConfirm, onReject, dataToSign } = this.props;
+    const { account, address, disabled, elementConfirm, elementReject, isFocussed, isSending, netVersion, onConfirm, onReject, dataToSign } = this.props;
     const FormReject = elementReject || TransactionPendingFormReject;
     const FormConfirm = elementConfirm || TransactionPendingFormConfirm;
 
@@ -87,9 +87,9 @@ export default class TransactionPendingForm extends Component {
         address={ address }
         account={ account }
         disabled={ disabled }
-        focus={ focus }
-        netVersion={ netVersion }
+        isFocussed={ isFocussed }
         isSending={ isSending }
+        netVersion={ netVersion }
         onConfirm={ onConfirm }
         dataToSign={ dataToSign }
       />

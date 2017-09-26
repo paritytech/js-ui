@@ -39,16 +39,16 @@ export default class TransactionPendingFormConfirm extends Component {
     account: PropTypes.object,
     address: PropTypes.string.isRequired,
     disabled: PropTypes.bool,
-    focus: PropTypes.bool,
-    netVersion: PropTypes.string.isRequired,
+    isFocussed: PropTypes.bool,
     isSending: PropTypes.bool.isRequired,
+    netVersion: PropTypes.string.isRequired,
     onConfirm: PropTypes.func.isRequired,
     dataToSign: PropTypes.object.isRequired
   };
 
   static defaultProps = {
     account: {},
-    focus: false
+    isFocussed: false
   };
 
   id = Math.random(); // for tooltip
@@ -75,13 +75,13 @@ export default class TransactionPendingFormConfirm extends Component {
   }
 
   componentWillReceiveProps (nextProps) {
-    if (!this.props.focus && nextProps.focus) {
+    if (!this.props.isFocussed && nextProps.isFocussed) {
       this.focus(nextProps);
     }
   }
 
   focus (props = this.props) {
-    if (props.focus) {
+    if (props.isFocussed) {
       const textNode = ReactDOM.findDOMNode(this.refs.input);
 
       if (!textNode) {

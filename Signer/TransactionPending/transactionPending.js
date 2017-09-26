@@ -42,9 +42,9 @@ class TransactionPending extends Component {
     date: PropTypes.instanceOf(Date).isRequired,
     elementDetails: PropTypes.any,
     elementForm: PropTypes.any,
-    focus: PropTypes.bool,
     gasLimit: PropTypes.object,
     id: PropTypes.object.isRequired,
+    isFocussed: PropTypes.bool,
     isSending: PropTypes.bool.isRequired,
     netVersion: PropTypes.string.isRequired,
     nonce: PropTypes.number,
@@ -64,7 +64,7 @@ class TransactionPending extends Component {
   };
 
   static defaultProps = {
-    focus: false,
+    isFocussed: false,
     origin: {
       type: 'unknown',
       details: ''
@@ -103,7 +103,7 @@ class TransactionPending extends Component {
   renderTransaction () {
     const transaction = this.gasStore.overrideTransaction(this.props.transaction);
 
-    const { accounts, className, elementDetails, elementForm, focus, id, isSending, netVersion, origin, signerStore } = this.props;
+    const { accounts, className, elementDetails, elementForm, id, isFocussed, isSending, netVersion, origin, signerStore } = this.props;
     const { totalValue } = this.state;
     const { balances, externalLink } = signerStore;
     const { from, value } = transaction;
@@ -133,7 +133,7 @@ class TransactionPending extends Component {
           account={ account }
           address={ from }
           disabled={ disabled }
-          focus={ focus }
+          isFocussed={ isFocussed }
           isSending={ isSending }
           netVersion={ netVersion }
           onConfirm={ this.onConfirm }
