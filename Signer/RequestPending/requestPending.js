@@ -23,6 +23,7 @@ import TransactionPending from '../TransactionPending';
 
 export default class RequestPending extends Component {
   static propTypes = {
+    accounts: PropTypes.object.isRequired,
     className: PropTypes.string,
     date: PropTypes.instanceOf(Date).isRequired,
     elementRequest: PropTypes.any,
@@ -47,12 +48,13 @@ export default class RequestPending extends Component {
   };
 
   render () {
-    const { className, date, elementRequest, gasLimit, isFocussed, isSending, netVersion, onReject, payload, origin } = this.props;
+    const { accounts, className, date, elementRequest, gasLimit, isFocussed, isSending, netVersion, onReject, payload, origin } = this.props;
     const Request = elementRequest;
 
     if (Request) {
       return (
         <Request
+          accounts={ accounts }
           className={ className }
           date={ date }
           isFocussed={ isFocussed }
@@ -72,6 +74,7 @@ export default class RequestPending extends Component {
 
       return (
         <SignRequest
+          accounts={ accounts }
           address={ sign.address }
           className={ className }
           isFocussed={ isFocussed }
@@ -91,6 +94,7 @@ export default class RequestPending extends Component {
 
       return (
         <DecryptRequest
+          accounts={ accounts }
           address={ decrypt.address }
           className={ className }
           isFocussed={ isFocussed }
@@ -110,6 +114,7 @@ export default class RequestPending extends Component {
     if (transaction) {
       return (
         <TransactionPending
+          accounts={ accounts }
           className={ className }
           date={ date }
           isFocussed={ isFocussed }

@@ -18,7 +18,6 @@ import { observer } from 'mobx-react';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
-import { connect } from 'react-redux';
 
 import HardwareStore from '@parity/shared/mobx/hardwareStore';
 import SignerStore from '@parity/shared/mobx/signerStore';
@@ -33,7 +32,7 @@ import TransactionPendingForm from '../TransactionPendingForm';
 import * as tUtil from '../util/transaction';
 
 @observer
-class TransactionPending extends Component {
+export default class TransactionPending extends Component {
   static contextTypes = {
     api: PropTypes.object.isRequired
   };
@@ -111,6 +110,7 @@ class TransactionPending extends Component {
     return (
       <Layout className={ className }>
         <TransactionMainDetails
+          accounts={ accounts }
           disabled={ disabled }
           externalLink={ externalLink }
           from={ from }
@@ -185,16 +185,3 @@ class TransactionPending extends Component {
     this.gasStore.setEditing(false);
   }
 }
-
-function mapStateToProps (state) {
-  const { accounts } = state.personal;
-
-  return {
-    accounts
-  };
-}
-
-export default connect(
-  mapStateToProps,
-  null
-)(TransactionPending);

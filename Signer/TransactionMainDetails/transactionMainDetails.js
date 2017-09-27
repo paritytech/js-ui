@@ -32,6 +32,7 @@ import styles from './transactionMainDetails.css';
 
 export default class TransactionMainDetails extends Component {
   static propTypes = {
+    accounts: PropTypes.object.isRequired,
     children: PropTypes.node,
     disabled: PropTypes.bool,
     externalLink: PropTypes.string.isRequired,
@@ -65,13 +66,14 @@ export default class TransactionMainDetails extends Component {
   }
 
   render () {
-    const { children, disabled, externalLink, from, fromBalance, gasStore, netVersion, transaction, origin } = this.props;
+    const { accounts, children, disabled, externalLink, from, fromBalance, gasStore, netVersion, transaction, origin } = this.props;
 
     return (
       <Layout.Main>
         <div className={ styles.from }>
           <div className={ styles.account }>
             <Account
+              accounts={ accounts }
               address={ from }
               balance={ fromBalance }
               disabled={ disabled }

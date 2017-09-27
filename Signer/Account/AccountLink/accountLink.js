@@ -16,14 +16,13 @@
 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 import { Link } from 'react-router';
 
 import styles from './accountLink.css';
 
-class AccountLink extends Component {
+export default class AccountLink extends Component {
   static propTypes = {
-    accountAddresses: PropTypes.array.isRequired,
+    accounts: PropTypes.object.isRequired,
     address: PropTypes.string.isRequired,
     className: PropTypes.string,
     children: PropTypes.node,
@@ -35,15 +34,15 @@ class AccountLink extends Component {
   };
 
   componentWillMount () {
-    const { address, externalLink } = this.props;
+    const { accounts, address, externalLink } = this.props;
 
-    this.updateLink(address, externalLink);
+    this.updateLink(accounts, address, externalLink);
   }
 
   componentWillReceiveProps (nextProps) {
-    const { address, externalLink } = nextProps;
+    const { accounts, address, externalLink } = nextProps;
 
-    this.updateLink(address, externalLink);
+    this.updateLink(accounts, address, externalLink);
   }
 
   render () {
@@ -71,9 +70,8 @@ class AccountLink extends Component {
     );
   }
 
-  updateLink (address, externalLink) {
-    const { accountAddresses } = this.props;
-    const isAccount = accountAddresses.includes(address);
+  updateLink (accounts, address, externalLink) {
+    const isAccount = !!(accounts[address]);
 
     let link = isAccount
       ? `/accounts/${address}`
@@ -90,17 +88,3 @@ class AccountLink extends Component {
     });
   }
 }
-
-function mapStateToProps (initState) {
-  const { accounts } = initState.personal;
-  const accountAddresses = Object.keys(accounts);
-
-  return () => {
-    return { accountAddresses };
-  };
-}
-
-export default connect(
-  mapStateToProps,
-  null
-)(AccountLink);

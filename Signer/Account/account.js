@@ -25,6 +25,7 @@ import styles from './account.css';
 
 export default class Account extends Component {
   static propTypes = {
+    accounts: PropTypes.object.isRequired,
     address: PropTypes.string.isRequired,
     className: PropTypes.string,
     disabled: PropTypes.bool,
@@ -55,11 +56,12 @@ export default class Account extends Component {
   }
 
   render () {
-    const { address, className, disabled, externalLink, netVersion } = this.props;
+    const { accounts, address, className, disabled, externalLink, netVersion } = this.props;
 
     return (
       <div className={ `${styles.acc} ${className}` }>
         <AccountLink
+          accounts={ accounts }
           address={ address }
           externalLink={ externalLink }
           netVersion={ netVersion }

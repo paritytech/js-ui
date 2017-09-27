@@ -18,7 +18,6 @@ import { observer } from 'mobx-react';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
-import { connect } from 'react-redux';
 
 import SignerStore from '@parity/shared/mobx/signerStore';
 
@@ -30,7 +29,7 @@ import RequestOrigin from '../RequestOrigin';
 import styles from '../SignRequest/signRequest.css';
 
 @observer
-class DecryptRequest extends Component {
+export default class DecryptRequest extends Component {
   static contextTypes = {
     api: PropTypes.object
   };
@@ -79,7 +78,7 @@ class DecryptRequest extends Component {
 
   renderDetails () {
     const { api } = this.context;
-    const { address, data, netVersion, origin } = this.props;
+    const { accounts, address, data, netVersion, origin } = this.props;
     const { balances, externalLink } = this.signerStore;
 
     const balance = balances[address];
@@ -92,6 +91,7 @@ class DecryptRequest extends Component {
       <div className={ styles.signDetails }>
         <div className={ styles.address }>
           <Account
+            accounts={ accounts }
             address={ address }
             balance={ balance }
             className={ styles.account }
@@ -171,16 +171,3 @@ class DecryptRequest extends Component {
     this.props.onReject();
   }
 }
-
-function mapStateToProps (state) {
-  const { accounts } = state.personal;
-
-  return {
-    accounts
-  };
-}
-
-export default connect(
-  mapStateToProps,
-  null
-)(DecryptRequest);

@@ -57,6 +57,7 @@ function render (payload) {
 
   component = shallow(
     <RequestPending
+      accounts={ {} }
       date={ new Date() }
       gasLimit={ new BigNumber(100000) }
       id={ new BigNumber(123) }
@@ -84,7 +85,7 @@ describe('views/Signer/RequestPending', () => {
     });
 
     it('renders TransactionPending component', () => {
-      expect(component.find('Connect(TransactionPending)')).to.have.length(1);
+      expect(component.find('TransactionPending')).to.have.length(1);
     });
   });
 
@@ -98,7 +99,7 @@ describe('views/Signer/RequestPending', () => {
     });
 
     it('renders SignRequest component', () => {
-      expect(component.find('Connect(SignRequest)')).to.have.length(1);
+      expect(component.find('SignRequest')).to.have.length(1);
     });
   });
 
@@ -112,7 +113,7 @@ describe('views/Signer/RequestPending', () => {
     });
 
     it('renders TransactionPending component', () => {
-      expect(component.find('Connect(TransactionPending)')).to.have.length(1);
+      expect(component.find('TransactionPending')).to.have.length(1);
     });
   });
 
@@ -126,7 +127,7 @@ describe('views/Signer/RequestPending', () => {
     });
 
     it('renders DecryptRequest component', () => {
-      expect(component.find('Connect(DecryptRequest)')).to.have.length(1);
+      expect(component.find('DecryptRequest')).to.have.length(1);
     });
   });
 });

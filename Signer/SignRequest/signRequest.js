@@ -18,7 +18,6 @@ import { observer } from 'mobx-react';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
-import { connect } from 'react-redux';
 
 import HardwareStore from '@parity/shared/mobx/hardwareStore';
 import SignerStore from '@parity/shared/mobx/signerStore';
@@ -42,7 +41,7 @@ function isAscii (data) {
 }
 
 @observer
-class SignRequest extends Component {
+export default class SignRequest extends Component {
   static contextTypes = {
     api: PropTypes.object
   };
@@ -136,7 +135,7 @@ class SignRequest extends Component {
 
   renderDetails () {
     const { api } = this.context;
-    const { address, data, netVersion, origin } = this.props;
+    const { accounts, address, data, netVersion, origin } = this.props;
     const { hashToSign } = this.state;
     const { balances, externalLink } = this.signerStore;
 
@@ -150,6 +149,7 @@ class SignRequest extends Component {
       <div className={ styles.signDetails }>
         <div className={ styles.address }>
           <Account
+            accounts={ accounts }
             address={ address }
             balance={ balance }
             className={ styles.account }
@@ -246,16 +246,3 @@ class SignRequest extends Component {
     this.props.onReject();
   }
 }
-
-function mapStateToProps (state) {
-  const { accounts } = state.personal;
-
-  return {
-    accounts
-  };
-}
-
-export default connect(
-  mapStateToProps,
-  null
-)(SignRequest);
