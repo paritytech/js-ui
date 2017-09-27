@@ -26,7 +26,6 @@ export default class RequestPending extends Component {
     accounts: PropTypes.object.isRequired,
     className: PropTypes.string,
     date: PropTypes.instanceOf(Date).isRequired,
-    elementRequest: PropTypes.any,
     gasLimit: PropTypes.object.isRequired,
     isFocussed: PropTypes.bool,
     isSending: PropTypes.bool.isRequired,
@@ -48,26 +47,7 @@ export default class RequestPending extends Component {
   };
 
   render () {
-    const { accounts, className, date, elementRequest, gasLimit, isFocussed, isSending, netVersion, onReject, payload, origin } = this.props;
-    const Request = elementRequest;
-
-    if (Request) {
-      return (
-        <Request
-          accounts={ accounts }
-          className={ className }
-          date={ date }
-          isFocussed={ isFocussed }
-          gasLimit={ gasLimit }
-          isSending={ isSending }
-          netVersion={ netVersion }
-          onConfirm={ this.onConfirm }
-          onReject={ onReject }
-          origin={ origin }
-          payload={ payload }
-        />
-      );
-    }
+    const { accounts, className, date, gasLimit, isFocussed, isSending, netVersion, onReject, payload, origin } = this.props;
 
     if (payload.sign) {
       const { sign } = payload;
