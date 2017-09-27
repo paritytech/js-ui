@@ -23,10 +23,9 @@ import { connect } from 'react-redux';
 import HardwareStore from '@parity/shared/mobx/hardwareStore';
 import { Button, GasPriceEditor } from '@parity/ui';
 
+import Layout from '../Layout';
 import TransactionMainDetails from '../TransactionMainDetails';
 import TransactionPendingForm from '../TransactionPendingForm';
-
-import styles from './transactionPending.css';
 
 import * as tUtil from '../util/transaction';
 
@@ -114,7 +113,7 @@ class TransactionPending extends Component {
     const PendingForm = elementForm || TransactionPendingForm;
 
     return (
-      <div className={ `${styles.container} ${className}` }>
+      <Layout className={ className }>
         <MainDetails
           className={ styles.transactionDetails }
           disabled={ disabled }
@@ -140,7 +139,7 @@ class TransactionPending extends Component {
           onReject={ this.onReject }
           dataToSign={ { transaction } }
         />
-      </div>
+      </Layout>
     );
   }
 
@@ -148,7 +147,7 @@ class TransactionPending extends Component {
     const { className } = this.props;
 
     return (
-      <div className={ `${styles.container} ${className}` }>
+      <Layout className={ className }>
         <GasPriceEditor store={ this.gasStore }>
           <Button
             label={
@@ -160,7 +159,7 @@ class TransactionPending extends Component {
             onClick={ this.toggleGasEditor }
           />
         </GasPriceEditor>
-      </div>
+      </Layout>
     );
   }
 

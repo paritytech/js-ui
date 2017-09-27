@@ -17,11 +17,6 @@
 
 @import '../_layout.css';
 
-.container {
-  display: flex;
-  padding: 1.5em 1em 1.5em 0;
-}
-
 .actions, .signDetails {
   vertical-align: middle;
   min-height: $pendingHeight;

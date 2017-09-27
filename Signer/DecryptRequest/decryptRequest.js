@@ -20,6 +20,7 @@ import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 import { connect } from 'react-redux';
 
+import Layout from '../Layout';
 import Account from '../Account';
 import TransactionPendingForm from '../TransactionPendingForm';
 import RequestOrigin from '../RequestOrigin';
@@ -68,10 +69,10 @@ class DecryptRequest extends Component {
     const { className } = this.props;
 
     return (
-      <div className={ `${styles.container} ${className}` }>
+      <Layout className={ className }>
         { this.renderDetails() }
         { this.renderActions() }
-      </div>
+      </Layout>
     );
   }
 

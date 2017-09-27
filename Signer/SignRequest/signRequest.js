@@ -22,6 +22,7 @@ import { connect } from 'react-redux';
 
 import HardwareStore from '@parity/shared/mobx/hardwareStore';
 
+import Layout from '../Layout';
 import Account from '../Account';
 import TransactionPendingForm from '../TransactionPendingForm';
 import RequestOrigin from '../RequestOrigin';
@@ -106,10 +107,10 @@ class SignRequest extends Component {
     const { className } = this.props;
 
     return (
-      <div className={ `${styles.container} ${className}` }>
+      <Layout className={ className }>
         { this.renderDetails() }
         { this.renderActions() }
-      </div>
+      </Layout>
     );
   }
 
