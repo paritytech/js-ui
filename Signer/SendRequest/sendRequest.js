@@ -32,7 +32,7 @@ import TransactionPendingForm from '../TransactionPendingForm';
 import * as tUtil from '../util/transaction';
 
 @observer
-export default class TransactionPending extends Component {
+export default class SendRequest extends Component {
   static contextTypes = {
     api: PropTypes.object.isRequired
   };

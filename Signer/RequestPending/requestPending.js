@@ -19,7 +19,7 @@ import PropTypes from 'prop-types';
 
 import DecryptRequest from '../DecryptRequest';
 import SignRequest from '../SignRequest';
-import TransactionPending from '../TransactionPending';
+import SendRequest from '../SendRequest';
 
 export default class RequestPending extends Component {
   static propTypes = {
@@ -45,6 +45,10 @@ export default class RequestPending extends Component {
     isFocussed: false,
     isSending: false
   };
+
+  componentWillMount () {
+    console.error(new Error('DEPRECATED: @parity/ui/Signer/RequestPending component used'));
+  }
 
   render () {
     const { accounts, className, date, gasLimit, isFocussed, isSending, netVersion, onReject, payload, origin } = this.props;
@@ -93,7 +97,7 @@ export default class RequestPending extends Component {
 
     if (transaction) {
       return (
-        <TransactionPending
+        <SendRequest
           accounts={ accounts }
           className={ className }
           date={ date }
