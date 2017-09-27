@@ -49,14 +49,6 @@ export default class DecryptRequest extends Component {
     status: PropTypes.string
   };
 
-  static defaultProps = {
-    isFocussed: false,
-    origin: {
-      type: 'unknown',
-      details: ''
-    }
-  };
-
   signerStore = new SignerStore(this.context.api);
 
   componentWillMount () {

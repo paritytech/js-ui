@@ -61,14 +61,6 @@ export default class SignRequest extends Component {
     status: PropTypes.string
   };
 
-  static defaultProps = {
-    isFocussed: false,
-    origin: {
-      type: 'unknown',
-      details: ''
-    }
-  };
-
   state = {
     hashToSign: null
   };

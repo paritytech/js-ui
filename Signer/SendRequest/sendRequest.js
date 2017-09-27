@@ -58,14 +58,6 @@ export default class SendRequest extends Component {
     }).isRequired
   };
 
-  static defaultProps = {
-    isFocussed: false,
-    origin: {
-      type: 'unknown',
-      details: ''
-    }
-  };
-
   gasStore = new GasPriceEditor.Store(this.context.api, {
     condition: this.props.transaction.condition,
     gas: this.props.transaction.gas.toFixed(),

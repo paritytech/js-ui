@@ -18,8 +18,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import DecryptRequest from '../DecryptRequest';
-import SignRequest from '../SignRequest';
 import SendRequest from '../SendRequest';
+import SignRequest from '../SignRequest';
 
 export default class RequestPending extends Component {
   static propTypes = {
