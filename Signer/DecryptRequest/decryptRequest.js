@@ -110,7 +110,7 @@ export default class DecryptRequest extends Component {
 
   renderActions () {
     const { accounts, address, isFocussed, isFinished, status, data } = this.props;
-    const account = accounts[address];
+    const account = accounts[address] || {};
 
     if (isFinished) {
       if (status === 'confirmed') {

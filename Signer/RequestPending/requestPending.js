@@ -41,11 +41,6 @@ export default class RequestPending extends Component {
     ]).isRequired
   };
 
-  static defaultProps = {
-    isFocussed: false,
-    isSending: false
-  };
-
   componentWillMount () {
     console.error(new Error('DEPRECATED: @parity/ui/Signer/RequestPending component used'));
   }

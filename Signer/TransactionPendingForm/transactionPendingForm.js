@@ -50,11 +50,6 @@ export default class TransactionPendingForm extends Component {
     ]).isRequired
   };
 
-  static defaultProps = {
-    account: {},
-    isFocussed: false
-  };
-
   state = {
     isRejectOpen: false
   };

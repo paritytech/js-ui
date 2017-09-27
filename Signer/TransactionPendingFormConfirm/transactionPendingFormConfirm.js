@@ -46,11 +46,6 @@ export default class TransactionPendingFormConfirm extends Component {
     dataToSign: PropTypes.object.isRequired
   };
 
-  static defaultProps = {
-    account: {},
-    isFocussed: false
-  };
-
   id = Math.random(); // for tooltip
 
   state = {

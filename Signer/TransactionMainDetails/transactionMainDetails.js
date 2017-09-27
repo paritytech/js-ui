@@ -46,13 +46,6 @@ export default class TransactionMainDetails extends Component {
     value: PropTypes.object.isRequired
   };
 
-  static defaultProps = {
-    origin: {
-      type: 'unknown',
-      details: ''
-    }
-  };
-
   componentWillMount () {
     const { totalValue, value } = this.props;
 
