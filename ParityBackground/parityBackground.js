@@ -17,7 +17,6 @@
 import GeoPattern from 'geopattern';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 
 const imageCache = {};
 
@@ -26,12 +25,11 @@ function getBackgroundStyle (_gradient, _seed) {
   const seed = _seed || '0';
   let url;
 
-  if (_seed) {
-    url = GeoPattern.generate(_seed).toDataUrl();
-  } else if (imageCache[seed] && imageCache[seed][gradient]) {
+  if (imageCache[seed] && imageCache[seed][gradient]) {
     url = imageCache[seed][gradient];
   } else {
     url = GeoPattern.generate(seed).toDataUrl();
+
     imageCache[seed] = imageCache[seed] || {};
     imageCache[seed][gradient] = url;
   }
@@ -41,13 +39,13 @@ function getBackgroundStyle (_gradient, _seed) {
   };
 }
 
-class ParityBackground extends Component {
+export default class ParityBackground extends Component {
   static propTypes = {
     attachDocument: PropTypes.bool,
-    backgroundSeed: PropTypes.string,
     children: PropTypes.node,
     className: PropTypes.string,
     onClick: PropTypes.func,
+    seed: PropTypes.string,
     style: PropTypes.object
   };
 
@@ -74,16 +72,13 @@ class ParityBackground extends Component {
   }
 
   setStyle (props = this.props) {
-    const { seed, gradient, backgroundSeed } = props;
+    const { seed, gradient } = props;
 
-    const _seed = seed || backgroundSeed;
-
-    // Don't update if it's the same seed...
-    if (this._seed === _seed) {
+    if (this._seed === seed) {
       return;
     }
 
-    const style = getBackgroundStyle(gradient, _seed);
+    const style = getBackgroundStyle(gradient, seed);
 
     this.setState({ style });
   }
@@ -115,14 +110,3 @@ class ParityBackground extends Component {
     );
   }
 }
-
-function mapStateToProps (state) {
-  const { backgroundSeed } = state.settings;
-
-  return { backgroundSeed };
-}
-
-export default connect(
-  mapStateToProps,
-  null
-)(ParityBackground);
