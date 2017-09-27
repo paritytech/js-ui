@@ -21,7 +21,10 @@ import { FormattedMessage } from 'react-intl';
 import { connect } from 'react-redux';
 
 import HardwareStore from '@parity/shared/mobx/hardwareStore';
-import { Button, GasPriceEditor } from '@parity/ui';
+import SignerStore from '@parity/shared/mobx/signerStore';
+
+import Button from '../../Button';
+import GasPriceEditor from '../../GasPriceEditor';
 
 import Layout from '../Layout';
 import TransactionMainDetails from '../TransactionMainDetails';
@@ -38,19 +41,13 @@ class TransactionPending extends Component {
   static propTypes = {
     accounts: PropTypes.object.isRequired,
     className: PropTypes.string,
-    date: PropTypes.instanceOf(Date).isRequired,
-    elementDetails: PropTypes.any,
-    elementForm: PropTypes.any,
     gasLimit: PropTypes.object,
-    id: PropTypes.object.isRequired,
     isFocussed: PropTypes.bool,
     isSending: PropTypes.bool.isRequired,
     netVersion: PropTypes.string.isRequired,
-    nonce: PropTypes.number,
     onConfirm: PropTypes.func.isRequired,
     onReject: PropTypes.func.isRequired,
     origin: PropTypes.any,
-    signerStore: PropTypes.object.isRequired,
     transaction: PropTypes.shape({
       condition: PropTypes.object,
       data: PropTypes.string,
@@ -78,9 +75,10 @@ class TransactionPending extends Component {
   });
 
   hardwareStore = HardwareStore.get(this.context.api);
+  signerStore = new SignerStore(this.context.api);
 
   componentWillMount () {
-    const { signerStore, transaction } = this.props;
+    const { transaction } = this.props;
     const { from, gas, gasPrice, to, value } = transaction;
 
     const fee = tUtil.getFee(gas, gasPrice); // BigNumber object
@@ -90,7 +88,7 @@ class TransactionPending extends Component {
 
     this.setState({ gasPriceEthmDisplay, totalValue, gasToDisplay });
     this.gasStore.setEthValue(value);
-    signerStore.fetchBalances([from, to]);
+    this.signerStore.fetchBalances([from, to]);
   }
 
   render () {
@@ -102,33 +100,29 @@ class TransactionPending extends Component {
   renderTransaction () {
     const transaction = this.gasStore.overrideTransaction(this.props.transaction);
 
-    const { accounts, className, elementDetails, elementForm, id, isFocussed, isSending, netVersion, origin, signerStore } = this.props;
+    const { accounts, className, isFocussed, isSending, netVersion, origin } = this.props;
     const { totalValue } = this.state;
-    const { balances, externalLink } = signerStore;
+    const { balances, externalLink } = this.signerStore;
     const { from, value } = transaction;
     const fromBalance = balances[from];
     const account = accounts[from] || {};
     const disabled = account.hardware && !this.hardwareStore.isConnected(from);
-    const MainDetails = elementDetails || TransactionMainDetails;
-    const PendingForm = elementForm || TransactionPendingForm;
 
     return (
       <Layout className={ className }>
-        <MainDetails
-          className={ styles.transactionDetails }
+        <TransactionMainDetails
           disabled={ disabled }
           externalLink={ externalLink }
           from={ from }
           fromBalance={ fromBalance }
           gasStore={ this.gasStore }
-          id={ id }
           netVersion={ netVersion }
           origin={ origin }
           totalValue={ totalValue }
           transaction={ transaction }
           value={ value }
         />
-        <PendingForm
+        <TransactionPendingForm
           account={ account }
           address={ from }
           disabled={ disabled }
@@ -164,14 +158,13 @@ class TransactionPending extends Component {
   }
 
   onConfirm = (data) => {
-    const { id, transaction } = this.props;
+    const { transaction } = this.props;
     const { password, txSigned, wallet } = data;
     const { condition, gas, gasPrice } = this.gasStore.overrideTransaction(transaction);
 
     const options = {
       gas,
       gasPrice,
-      id,
       password,
       txSigned,
       wallet
@@ -185,7 +178,7 @@ class TransactionPending extends Component {
   }
 
   onReject = () => {
-    this.props.onReject(this.props.id);
+    this.props.onReject();
   }
 
   toggleGasEditor = () => {

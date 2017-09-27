@@ -17,12 +17,6 @@
 
 @import '../_layout.css';
 
-.container {
-  box-sizing: border-box;
-  padding: 1em 0 0 2em;
-  flex: 0 0 $statusWidth;
-}
-
 .rejectToggle {
   display: block;
   cursor: pointer;

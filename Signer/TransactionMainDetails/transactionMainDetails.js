@@ -23,6 +23,8 @@ import { Button, MethodDecoding } from '@parity/ui';
 import { GasIcon } from '@parity/ui/Icons';
 
 import * as tUtil from '../util/transaction';
+
+import Layout from '../Layout';
 import Account from '../Account';
 import RequestOrigin from '../RequestOrigin';
 
@@ -36,7 +38,6 @@ export default class TransactionMainDetails extends Component {
     from: PropTypes.string.isRequired,
     fromBalance: PropTypes.object,
     gasStore: PropTypes.object,
-    id: PropTypes.object.isRequired,
     netVersion: PropTypes.string.isRequired,
     origin: PropTypes.any,
     totalValue: PropTypes.object.isRequired,
@@ -67,7 +68,7 @@ export default class TransactionMainDetails extends Component {
     const { children, disabled, externalLink, from, fromBalance, gasStore, netVersion, transaction, origin } = this.props;
 
     return (
-      <div className={ styles.transaction }>
+      <Layout.Main>
         <div className={ styles.from }>
           <div className={ styles.account }>
             <Account
@@ -93,7 +94,7 @@ export default class TransactionMainDetails extends Component {
           { this.renderEditTx() }
         </div>
         { children }
-      </div>
+      </Layout.Main>
     );
   }
 
@@ -121,9 +122,8 @@ export default class TransactionMainDetails extends Component {
   }
 
   renderTotalValue () {
-    const { id } = this.props;
     const { feeEth, totalValueDisplay, totalValueDisplayWei } = this.state;
-    const labelId = `totalValue${id}`;
+    const labelId = `totalValue${Math.random()}`;
 
     return (
       <div>
@@ -160,9 +160,8 @@ export default class TransactionMainDetails extends Component {
   }
 
   renderValue () {
-    const { id } = this.props;
     const { valueDisplay, valueDisplayWei } = this.state;
-    const labelId = `value${id}`;
+    const labelId = `value${Math.random()}`;
 
     return (
       <div>

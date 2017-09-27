@@ -20,6 +20,7 @@ import { FormattedMessage } from 'react-intl';
 
 import { PrevIcon } from '@parity/ui/Icons';
 
+import Layout from '../Layout';
 import TransactionPendingFormConfirm from '../TransactionPendingFormConfirm';
 import TransactionPendingFormReject from '../TransactionPendingFormReject';
 
@@ -31,8 +32,6 @@ export default class TransactionPendingForm extends Component {
     address: PropTypes.string.isRequired,
     className: PropTypes.string,
     disabled: PropTypes.bool,
-    elementConfirm: PropTypes.any,
-    elementReject: PropTypes.any,
     netVersion: PropTypes.string.isRequired,
     isFocussed: PropTypes.bool,
     isSending: PropTypes.bool.isRequired,
@@ -64,26 +63,24 @@ export default class TransactionPendingForm extends Component {
     const { className } = this.props;
 
     return (
-      <div className={ `${styles.container} ${className}` }>
+      <Layout.Side className={ className }>
         { this.renderForm() }
         { this.renderRejectToggle() }
-      </div>
+      </Layout.Side>
     );
   }
 
   renderForm () {
-    const { account, address, disabled, elementConfirm, elementReject, isFocussed, isSending, netVersion, onConfirm, onReject, dataToSign } = this.props;
-    const FormReject = elementReject || TransactionPendingFormReject;
-    const FormConfirm = elementConfirm || TransactionPendingFormConfirm;
+    const { account, address, disabled, isFocussed, isSending, netVersion, onConfirm, onReject, dataToSign } = this.props;
 
     if (this.state.isRejectOpen) {
       return (
-        <FormReject onReject={ onReject } />
+        <TransactionPendingFormReject onReject={ onReject } />
       );
     }
 
     return (
-      <FormConfirm
+      <TransactionPendingFormConfirm
         address={ address }
         account={ account }
         disabled={ disabled }

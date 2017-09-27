@@ -20,6 +20,8 @@ import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 import { connect } from 'react-redux';
 
+import SignerStore from '@parity/shared/mobx/signerStore';
+
 import Layout from '../Layout';
 import Account from '../Account';
 import TransactionPendingForm from '../TransactionPendingForm';
@@ -37,13 +39,10 @@ class DecryptRequest extends Component {
     accounts: PropTypes.object.isRequired,
     address: PropTypes.string.isRequired,
     data: PropTypes.string.isRequired,
-    id: PropTypes.object.isRequired,
     isFinished: PropTypes.bool.isRequired,
     netVersion: PropTypes.string.isRequired,
-    signerStore: PropTypes.object.isRequired,
-
     className: PropTypes.string,
-    focus: PropTypes.bool,
+    isFocussed: PropTypes.bool,
     isSending: PropTypes.bool,
     onConfirm: PropTypes.func,
     onReject: PropTypes.func,
@@ -52,17 +51,19 @@ class DecryptRequest extends Component {
   };
 
   static defaultProps = {
-    focus: false,
+    isFocussed: false,
     origin: {
       type: 'unknown',
       details: ''
     }
   };
 
-  componentWillMount () {
-    const { address, signerStore } = this.props;
+  signerStore = new SignerStore(this.context.api);
 
-    signerStore.fetchBalance(address);
+  componentWillMount () {
+    const { address } = this.props;
+
+    this.signerStore.fetchBalance(address);
   }
 
   render () {
@@ -78,8 +79,8 @@ class DecryptRequest extends Component {
 
   renderDetails () {
     const { api } = this.context;
-    const { address, data, netVersion, origin, signerStore } = this.props;
-    const { balances, externalLink } = signerStore;
+    const { address, data, netVersion, origin } = this.props;
+    const { balances, externalLink } = this.signerStore;
 
     const balance = balances[address];
 
@@ -116,7 +117,7 @@ class DecryptRequest extends Component {
   }
 
   renderActions () {
-    const { accounts, address, focus, isFinished, status, data } = this.props;
+    const { accounts, address, isFocussed, isFinished, status, data } = this.props;
     const account = accounts[address];
 
     if (isFinished) {
@@ -149,7 +150,7 @@ class DecryptRequest extends Component {
       <TransactionPendingForm
         account={ account }
         address={ address }
-        focus={ focus }
+        isFocussed={ isFocussed }
         isSending={ this.props.isSending }
         netVersion={ this.props.netVersion }
         onConfirm={ this.onConfirm }
@@ -161,14 +162,13 @@ class DecryptRequest extends Component {
   }
 
   onConfirm = (data) => {
-    const { id } = this.props;
     const { password, decrypted, wallet } = data;
 
-    this.props.onConfirm({ id, password, decrypted, wallet });
+    this.props.onConfirm({ password, decrypted, wallet });
   }
 
   onReject = () => {
-    this.props.onReject(this.props.id);
+    this.props.onReject();
   }
 }
 

@@ -73,8 +73,3 @@
   font-size: 0.6em;
   opacity: .5;
 }
-
-.transaction {
-  flex: 1;
-  overflow: auto;
-}

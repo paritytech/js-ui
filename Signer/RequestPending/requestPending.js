@@ -26,9 +26,8 @@ export default class RequestPending extends Component {
     className: PropTypes.string,
     date: PropTypes.instanceOf(Date).isRequired,
     elementRequest: PropTypes.any,
-    focus: PropTypes.bool,
     gasLimit: PropTypes.object.isRequired,
-    id: PropTypes.object.isRequired,
+    isFocussed: PropTypes.bool,
     isSending: PropTypes.bool.isRequired,
     netVersion: PropTypes.string.isRequired,
     onConfirm: PropTypes.func.isRequired,
@@ -39,17 +38,16 @@ export default class RequestPending extends Component {
       PropTypes.shape({ sendTransaction: PropTypes.object.isRequired }),
       PropTypes.shape({ sign: PropTypes.object.isRequired }),
       PropTypes.shape({ signTransaction: PropTypes.object.isRequired })
-    ]).isRequired,
-    signerStore: PropTypes.object.isRequired
+    ]).isRequired
   };
 
   static defaultProps = {
-    focus: false,
+    isFocussed: false,
     isSending: false
   };
 
   render () {
-    const { className, date, elementRequest, focus, gasLimit, id, isSending, netVersion, onReject, payload, signerStore, origin } = this.props;
+    const { className, date, elementRequest, gasLimit, isFocussed, isSending, netVersion, onReject, payload, origin } = this.props;
     const Request = elementRequest;
 
     if (Request) {
@@ -57,16 +55,14 @@ export default class RequestPending extends Component {
         <Request
           className={ className }
           date={ date }
-          focus={ focus }
+          isFocussed={ isFocussed }
           gasLimit={ gasLimit }
-          id={ id }
           isSending={ isSending }
           netVersion={ netVersion }
           onConfirm={ this.onConfirm }
           onReject={ onReject }
           origin={ origin }
           payload={ payload }
-          signerStore={ signerStore }
         />
       );
     }
@@ -78,16 +74,14 @@ export default class RequestPending extends Component {
         <SignRequest
           address={ sign.address }
           className={ className }
-          focus={ focus }
+          isFocussed={ isFocussed }
           data={ sign.data }
-          id={ id }
           isFinished={ false }
           isSending={ isSending }
           netVersion={ netVersion }
           onConfirm={ this.onConfirm }
           onReject={ onReject }
           origin={ origin }
-          signerStore={ signerStore }
         />
       );
     }
@@ -99,16 +93,14 @@ export default class RequestPending extends Component {
         <DecryptRequest
           address={ decrypt.address }
           className={ className }
-          focus={ focus }
+          isFocussed={ isFocussed }
           data={ decrypt.msg }
-          id={ id }
           isFinished={ false }
           isSending={ isSending }
           netVersion={ netVersion }
           onConfirm={ this.onConfirm }
           onReject={ onReject }
           origin={ origin }
-          signerStore={ signerStore }
         />
       );
     }
@@ -120,15 +112,13 @@ export default class RequestPending extends Component {
         <TransactionPending
           className={ className }
           date={ date }
-          focus={ focus }
+          isFocussed={ isFocussed }
           gasLimit={ gasLimit }
-          id={ id }
           isSending={ isSending }
           netVersion={ netVersion }
           onConfirm={ this.onConfirm }
           onReject={ onReject }
           origin={ origin }
-          signerStore={ signerStore }
           transaction={ transaction }
         />
       );

@@ -21,6 +21,7 @@ import { FormattedMessage } from 'react-intl';
 import { connect } from 'react-redux';
 
 import HardwareStore from '@parity/shared/mobx/hardwareStore';
+import SignerStore from '@parity/shared/mobx/signerStore';
 
 import Layout from '../Layout';
 import Account from '../Account';
@@ -50,13 +51,10 @@ class SignRequest extends Component {
     accounts: PropTypes.object.isRequired,
     address: PropTypes.string.isRequired,
     data: PropTypes.string.isRequired,
-    id: PropTypes.object.isRequired,
     isFinished: PropTypes.bool.isRequired,
     netVersion: PropTypes.string.isRequired,
-    signerStore: PropTypes.object.isRequired,
-
     className: PropTypes.string,
-    focus: PropTypes.bool,
+    isFocussed: PropTypes.bool,
     isSending: PropTypes.bool,
     onConfirm: PropTypes.func,
     onReject: PropTypes.func,
@@ -65,7 +63,7 @@ class SignRequest extends Component {
   };
 
   static defaultProps = {
-    focus: false,
+    isFocussed: false,
     origin: {
       type: 'unknown',
       details: ''
@@ -77,11 +75,12 @@ class SignRequest extends Component {
   };
 
   hardwareStore = HardwareStore.get(this.context.api);
+  signerStore = new SignerStore(this.context.api);
 
   componentWillMount () {
-    const { address, signerStore } = this.props;
+    const { address } = this.props;
 
-    signerStore.fetchBalance(address);
+    this.signerStore.fetchBalance(address);
   }
 
   componentDidMount () {
@@ -137,9 +136,9 @@ class SignRequest extends Component {
 
   renderDetails () {
     const { api } = this.context;
-    const { address, data, netVersion, origin, signerStore } = this.props;
+    const { address, data, netVersion, origin } = this.props;
     const { hashToSign } = this.state;
-    const { balances, externalLink } = signerStore;
+    const { balances, externalLink } = this.signerStore;
 
     const balance = balances[address];
 
@@ -191,7 +190,7 @@ class SignRequest extends Component {
   }
 
   renderActions () {
-    const { accounts, address, focus, isFinished, status, data } = this.props;
+    const { accounts, address, isFocussed, isFinished, status, data } = this.props;
     const account = accounts[address] || {};
     const disabled = account.hardware && !this.hardwareStore.isConnected(address);
 
@@ -226,7 +225,7 @@ class SignRequest extends Component {
         account={ account }
         address={ address }
         disabled={ disabled }
-        focus={ focus }
+        isFocussed={ isFocussed }
         isSending={ this.props.isSending }
         netVersion={ this.props.netVersion }
         onConfirm={ this.onConfirm }
@@ -238,14 +237,13 @@ class SignRequest extends Component {
   }
 
   onConfirm = (data) => {
-    const { id } = this.props;
     const { password, dataSigned, wallet } = data;
 
-    this.props.onConfirm({ id, password, dataSigned, wallet });
+    this.props.onConfirm({ password, dataSigned, wallet });
   }
 
   onReject = () => {
-    this.props.onReject(this.props.id);
+    this.props.onReject();
   }
 }
 
