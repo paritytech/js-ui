@@ -31,12 +31,13 @@ function shortAddress (address) {
   return `[${address.slice(2, 8)}..${address.slice(address.length - 7)}]`;
 }
 
-export default function Name ({ address, className, externalLink, netVersion }) {
+export default function Name ({ accounts, address, className, externalLink, netVersion }) {
   const name = <IdentityName address={ address } empty />;
 
   if (!name) {
     return (
       <AccountLink
+        accounts={ accounts }
         address={ address }
         className={ className }
         externalLink={ externalLink }
@@ -49,6 +50,7 @@ export default function Name ({ address, className, externalLink, netVersion }) 
 
   return (
     <AccountLink
+      accounts={ accounts }
       address={ address }
       className={ className }
       externalLink={ externalLink }
@@ -63,6 +65,7 @@ export default function Name ({ address, className, externalLink, netVersion }) 
 }
 
 Name.propTypes = {
+  accounts: PropTypes.object.isRequired,
   address: PropTypes.string.isRequired,
   className: PropTypes.string,
   externalLink: PropTypes.string.isRequired,

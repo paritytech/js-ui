@@ -41,6 +41,7 @@ export default function Account ({ accounts, address, balance, className, isDisa
         />
       </AccountLink>
       <Name
+        accounts={ accounts }
         address={ address }
         externalLink={ externalLink }
         netVersion={ netVersion }
