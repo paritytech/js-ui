@@ -128,6 +128,10 @@ export default class GasPriceEditor {
     this.isEditing = isEditing;
   }
 
+  @action toggleEditing = () => {
+    this.isEditing = !this.isEditing;
+  }
+
   @action setErrorTotal = (errorTotal) => {
     this.errorTotal = errorTotal;
   }

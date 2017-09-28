@@ -24,8 +24,8 @@ import SignerStore from '@parity/shared/mobx/signerStore';
 
 import Layout from '../Layout';
 import Account from '../Account';
-import TransactionPendingForm from '../TransactionPendingForm';
-import RequestOrigin from '../RequestOrigin';
+import ConfirmForm from '../ConfirmForm';
+import Origin from '../Origin';
 
 import styles from './signRequest.css';
 
@@ -149,7 +149,7 @@ export default class SignRequest extends Component {
             externalLink={ externalLink }
             netVersion={ netVersion }
           />
-          <RequestOrigin origin={ origin } />
+          <Origin origin={ origin } />
         </div>
         <div
           className={ styles.info }
@@ -183,7 +183,7 @@ export default class SignRequest extends Component {
   }
 
   renderActions () {
-    const { accounts, address, id, isFocussed, isFinished, isSending, netVersion, status, data } = this.props;
+    const { accounts, address, data, id, isFocussed, isFinished, isSending, netVersion, onReject, status } = this.props;
     const account = accounts[address] || {};
     const isDisabled = account.hardware && !this.hardwareStore.isConnected(address);
 
@@ -214,7 +214,7 @@ export default class SignRequest extends Component {
     }
 
     return (
-      <TransactionPendingForm
+      <ConfirmForm
         account={ account }
         address={ address }
         id={ id }
@@ -223,7 +223,7 @@ export default class SignRequest extends Component {
         isSending={ isSending }
         netVersion={ netVersion }
         onConfirm={ this.onConfirm }
-        onReject={ this.onReject }
+        onReject={ onReject }
         className={ styles.actions }
         dataToSign={ { data } }
       />
@@ -234,9 +234,5 @@ export default class SignRequest extends Component {
     const { password, dataSigned, wallet } = data;
 
     this.props.onConfirm({ password, dataSigned, wallet });
-  }
-
-  onReject = () => {
-    this.props.onReject();
   }
 }

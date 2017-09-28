@@ -20,18 +20,18 @@ import { FormattedMessage } from 'react-intl';
 import ReactTooltip from 'react-tooltip';
 
 import Button from '../../Button';
-import MethodDecoding '../../MethodDecoding';
+import MethodDecoding from '../../MethodDecoding';
 import { GasIcon } from '../../Icons';
 
 import * as tUtil from '../util/transaction';
 
 import Layout from '../Layout';
 import Account from '../Account';
-import RequestOrigin from '../RequestOrigin';
+import Origin from '../Origin';
 
-import styles from './transactionMainDetails.css';
+import styles from './transactionDetails.css';
 
-export default class TransactionMainDetails extends Component {
+export default class TransactionDetails extends Component {
   static propTypes = {
     accounts: PropTypes.object.isRequired,
     children: PropTypes.node,
@@ -75,7 +75,7 @@ export default class TransactionMainDetails extends Component {
               netVersion={ netVersion }
             />
           </div>
-          <RequestOrigin origin={ origin } />
+          <Origin origin={ origin } />
         </div>
         <div className={ styles.method }>
           <MethodDecoding
@@ -111,7 +111,7 @@ export default class TransactionMainDetails extends Component {
               defaultMessage='Edit conditions/gas/gasPrice'
             />
           }
-          onClick={ this.toggleGasEditor }
+          onClick={ this.gasStore.toggleEditing }
         />
       </div>
     );
@@ -189,9 +189,5 @@ export default class TransactionMainDetails extends Component {
       valueDisplay: tUtil.getValueDisplay(value),
       valueDisplayWei: tUtil.getValueDisplayWei(value)
     });
-  }
-
-  toggleGasEditor = () => {
-    this.props.gasStore.setEditing(true);
   }
 }

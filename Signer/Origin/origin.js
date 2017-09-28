@@ -20,9 +20,9 @@ import { FormattedMessage } from 'react-intl';
 
 import IdentityIcon from '../../IdentityIcon';
 
-import styles from './requestOrigin.css';
+import styles from './origin.css';
 
-export default class RequestOrigin extends Component {
+export default class Origin extends Component {
   static contextTypes = {
     api: PropTypes.object.isRequired
   };

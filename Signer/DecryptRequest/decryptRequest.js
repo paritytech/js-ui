@@ -23,8 +23,8 @@ import SignerStore from '@parity/shared/mobx/signerStore';
 
 import Layout from '../Layout';
 import Account from '../Account';
-import TransactionPendingForm from '../TransactionPendingForm';
-import RequestOrigin from '../RequestOrigin';
+import ConfirmForm from '../ConfirmForm';
+import Origin from '../Origin';
 
 import styles from '../SignRequest/signRequest.css';
 
@@ -91,7 +91,7 @@ export default class DecryptRequest extends Component {
             externalLink={ externalLink }
             netVersion={ netVersion }
           />
-          <RequestOrigin origin={ origin } />
+          <Origin origin={ origin } />
         </div>
         <div className={ styles.info } title={ api.util.sha3(data) }>
           <p>
@@ -140,7 +140,7 @@ export default class DecryptRequest extends Component {
     }
 
     return (
-      <TransactionPendingForm
+      <ConfirmForm
         account={ account }
         address={ address }
         id={ id }

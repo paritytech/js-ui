@@ -20,9 +20,9 @@ import { FormattedMessage } from 'react-intl';
 
 import Button from '../../Button';
 
-import styles from './transactionPendingFormReject.css';
+import styles from './confirmReject.css';
 
-export default class TransactionPendingFormReject extends Component {
+export default class ConfirmReject extends Component {
   static propTypes = {
     onReject: PropTypes.func.isRequired,
     className: PropTypes.string
@@ -36,7 +36,7 @@ export default class TransactionPendingFormReject extends Component {
         <div className={ styles.rejectText }>
           <FormattedMessage
             id='signer.txPendingReject.info'
-            defaultMessage='Are you sure you want to reject request?'
+            defaultMessage='Are you sure you want to reject the request?'
           />
           <br />
           <strong>

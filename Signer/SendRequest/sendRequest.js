@@ -26,8 +26,8 @@ import Button from '../../Button';
 import GasPriceEditor from '../../GasPriceEditor';
 
 import Layout from '../Layout';
-import TransactionMainDetails from '../TransactionMainDetails';
-import TransactionPendingForm from '../TransactionPendingForm';
+import TransactionDetails from '../TransactionDetails';
+import ConfirmViaPassword from '../ConfirmViaPassword';
 
 import * as tUtil from '../util/transaction';
 
@@ -92,7 +92,7 @@ export default class SendRequest extends Component {
   renderTransaction () {
     const transaction = this.gasStore.overrideTransaction(this.props.transaction);
 
-    const { accounts, className, id, isFocussed, isSending, netVersion, origin } = this.props;
+    const { accounts, className, id, isFocussed, isSending, netVersion, onReject, origin } = this.props;
     const { totalValue } = this.state;
     const { balances, externalLink } = this.signerStore;
     const { from, value } = transaction;
@@ -102,7 +102,7 @@ export default class SendRequest extends Component {
 
     return (
       <Layout className={ className }>
-        <TransactionMainDetails
+        <TransactionDetails
           accounts={ accounts }
           externalLink={ externalLink }
           from={ from }
@@ -115,7 +115,7 @@ export default class SendRequest extends Component {
           transaction={ transaction }
           value={ value }
         />
-        <TransactionPendingForm
+        <ConfirmViaPassword
           account={ account }
           address={ from }
           id={ id }
@@ -124,7 +124,7 @@ export default class SendRequest extends Component {
           isSending={ isSending }
           netVersion={ netVersion }
           onConfirm={ this.onConfirm }
-          onReject={ this.onReject }
+          onReject={ onReject }
           dataToSign={ { transaction } }
         />
       </Layout>
@@ -144,7 +144,7 @@ export default class SendRequest extends Component {
                 defaultMessage='view transaction'
               />
             }
-            onClick={ this.toggleGasEditor }
+            onClick={ this.gasStore.toggleEditing }
           />
         </GasPriceEditor>
       </Layout>
@@ -169,13 +169,5 @@ export default class SendRequest extends Component {
     }
 
     this.props.onConfirm(options);
-  }
-
-  onReject = () => {
-    this.props.onReject();
-  }
-
-  toggleGasEditor = () => {
-    this.gasStore.setEditing(false);
   }
 }
