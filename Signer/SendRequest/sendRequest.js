@@ -92,23 +92,23 @@ export default class SendRequest extends Component {
   renderTransaction () {
     const transaction = this.gasStore.overrideTransaction(this.props.transaction);
 
-    const { accounts, className, isFocussed, isSending, netVersion, origin } = this.props;
+    const { accounts, className, id, isFocussed, isSending, netVersion, origin } = this.props;
     const { totalValue } = this.state;
     const { balances, externalLink } = this.signerStore;
     const { from, value } = transaction;
     const fromBalance = balances[from];
     const account = accounts[from] || {};
-    const disabled = account.hardware && !this.hardwareStore.isConnected(from);
+    const isDisabled = account.hardware && !this.hardwareStore.isConnected(from);
 
     return (
       <Layout className={ className }>
         <TransactionMainDetails
           accounts={ accounts }
-          disabled={ disabled }
           externalLink={ externalLink }
           from={ from }
           fromBalance={ fromBalance }
           gasStore={ this.gasStore }
+          isDisabled={ isDisabled }
           netVersion={ netVersion }
           origin={ origin }
           totalValue={ totalValue }
@@ -118,7 +118,8 @@ export default class SendRequest extends Component {
         <TransactionPendingForm
           account={ account }
           address={ from }
-          disabled={ disabled }
+          id={ id }
+          isDisabled={ isDisabled }
           isFocussed={ isFocussed }
           isSending={ isSending }
           netVersion={ netVersion }

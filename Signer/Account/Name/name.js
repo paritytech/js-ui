@@ -17,47 +17,54 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import IdentityIcon from '../../IdentityIcon';
+import IdentityName from '../../../IdentityName';
 
-import AccountLink from './AccountLink';
-import Balance from './Balance';
-import Name from './Name';
+import AccountLink from '../AccountLink';
 
-import styles from './account.css';
+import styles from './name.css';
 
-export default function Account ({ accounts, address, balance, className, isDisabled, externalLink, netVersion }) {
-  return (
-    <div className={ `${styles.account} ${className}` }>
+function tinyAddress (address) {
+  return `[${address.slice(2, 4)}..${address.slice(address.length - 2)}]`;
+}
+
+function shortAddress (address) {
+  return `[${address.slice(2, 8)}..${address.slice(address.length - 7)}]`;
+}
+
+export default function Name ({ address, className, externalLink, netVersion }) {
+  const name = <IdentityName address={ address } empty />;
+
+  if (!name) {
+    return (
       <AccountLink
-        accounts={ accounts }
         address={ address }
+        className={ className }
         externalLink={ externalLink }
         netVersion={ netVersion }
       >
-        <IdentityIcon
-          center
-          disabled={ isDisabled }
-          address={ address }
-        />
+        { shortAddress(address) }
       </AccountLink>
-      <Name
-        address={ address }
-        externalLink={ externalLink }
-        netVersion={ netVersion }
-      />
-      <Balance
-        value={ balance }
-      />
-    </div>
+    );
+  }
+
+  return (
+    <AccountLink
+      address={ address }
+      className={ className }
+      externalLink={ externalLink }
+      netVersion={ netVersion }
+    >
+      <span>
+        <span className={ styles.name }>{ name }</span>
+        <span className={ styles.address }>{ tinyAddress(address) }</span>
+      </span>
+    </AccountLink>
   );
 }
 
-Account.propTypes = {
-  accounts: PropTypes.object.isRequired,
+Name.propTypes = {
   address: PropTypes.string.isRequired,
   className: PropTypes.string,
   externalLink: PropTypes.string.isRequired,
-  isDisabled: PropTypes.bool,
-  netVersion: PropTypes.string.isRequired,
-  balance: PropTypes.object
+  netVersion: PropTypes.string.isRequired
 };

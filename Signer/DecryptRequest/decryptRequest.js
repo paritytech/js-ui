@@ -37,14 +37,13 @@ export default class DecryptRequest extends Component {
   static propTypes = {
     accounts: PropTypes.object.isRequired,
     address: PropTypes.string.isRequired,
+    className: PropTypes.string,
     data: PropTypes.string.isRequired,
     id: PropTypes.object.isRequired,
     isFinished: PropTypes.bool.isRequired,
+    isFocussed: PropTypes.bool,
     isSending: PropTypes.bool.isRequired,
     netVersion: PropTypes.string.isRequired,
-    className: PropTypes.string,
-    isFocussed: PropTypes.bool,
-    isSending: PropTypes.bool,
     onConfirm: PropTypes.func,
     onReject: PropTypes.func,
     origin: PropTypes.any,
@@ -111,7 +110,7 @@ export default class DecryptRequest extends Component {
   }
 
   renderActions () {
-    const { accounts, address, isFocussed, isFinished, status, data } = this.props;
+    const { accounts, address, id, isFocussed, isFinished, status, data } = this.props;
     const account = accounts[address] || {};
 
     if (isFinished) {
@@ -144,6 +143,7 @@ export default class DecryptRequest extends Component {
       <TransactionPendingForm
         account={ account }
         address={ address }
+        id={ id }
         isFocussed={ isFocussed }
         isSending={ this.props.isSending }
         netVersion={ this.props.netVersion }

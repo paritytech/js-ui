@@ -38,7 +38,7 @@ export default class TransactionPendingFormConfirm extends Component {
   static propTypes = {
     account: PropTypes.object,
     address: PropTypes.string.isRequired,
-    disabled: PropTypes.bool,
+    isDisabled: PropTypes.bool,
     isFocussed: PropTypes.bool,
     isSending: PropTypes.bool.isRequired,
     netVersion: PropTypes.string.isRequired,
@@ -106,7 +106,7 @@ export default class TransactionPendingFormConfirm extends Component {
   // TODO: Now that we have 3 types, it would make sense splitting each into their own
   // sub-module and having the consistent bits combined (e.g. i18n, layouts)
   render () {
-    const { account, address, disabled, isSending } = this.props;
+    const { account, address, isDisabled, isSending } = this.props;
     const { wallet, walletError } = this.state;
     const isAccount = account.external || account.hardware || account.uuid;
     const isWalletOk = isAccount || (walletError === null && wallet !== null);
@@ -121,7 +121,7 @@ export default class TransactionPendingFormConfirm extends Component {
         >
           <Button
             className={ styles.confirmButton }
-            disabled={ disabled || isSending || !isWalletOk }
+            isDisabled={ isDisabled || isSending || !isWalletOk }
             fullWidth
             icon={
               <IdentityIcon
@@ -239,7 +239,7 @@ export default class TransactionPendingFormConfirm extends Component {
   }
 
   renderHint () {
-    const { account, disabled, isSending } = this.props;
+    const { account, isDisabled, isSending } = this.props;
     const { qrState } = this.state;
 
     if (account.external) {
@@ -279,7 +279,7 @@ export default class TransactionPendingFormConfirm extends Component {
             />
           </div>
         );
-      } else if (disabled) {
+      } else if (isDisabled) {
         return (
           <div className={ styles.passwordHint }>
             <FormattedMessage

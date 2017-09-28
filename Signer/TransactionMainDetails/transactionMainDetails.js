@@ -34,11 +34,11 @@ export default class TransactionMainDetails extends Component {
   static propTypes = {
     accounts: PropTypes.object.isRequired,
     children: PropTypes.node,
-    disabled: PropTypes.bool,
     externalLink: PropTypes.string.isRequired,
     from: PropTypes.string.isRequired,
     fromBalance: PropTypes.object,
     gasStore: PropTypes.object,
+    isDisabled: PropTypes.bool,
     netVersion: PropTypes.string.isRequired,
     origin: PropTypes.any,
     totalValue: PropTypes.object.isRequired,
@@ -59,7 +59,7 @@ export default class TransactionMainDetails extends Component {
   }
 
   render () {
-    const { accounts, children, disabled, externalLink, from, fromBalance, gasStore, netVersion, transaction, origin } = this.props;
+    const { accounts, children, externalLink, from, fromBalance, gasStore, isDisabled, netVersion, transaction, origin } = this.props;
 
     return (
       <Layout.Main>
@@ -69,8 +69,8 @@ export default class TransactionMainDetails extends Component {
               accounts={ accounts }
               address={ from }
               balance={ fromBalance }
-              disabled={ disabled }
               externalLink={ externalLink }
+              isDisabled={ isDisabled }
               netVersion={ netVersion }
             />
           </div>

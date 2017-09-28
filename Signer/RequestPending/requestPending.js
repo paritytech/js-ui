@@ -43,7 +43,7 @@ export default class RequestPending extends Component {
   };
 
   componentWillMount () {
-    console.error(new Error('DEPRECATED: @parity/ui/Signer/RequestPending component used'));
+    console.error(new Error('DEPRECATED: @parity/ui/Signer/RequestPending'));
   }
 
   render () {

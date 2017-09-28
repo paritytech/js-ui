@@ -29,10 +29,10 @@ export default class TransactionPendingFormReject extends Component {
   };
 
   render () {
-    const { onReject } = this.props;
+    const { className, onReject } = this.props;
 
     return (
-      <div>
+      <div className={ className }>
         <div className={ styles.rejectText }>
           <FormattedMessage
             id='signer.txPendingReject.info'

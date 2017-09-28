@@ -31,10 +31,11 @@ export default class TransactionPendingForm extends Component {
     account: PropTypes.object,
     address: PropTypes.string.isRequired,
     className: PropTypes.string,
-    disabled: PropTypes.bool,
-    netVersion: PropTypes.string.isRequired,
+    id: PropTypes.object.isRequired,
+    isDisabled: PropTypes.bool,
     isFocussed: PropTypes.bool,
     isSending: PropTypes.bool.isRequired,
+    netVersion: PropTypes.string.isRequired,
     onConfirm: PropTypes.func.isRequired,
     onReject: PropTypes.func.isRequired,
     dataToSign: PropTypes.oneOfType([
@@ -66,7 +67,7 @@ export default class TransactionPendingForm extends Component {
   }
 
   renderForm () {
-    const { account, address, disabled, isFocussed, isSending, netVersion, onConfirm, onReject, dataToSign } = this.props;
+    const { account, address, id, isDisabled, isFocussed, isSending, netVersion, onConfirm, onReject, dataToSign } = this.props;
 
     if (this.state.isRejectOpen) {
       return (
@@ -78,7 +79,8 @@ export default class TransactionPendingForm extends Component {
       <TransactionPendingFormConfirm
         address={ address }
         account={ account }
-        disabled={ disabled }
+        id={ id }
+        isDisabled={ isDisabled }
         isFocussed={ isFocussed }
         isSending={ isSending }
         netVersion={ netVersion }

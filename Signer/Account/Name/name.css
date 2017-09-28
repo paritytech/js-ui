@@ -15,21 +15,18 @@
 /* along with Parity.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-.account {
-  text-align: center;
-  display: inline-block;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  width: 100%;
+.name {
+  white-space: nowrap;
+  display: block;
+  vertical-align: middle;
+  text-transform: uppercase;
 
-  > * {
-    display: block;
+  span {
+    text-overflow: ellipsis;
+    overflow: hidden;
   }
+}
 
-  img {
-    width: 28px;
-    height: 28px;
-    vertical-align: middle;
-    margin-right: 3px;
-  }
+.address {
+  font-family: monospace;
 }

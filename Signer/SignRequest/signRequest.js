@@ -49,14 +49,13 @@ export default class SignRequest extends Component {
   static propTypes = {
     accounts: PropTypes.object.isRequired,
     address: PropTypes.string.isRequired,
+    className: PropTypes.string,
     data: PropTypes.string.isRequired,
     id: PropTypes.object.isRequired,
     isFinished: PropTypes.bool.isRequired,
+    isFocussed: PropTypes.bool,
     isSending: PropTypes.bool.isRequired,
     netVersion: PropTypes.string.isRequired,
-    className: PropTypes.string,
-    isFocussed: PropTypes.bool,
-    isSending: PropTypes.bool,
     onConfirm: PropTypes.func,
     onReject: PropTypes.func,
     origin: PropTypes.any,
@@ -184,9 +183,9 @@ export default class SignRequest extends Component {
   }
 
   renderActions () {
-    const { accounts, address, isFocussed, isFinished, status, data } = this.props;
+    const { accounts, address, id, isFocussed, isFinished, isSending, netVersion, status, data } = this.props;
     const account = accounts[address] || {};
-    const disabled = account.hardware && !this.hardwareStore.isConnected(address);
+    const isDisabled = account.hardware && !this.hardwareStore.isConnected(address);
 
     if (isFinished) {
       if (status === 'confirmed') {
@@ -218,10 +217,11 @@ export default class SignRequest extends Component {
       <TransactionPendingForm
         account={ account }
         address={ address }
-        disabled={ disabled }
+        id={ id }
+        isDisabled={ isDisabled }
         isFocussed={ isFocussed }
-        isSending={ this.props.isSending }
-        netVersion={ this.props.netVersion }
+        isSending={ isSending }
+        netVersion={ netVersion }
         onConfirm={ this.onConfirm }
         onReject={ this.onReject }
         className={ styles.actions }
