@@ -18,7 +18,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 
-import { PrevIcon } from '@parity/ui/Icons';
+import { PrevIcon } from '../../Icons';
 
 import Layout from '../Layout';
 import TransactionPendingFormConfirm from '../TransactionPendingFormConfirm';

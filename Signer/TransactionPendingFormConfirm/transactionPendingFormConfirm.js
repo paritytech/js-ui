@@ -22,7 +22,13 @@ import { FormattedMessage } from 'react-intl';
 import ReactTooltip from 'react-tooltip';
 
 import { generateTxQr, generateDecryptQr, generateDataQr } from '@parity/shared/util/qrscan';
-import { Button, Form, Input, IdentityIcon, QrCode, QrScan } from '@parity/ui';
+
+import Button from '../../Button';
+import Form from '../../Form';
+import Input from '../../Form/input';
+import IdentityIcon from '../../IdentityIcon';
+import QrCode from '../../QrCode';
+import QrScan from '../../QrScan';
 
 import styles from './transactionPendingFormConfirm.css';
 
