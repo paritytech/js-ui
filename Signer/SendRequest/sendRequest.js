@@ -41,6 +41,7 @@ export default class SendRequest extends Component {
     accounts: PropTypes.object.isRequired,
     className: PropTypes.string,
     gasLimit: PropTypes.object,
+    id: PropTypes.object.isRequired,
     isFocussed: PropTypes.bool,
     isSending: PropTypes.bool.isRequired,
     netVersion: PropTypes.string.isRequired,

@@ -27,6 +27,7 @@ export default class RequestPending extends Component {
     className: PropTypes.string,
     date: PropTypes.instanceOf(Date).isRequired,
     gasLimit: PropTypes.object.isRequired,
+    id: PropTypes.object.isRequired,
     isFocussed: PropTypes.bool,
     isSending: PropTypes.bool.isRequired,
     netVersion: PropTypes.string.isRequired,
@@ -46,19 +47,20 @@ export default class RequestPending extends Component {
   }
 
   render () {
-    const { accounts, className, date, gasLimit, isFocussed, isSending, netVersion, onReject, payload, origin } = this.props;
+    const { accounts, className, date, gasLimit, id, isFocussed, isSending, netVersion, onReject, payload, origin } = this.props;
 
     if (payload.sign) {
-      const { sign } = payload;
+      const { sign: { address, data } } = payload;
 
       return (
         <SignRequest
           accounts={ accounts }
-          address={ sign.address }
+          address={ address }
           className={ className }
-          isFocussed={ isFocussed }
-          data={ sign.data }
+          data={ data }
+          id={ id }
           isFinished={ false }
+          isFocussed={ isFocussed }
           isSending={ isSending }
           netVersion={ netVersion }
           onConfirm={ this.onConfirm }
@@ -69,16 +71,17 @@ export default class RequestPending extends Component {
     }
 
     if (payload.decrypt) {
-      const { decrypt } = payload;
+      const { decrypt: { address, msg } } = payload;
 
       return (
         <DecryptRequest
           accounts={ accounts }
-          address={ decrypt.address }
+          address={ address }
           className={ className }
-          isFocussed={ isFocussed }
-          data={ decrypt.msg }
+          data={ msg }
+          id={ id }
           isFinished={ false }
+          isFocussed={ isFocussed }
           isSending={ isSending }
           netVersion={ netVersion }
           onConfirm={ this.onConfirm }
@@ -96,8 +99,9 @@ export default class RequestPending extends Component {
           accounts={ accounts }
           className={ className }
           date={ date }
-          isFocussed={ isFocussed }
+          id={ id }
           gasLimit={ gasLimit }
+          isFocussed={ isFocussed }
           isSending={ isSending }
           netVersion={ netVersion }
           onConfirm={ this.onConfirm }
