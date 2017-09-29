@@ -25,9 +25,9 @@ import SignerStore from '@parity/shared/mobx/signerStore';
 import Button from '../../Button';
 import GasPriceEditor from '../../GasPriceEditor';
 
+import ConfirmForm from '../ConfirmForm';
 import Layout from '../Layout';
 import TransactionDetails from '../TransactionDetails';
-import ConfirmViaPassword from '../ConfirmViaPassword';
 
 import * as tUtil from '../util/transaction';
 
@@ -40,6 +40,7 @@ export default class RequestSend extends Component {
   static propTypes = {
     accounts: PropTypes.object.isRequired,
     className: PropTypes.string,
+    confirmElement: PropTypes.element.isRequired,
     gasLimit: PropTypes.object,
     id: PropTypes.object.isRequired,
     isFocussed: PropTypes.bool,
@@ -92,7 +93,7 @@ export default class RequestSend extends Component {
   renderTransaction () {
     const transaction = this.gasStore.overrideTransaction(this.props.transaction);
 
-    const { accounts, className, id, isFocussed, isSending, netVersion, onReject, origin } = this.props;
+    const { accounts, className, confirmElement, id, isFocussed, isSending, netVersion, onReject, origin } = this.props;
     const { totalValue } = this.state;
     const { balances, externalLink } = this.signerStore;
     const { from, value } = transaction;
@@ -115,9 +116,10 @@ export default class RequestSend extends Component {
           transaction={ transaction }
           value={ value }
         />
-        <ConfirmViaPassword
+        <ConfirmForm
           account={ account }
           address={ from }
+          confirmElement={ confirmElement }
           id={ id }
           isDisabled={ isDisabled }
           isFocussed={ isFocussed }

@@ -21,7 +21,7 @@ import RequestDecrypt from '../RequestDecrypt';
 import RequestSend from '../RequestSend';
 import RequestSign from '../RequestSign';
 
-export default function Request ({ accounts, className, date, gasLimit, id, isFocussed, isSending, netVersion, onConfirm, onReject, payload, origin }) {
+export default function Request ({ accounts, className, confirmElement, date, gasLimit, id, isFocussed, isSending, netVersion, onConfirm, onReject, origin, payload }) {
   if (payload.sign) {
     const { sign: { address, data } } = payload;
 
@@ -30,6 +30,7 @@ export default function Request ({ accounts, className, date, gasLimit, id, isFo
         accounts={ accounts }
         address={ address }
         className={ className }
+        confirmElement={ confirmElement }
         data={ data }
         id={ id }
         isFinished={ false }
@@ -51,6 +52,7 @@ export default function Request ({ accounts, className, date, gasLimit, id, isFo
         accounts={ accounts }
         address={ address }
         className={ className }
+        confirmElement={ confirmElement }
         data={ msg }
         id={ id }
         isFinished={ false }
@@ -71,6 +73,7 @@ export default function Request ({ accounts, className, date, gasLimit, id, isFo
       <RequestSend
         accounts={ accounts }
         className={ className }
+        confirmElement={ confirmElement }
         date={ date }
         id={ id }
         gasLimit={ gasLimit }
@@ -92,6 +95,7 @@ export default function Request ({ accounts, className, date, gasLimit, id, isFo
 Request.propTypes = {
   accounts: PropTypes.object.isRequired,
   className: PropTypes.string,
+  confirmElement: PropTypes.element.isRequired,
   date: PropTypes.instanceOf(Date).isRequired,
   gasLimit: PropTypes.object.isRequired,
   id: PropTypes.object.isRequired,

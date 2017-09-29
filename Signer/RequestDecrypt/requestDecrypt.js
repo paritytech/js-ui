@@ -21,9 +21,9 @@ import { FormattedMessage } from 'react-intl';
 
 import SignerStore from '@parity/shared/mobx/signerStore';
 
-import Layout from '../Layout';
 import Account from '../Account';
 import ConfirmForm from '../ConfirmForm';
+import Layout from '../Layout';
 import Origin from '../Origin';
 
 import styles from '../RequestSign/requestSign.css';
@@ -38,6 +38,7 @@ export default class RequestDecrypt extends Component {
     accounts: PropTypes.object.isRequired,
     address: PropTypes.string.isRequired,
     className: PropTypes.string,
+    confirmElement: PropTypes.element.isRequired,
     data: PropTypes.string.isRequired,
     id: PropTypes.object.isRequired,
     isFinished: PropTypes.bool.isRequired,
@@ -81,7 +82,7 @@ export default class RequestDecrypt extends Component {
     }
 
     return (
-      <div className={ styles.signDetails }>
+      <Layout.Main className={ styles.signDetails }>
         <div className={ styles.address }>
           <Account
             accounts={ accounts }
@@ -105,12 +106,12 @@ export default class RequestDecrypt extends Component {
             <p>{ data }</p>
           </div>
         </div>
-      </div>
+      </Layout.Main>
     );
   }
 
   renderActions () {
-    const { accounts, address, id, isFocussed, isFinished, status, data } = this.props;
+    const { accounts, address, confirmElement, id, isFocussed, isFinished, status, data } = this.props;
     const account = accounts[address] || {};
 
     if (isFinished) {
@@ -143,6 +144,7 @@ export default class RequestDecrypt extends Component {
       <ConfirmForm
         account={ account }
         address={ address }
+        confirmElement={ confirmElement }
         id={ id }
         isFocussed={ isFocussed }
         isSending={ this.props.isSending }

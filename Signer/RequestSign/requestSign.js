@@ -22,9 +22,9 @@ import { FormattedMessage } from 'react-intl';
 import HardwareStore from '@parity/shared/mobx/hardwareStore';
 import SignerStore from '@parity/shared/mobx/signerStore';
 
-import Layout from '../Layout';
 import Account from '../Account';
 import ConfirmForm from '../ConfirmForm';
+import Layout from '../Layout';
 import Origin from '../Origin';
 
 import styles from './requestSign.css';
@@ -50,6 +50,7 @@ export default class RequestSign extends Component {
     accounts: PropTypes.object.isRequired,
     address: PropTypes.string.isRequired,
     className: PropTypes.string,
+    confirmElement: PropTypes.element.isRequired,
     data: PropTypes.string.isRequired,
     id: PropTypes.object.isRequired,
     isFinished: PropTypes.bool.isRequired,
@@ -135,11 +136,11 @@ export default class RequestSign extends Component {
     const balance = balances[address];
 
     if (!balance) {
-      return <div />;
+      return <Layout.Main />;
     }
 
     return (
-      <div className={ styles.signDetails }>
+      <Layout.Main className={ styles.signDetails }>
         <div className={ styles.address }>
           <Account
             accounts={ accounts }
@@ -178,12 +179,12 @@ export default class RequestSign extends Component {
             </strong>
           </p>
         </div>
-      </div>
+      </Layout.Main>
     );
   }
 
   renderActions () {
-    const { accounts, address, data, id, isFocussed, isFinished, isSending, netVersion, onReject, status } = this.props;
+    const { accounts, address, confirmElement, data, id, isFocussed, isFinished, isSending, netVersion, onReject, status } = this.props;
     const account = accounts[address] || {};
     const isDisabled = account.hardware && !this.hardwareStore.isConnected(address);
 
@@ -217,6 +218,7 @@ export default class RequestSign extends Component {
       <ConfirmForm
         account={ account }
         address={ address }
+        confirmElement={ confirmElement }
         id={ id }
         isDisabled={ isDisabled }
         isFocussed={ isFocussed }

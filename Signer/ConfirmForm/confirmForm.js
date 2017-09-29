@@ -19,9 +19,6 @@ import PropTypes from 'prop-types';
 
 import ConfirmReject from '../ConfirmReject';
 import ConfirmRejectToggle from '../RejectToggleToggle';
-import ConfirmViaKey from '../ConfirmViaKey';
-import ConfirmViaPassword from '../ConfirmViaPassword';
-import ConfirmViaQr from '../ConfirmViaQr';
 import Layout from '../Layout';
 
 export default class ConfirmForm extends Component {
@@ -29,6 +26,7 @@ export default class ConfirmForm extends Component {
     account: PropTypes.object,
     address: PropTypes.string.isRequired,
     className: PropTypes.string,
+    confirmElement: PropTypes.element.isRequired,
     id: PropTypes.object.isRequired,
     isDisabled: PropTypes.bool,
     isFocussed: PropTypes.bool,
@@ -54,18 +52,8 @@ export default class ConfirmForm extends Component {
   };
 
   render () {
-    const { account, address, className, id, isDisabled, isFocussed, isSending, netVersion, onConfirm, onReject, dataToSign } = this.props;
-    let ConfirmVia;
-
-    if (account) {
-      if (account.external) {
-        ConfirmVia = ConfirmViaQr;
-      } else {
-        ConfirmVia = ConfirmViaPassword;
-      }
-    } else {
-      ConfirmVia = ConfirmViaKey;
-    }
+    const { account, address, className, confirmElement, id, isDisabled, isFocussed, isSending, netVersion, onConfirm, onReject, dataToSign } = this.props;
+    const ConfirmVia = confirmElement;
 
     return (
       <Layout.Side className={ className }>
