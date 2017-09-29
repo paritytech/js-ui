@@ -22,14 +22,14 @@ import { PrevIcon } from '../../Icons';
 
 import styles from './confirmRejectToggle.css';
 
-export default function ConfirmRejectToggle ({ className, onToggle }) {
+export default function ConfirmRejectToggle ({ className, isRejectOpen, onToggle }) {
   return (
     <a
       className={ `${styles.rejectToggle} ${className}` }
       onClick={ onToggle }
     >
       {
-        this.state.isRejectOpen
+        isRejectOpen
           ? (
             <span>
               <PrevIcon />
@@ -54,5 +54,6 @@ export default function ConfirmRejectToggle ({ className, onToggle }) {
 
 ConfirmRejectToggle.propTypes = {
   className: PropTypes.string,
+  isRejectOpen: PropTypes.bool.isRequired,
   onToggle: PropTypes.func.isRequired
 };

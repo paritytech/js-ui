@@ -74,7 +74,6 @@ export default class ConfirmViaPassword extends Component {
 
   render () {
     const { account, address, isDisabled, isSending } = this.props;
-    const isAccount = account.hardware || account.uuid;
 
     return (
       <div className={ styles.confirmForm }>
@@ -89,7 +88,7 @@ export default class ConfirmViaPassword extends Component {
           >
             <Button
               className={ styles.confirmButton }
-              isDisabled={ isDisabled || isSending || !isAccount }
+              isDisabled={ isDisabled || isSending  }
               fullWidth
               icon={
                 <IdentityIcon
@@ -126,10 +125,6 @@ export default class ConfirmViaPassword extends Component {
     const { account } = this.props;
     const { password } = this.state;
 
-    if (account.hardware) {
-      return null;
-    }
-
     return (
       <Input
         hint={
@@ -155,31 +150,6 @@ export default class ConfirmViaPassword extends Component {
 
   renderHint () {
     const { account, isDisabled, isSending } = this.props;
-
-    if (account.hardware) {
-      if (isSending) {
-        return (
-          <div className={ styles.passwordHint }>
-            <FormattedMessage
-              id='signer.sending.hardware.confirm'
-              defaultMessage='Please confirm the transaction on your attached hardware device'
-            />
-          </div>
-        );
-      } else if (isDisabled) {
-        return (
-          <div className={ styles.passwordHint }>
-            <FormattedMessage
-              id='signer.sending.hardware.connect'
-              defaultMessage='Please attach your hardware device before confirming the transaction'
-            />
-          </div>
-        );
-      }
-
-      return null;
-    }
-
     const passwordHint = (account.meta && account.meta.passwordHint) || null;
 
     if (!passwordHint) {
@@ -202,7 +172,7 @@ export default class ConfirmViaPassword extends Component {
   renderTooltip () {
     const { account } = this.props;
 
-    if (this.state.password.length || account.hardware || account.external) {
+    if (this.state.password.length) {
       return null;
     }
 
