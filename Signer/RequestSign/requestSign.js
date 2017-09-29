@@ -27,7 +27,7 @@ import Account from '../Account';
 import ConfirmForm from '../ConfirmForm';
 import Origin from '../Origin';
 
-import styles from './signRequest.css';
+import styles from './requestSign.css';
 
 function isAscii (data) {
   for (var i = 2; i < data.length; i += 2) {
@@ -41,7 +41,7 @@ function isAscii (data) {
 }
 
 @observer
-export default class SignRequest extends Component {
+export default class RequestSign extends Component {
   static contextTypes = {
     api: PropTypes.object
   };

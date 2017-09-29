@@ -26,10 +26,10 @@ import Account from '../Account';
 import ConfirmForm from '../ConfirmForm';
 import Origin from '../Origin';
 
-import styles from '../SignRequest/signRequest.css';
+import styles from '../RequestSign/requestSign.css';
 
 @observer
-export default class DecryptRequest extends Component {
+export default class RequestDecrypt extends Component {
   static contextTypes = {
     api: PropTypes.object
   };

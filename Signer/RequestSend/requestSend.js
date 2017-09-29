@@ -32,7 +32,7 @@ import ConfirmViaPassword from '../ConfirmViaPassword';
 import * as tUtil from '../util/transaction';
 
 @observer
-export default class SendRequest extends Component {
+export default class RequestSend extends Component {
   static contextTypes = {
     api: PropTypes.object.isRequired
   };
