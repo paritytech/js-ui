@@ -65,7 +65,7 @@ export default class ConfirmViaQr extends Component {
 
   render () {
     const { address, isDisabled, isSending } = this.props;
-    const confirmText = this.renderConfirmButton();
+    const confirmText = this.renderConfirmText();
     const confirmButton = confirmText
       ? (
         <div
@@ -99,13 +99,12 @@ export default class ConfirmViaQr extends Component {
           { this.renderQrScanner() }
           { this.renderHint() }
           { confirmButton }
-          { this.renderTooltip() }
         </Form>
       </div>
     );
   }
 
-  renderConfirmButton () {
+  renderConfirmText () {
     const { qrState } = this.state;
 
     if (qrState === QR_VISIBLE) {
