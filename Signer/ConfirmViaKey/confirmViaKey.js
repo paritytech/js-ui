@@ -23,7 +23,7 @@ import ReactTooltip from 'react-tooltip';
 
 import Button from '../../Button';
 import Form from '../../Form';
-import Input from '../../Form/input';
+import Input from '../../Form/Input';
 import IdentityIcon from '../../IdentityIcon';
 
 import styles from './confirmViaKey.css';
