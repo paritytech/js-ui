@@ -18,7 +18,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import ConfirmReject from '../ConfirmReject';
-import ConfirmRejectToggle from '../RejectToggleToggle';
+import ConfirmRejectToggle from '../ConfirmRejectToggle';
 import Layout from '../Layout';
 
 export default class ConfirmForm extends Component {
