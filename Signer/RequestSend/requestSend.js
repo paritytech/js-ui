@@ -40,7 +40,10 @@ export default class RequestSend extends Component {
   static propTypes = {
     accounts: PropTypes.object.isRequired,
     className: PropTypes.string,
-    confirmElement: PropTypes.element.isRequired,
+    confirmElement: PropTypes.oneOfType([
+      PropTypes.element,
+      PropTypes.func
+    ]).isRequired,
     gasLimit: PropTypes.object,
     id: PropTypes.object.isRequired,
     isFocussed: PropTypes.bool,

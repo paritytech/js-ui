@@ -111,7 +111,7 @@ export default class TransactionDetails extends Component {
               defaultMessage='Edit conditions/gas/gasPrice'
             />
           }
-          onClick={ this.gasStore.toggleEditing }
+          onClick={ gasStore.toggleEditing }
         />
       </div>
     );

@@ -26,7 +26,10 @@ export default class ConfirmForm extends Component {
     account: PropTypes.object,
     address: PropTypes.string.isRequired,
     className: PropTypes.string,
-    confirmElement: PropTypes.element.isRequired,
+    confirmElement: PropTypes.oneOfType([
+      PropTypes.element,
+      PropTypes.func
+    ]).isRequired,
     id: PropTypes.object.isRequired,
     isDisabled: PropTypes.bool,
     isFocussed: PropTypes.bool,

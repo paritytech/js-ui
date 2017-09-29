@@ -38,7 +38,10 @@ export default class RequestDecrypt extends Component {
     accounts: PropTypes.object.isRequired,
     address: PropTypes.string.isRequired,
     className: PropTypes.string,
-    confirmElement: PropTypes.element.isRequired,
+    confirmElement: PropTypes.oneOfType([
+      PropTypes.element,
+      PropTypes.func
+    ]).isRequired,
     data: PropTypes.string.isRequired,
     id: PropTypes.object.isRequired,
     isFinished: PropTypes.bool.isRequired,

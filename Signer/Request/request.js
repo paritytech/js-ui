@@ -95,7 +95,10 @@ export default function Request ({ accounts, className, confirmElement, date, ga
 Request.propTypes = {
   accounts: PropTypes.object.isRequired,
   className: PropTypes.string,
-  confirmElement: PropTypes.element.isRequired,
+  confirmElement: PropTypes.oneOfType([
+    PropTypes.element,
+    PropTypes.func
+  ]).isRequired,
   date: PropTypes.instanceOf(Date).isRequired,
   gasLimit: PropTypes.object.isRequired,
   id: PropTypes.object.isRequired,
