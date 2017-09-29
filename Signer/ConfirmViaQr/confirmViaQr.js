@@ -108,19 +108,16 @@ export default class ConfirmViaQr extends Component {
   renderConfirmButton () {
     const { qrState } = this.state;
 
-    switch (qrState) {
-      case QR_VISIBLE:
-        return (
-          <FormattedMessage
-            id='signer.txPendingConfirm.buttons.scanSigned'
-            defaultMessage='Scan Signed QR'
-          />
-        );
-
-      case QR_SCAN:
-      case QR_COMPLETED:
-        return null;
+    if (qrState === QR_VISIBLE) {
+      return (
+        <FormattedMessage
+          id='signer.txPendingConfirm.buttons.scanSigned'
+          defaultMessage='Scan Signed QR'
+        />
+      );
     }
+
+    return null;
   }
 
   renderHint () {
@@ -154,10 +151,9 @@ export default class ConfirmViaQr extends Component {
   }
 
   renderQrCode () {
-    const { account } = this.props;
     const { qrState, qr } = this.state;
 
-    if (!account.external || qrState !== QR_VISIBLE || !qr.value) {
+    if (qrState !== QR_VISIBLE || !qr.value) {
       return null;
     }
 
@@ -170,10 +166,9 @@ export default class ConfirmViaQr extends Component {
   }
 
   renderQrScanner () {
-    const { account } = this.props;
     const { qrState } = this.state;
 
-    if (!account.external || qrState !== QR_SCAN) {
+    if (qrState !== QR_SCAN) {
       return null;
     }
 
