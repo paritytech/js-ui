@@ -32,7 +32,7 @@ export default function Button ({ active, animated, basic, className, color, dis
       disabled={ disabled }
       fluid={ fullWidth }
       icon={ icon }
-      onTouchTap={ onClick }
+      onClick={ onClick }
       primary={ primary }
       size={ size }
       toggle={ toggle }
