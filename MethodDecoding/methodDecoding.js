@@ -26,12 +26,8 @@ import { TypedInput, Label } from '../Form';
 import Loading from '../Loading';
 import MethodDecodingStore from './methodDecodingStore';
 
+import { ASCII_INPUT, TOKEN_METHODS } from './constants';
 import styles from './methodDecoding.css';
-
-const ASCII_INPUT = /^[a-z0-9\s,?;.:/!()-_@'"#]+$/i;
-const TOKEN_METHODS = {
-  '0xa9059cbb': 'transfer(to,value)'
-};
 
 class MethodDecoding extends Component {
   static contextTypes = {
