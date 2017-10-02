@@ -20,7 +20,12 @@ import { Button as SemanticButton } from 'semantic-ui-react';
 
 import { nodeOrStringProptype } from '@parity/shared/util/proptypes';
 
-export default function Button ({ active, animated, basic, className, color, disabled, fullWidth, icon, label, onClick, primary, size, toggle }) {
+export default function Button ({ active, animated, basic, className, color, disabled, fullWidth, icon, isDisabled, label, onClick, primary, size, toggle }) {
+  const _isDisabled = isDisabled || disabled;
+  const _onClick = _isDisabled
+    ? () => false
+    : onClick;
+
   return (
     <SemanticButton
       active={ active }
@@ -29,10 +34,10 @@ export default function Button ({ active, animated, basic, className, color, dis
       className={ className }
       content={ label }
       color={ color }
-      disabled={ disabled }
+      disabled={ _isDisabled }
       fluid={ fullWidth }
       icon={ icon }
-      onClick={ onClick }
+      onClick={ _onClick }
       primary={ primary }
       size={ size }
       toggle={ toggle }
@@ -49,6 +54,7 @@ Button.propTypes = {
   disabled: PropTypes.bool,
   fullWidth: PropTypes.bool,
   icon: PropTypes.node,
+  isDisabled: PropTypes.bool,
   label: nodeOrStringProptype(),
   onClick: PropTypes.func,
   primary: PropTypes.bool,
