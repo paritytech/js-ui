@@ -24,22 +24,9 @@ import TxList from './txList';
 
 const api = new Api({ send: sinon.stub(), on: sinon.stub() });
 
-const STORE = {
-  dispatch: sinon.stub(),
-  subscribe: sinon.stub(),
-  getState: () => {
-    return {
-      nodeStatus: {
-        netVersion: '42'
-      }
-    };
-  }
-};
-
 function render (props) {
   return shallow(
     <TxList
-      store={ STORE }
       { ...props }
     />,
     { context: { api } }

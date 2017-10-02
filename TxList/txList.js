@@ -17,7 +17,8 @@
 import { observer } from 'mobx-react';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
+
+import NetChainStore from '../NetChain/store';
 
 import Store from './store';
 import TxRow from './TxRow';
@@ -37,11 +38,11 @@ class TxList extends Component {
       PropTypes.object
     ]).isRequired,
     blockNumber: PropTypes.object,
-    netVersion: PropTypes.string.isRequired,
     onNewError: PropTypes.func
   };
 
   componentWillMount () {
+    this.netChainStore = NetChainStore.get(this.context.api);
     this.store = new Store(this.context.api, this.props.onNewError, this.props.hashes);
   }
 
@@ -60,8 +61,9 @@ class TxList extends Component {
   }
 
   renderRows () {
-    const { address, netVersion, blockNumber } = this.props;
+    const { address, blockNumber } = this.props;
     const { editTransaction, cancelTransaction, killTransaction } = this.store;
+    const { netVersion } = this.netChainStore;
 
     return this.store.sortedHashes.map((txhash) => {
       const tx = this.store.transactions[txhash];
@@ -84,16 +86,3 @@ class TxList extends Component {
     });
   }
 }
-
-function mapStateToProps (state) {
-  const { netVersion } = state.nodeStatus;
-
-  return {
-    netVersion
-  };
-}
-
-export default connect(
-  mapStateToProps,
-  null
-)(TxList);
