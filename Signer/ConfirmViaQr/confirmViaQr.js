@@ -180,6 +180,7 @@ export default class ConfirmViaQr extends Component {
   }
 
   onScan = (signature) => {
+    const { onConfirm } = this.props;
     const { chainId, rlp, tx, data, decrypt } = this.state.qr;
 
     if (!signature) {
@@ -193,7 +194,7 @@ export default class ConfirmViaQr extends Component {
     this.setState({ qrState: QR_COMPLETED });
 
     if (tx) {
-      this.props.onConfirm({
+      onConfirm({
         txSigned: {
           chainId,
           rlp,
@@ -205,7 +206,7 @@ export default class ConfirmViaQr extends Component {
     }
 
     if (decrypt) {
-      this.props.onConfirm({
+      onConfirm({
         decrypted: {
           decrypt,
           msg: signature
@@ -214,7 +215,7 @@ export default class ConfirmViaQr extends Component {
       return;
     }
 
-    this.props.onConfirm({
+    onConfirm({
       dataSigned: {
         data,
         signature
@@ -225,11 +226,11 @@ export default class ConfirmViaQr extends Component {
   onConfirm = () => {
     const { qrState } = this.state;
 
-    if (qrState === QR_VISIBLE) {
-      return this.setState({ qrState: QR_SCAN });
+    if (qrState !== QR_VISIBLE) {
+      return;
     }
 
-    this.props.onConfirm({});
+    this.setState({ qrState: QR_SCAN });
   }
 
   generateQr = () => {

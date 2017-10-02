@@ -19,7 +19,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 
-import HardwareStore from '@parity/shared/mobx/hardwareStore';
 import SignerStore from '@parity/shared/mobx/signerStore';
 
 import Button from '../../Button';
@@ -46,6 +45,7 @@ export default class RequestSend extends Component {
     ]).isRequired,
     gasLimit: PropTypes.object,
     id: PropTypes.object.isRequired,
+    isDisabled: PropTypes.bool,
     isFocussed: PropTypes.bool,
     isSending: PropTypes.bool.isRequired,
     netVersion: PropTypes.string.isRequired,
@@ -70,7 +70,6 @@ export default class RequestSend extends Component {
     gasPrice: this.props.transaction.gasPrice.toFixed()
   });
 
-  hardwareStore = HardwareStore.get(this.context.api);
   signerStore = new SignerStore(this.context.api);
 
   componentWillMount () {
@@ -96,13 +95,12 @@ export default class RequestSend extends Component {
   renderTransaction () {
     const transaction = this.gasStore.overrideTransaction(this.props.transaction);
 
-    const { accounts, className, confirmElement, id, isFocussed, isSending, netVersion, onReject, origin } = this.props;
+    const { accounts, className, confirmElement, id, isDisabled, isFocussed, isSending, netVersion, onReject, origin } = this.props;
     const { totalValue } = this.state;
     const { balances, externalLink } = this.signerStore;
     const { from, value } = transaction;
     const fromBalance = balances[from];
     const account = accounts[from] || {};
-    const isDisabled = account.hardware && !this.hardwareStore.isConnected(from);
 
     return (
       <Layout className={ className }>

@@ -21,7 +21,7 @@ import RequestDecrypt from '../RequestDecrypt';
 import RequestSend from '../RequestSend';
 import RequestSign from '../RequestSign';
 
-export default function Request ({ accounts, className, confirmElement, date, gasLimit, id, isFocussed, isSending, netVersion, onConfirm, onReject, origin, payload }) {
+export default function Request ({ accounts, className, confirmElement, date, gasLimit, id, isDisabled, isFocussed, isSending, netVersion, onConfirm, onReject, origin, payload }) {
   if (payload.sign) {
     const { sign: { address, data } } = payload;
 
@@ -33,6 +33,7 @@ export default function Request ({ accounts, className, confirmElement, date, ga
         confirmElement={ confirmElement }
         data={ data }
         id={ id }
+        isDisabled={ isDisabled }
         isFinished={ false }
         isFocussed={ isFocussed }
         isSending={ isSending }
@@ -55,6 +56,7 @@ export default function Request ({ accounts, className, confirmElement, date, ga
         confirmElement={ confirmElement }
         data={ msg }
         id={ id }
+        isDisabled={ isDisabled }
         isFinished={ false }
         isFocussed={ isFocussed }
         isSending={ isSending }
@@ -77,6 +79,7 @@ export default function Request ({ accounts, className, confirmElement, date, ga
         date={ date }
         id={ id }
         gasLimit={ gasLimit }
+        isDisabled={ isDisabled }
         isFocussed={ isFocussed }
         isSending={ isSending }
         netVersion={ netVersion }
@@ -102,6 +105,7 @@ Request.propTypes = {
   date: PropTypes.instanceOf(Date).isRequired,
   gasLimit: PropTypes.object.isRequired,
   id: PropTypes.object.isRequired,
+  isDisabled: PropTypes.bool,
   isFocussed: PropTypes.bool,
   isSending: PropTypes.bool.isRequired,
   netVersion: PropTypes.string.isRequired,

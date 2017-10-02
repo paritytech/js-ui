@@ -19,6 +19,8 @@ import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 import ReactTooltip from 'react-tooltip';
 
+import HardwareStore from '@parity/shared/mobx/hardwareStore';
+
 import Button from '../../Button';
 import Form from '../../Form';
 import Input from '../../Form/Input';
@@ -40,8 +42,11 @@ export default class ConfirmViaHardware extends Component {
     onConfirm: PropTypes.func.isRequired
   };
 
+  hardwareStore = HardwareStore.get(this.context.api);
+
   render () {
     const { account, address, isDisabled, isSending, onConfirm } = this.props;
+    const _isDisabled = isDisabled || !this.hardwareStore.isConnected(address);
 
     return (
       <div className={ styles.confirmForm }>
@@ -55,7 +60,7 @@ export default class ConfirmViaHardware extends Component {
           >
             <Button
               className={ styles.confirmButton }
-              isDisabled={ isDisabled || isSending }
+              isDisabled={ _isDisabled || isSending }
               fullWidth
               icon={
                 <IdentityIcon
@@ -88,7 +93,8 @@ export default class ConfirmViaHardware extends Component {
   }
 
   renderHint () {
-    const { isDisabled, isSending } = this.props;
+    const { address, isSending } = this.props;
+    const _isDisabled = !this.hardwareStore.isConnected(address);
 
     if (isSending) {
       return (

@@ -44,6 +44,7 @@ export default class RequestDecrypt extends Component {
     ]).isRequired,
     data: PropTypes.string.isRequired,
     id: PropTypes.object.isRequired,
+    isDisabled: PropTypes.bool,
     isFinished: PropTypes.bool.isRequired,
     isFocussed: PropTypes.bool,
     isSending: PropTypes.bool.isRequired,
@@ -114,7 +115,7 @@ export default class RequestDecrypt extends Component {
   }
 
   renderActions () {
-    const { accounts, address, confirmElement, id, isFocussed, isFinished, status, data } = this.props;
+    const { accounts, address, confirmElement, data, id, isDisabled, isFocussed, isFinished, isSending, netVersion, onConfirm, onReject, status } = this.props;
     const account = accounts[address] || {};
 
     if (isFinished) {
@@ -149,24 +150,15 @@ export default class RequestDecrypt extends Component {
         address={ address }
         confirmElement={ confirmElement }
         id={ id }
+        isDisabled={ isDisabled }
         isFocussed={ isFocussed }
-        isSending={ this.props.isSending }
-        netVersion={ this.props.netVersion }
-        onConfirm={ this.onConfirm }
-        onReject={ this.onReject }
+        isSending={ isSending }
+        netVersion={ netVersion }
+        onConfirm={ onConfirm }
+        onReject={ onReject }
         className={ styles.actions }
         dataToSign={ { decrypt: data } }
       />
     );
-  }
-
-  onConfirm = (data) => {
-    const { password, decrypted, wallet } = data;
-
-    this.props.onConfirm({ password, decrypted, wallet });
-  }
-
-  onReject = () => {
-    this.props.onReject();
   }
 }

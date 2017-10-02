@@ -88,7 +88,7 @@ export default class ConfirmViaPassword extends Component {
           >
             <Button
               className={ styles.confirmButton }
-              isDisabled={ isDisabled || isSending  }
+              isDisabled={ isDisabled || isSending }
               fullWidth
               icon={
                 <IdentityIcon

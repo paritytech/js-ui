@@ -19,7 +19,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 
-import HardwareStore from '@parity/shared/mobx/hardwareStore';
 import SignerStore from '@parity/shared/mobx/signerStore';
 
 import Account from '../Account';
@@ -56,6 +55,7 @@ export default class RequestSign extends Component {
     ]).isRequired,
     data: PropTypes.string.isRequired,
     id: PropTypes.object.isRequired,
+    isDisabled: PropTypes.bool,
     isFinished: PropTypes.bool.isRequired,
     isFocussed: PropTypes.bool,
     isSending: PropTypes.bool.isRequired,
@@ -70,7 +70,6 @@ export default class RequestSign extends Component {
     hashToSign: null
   };
 
-  hardwareStore = HardwareStore.get(this.context.api);
   signerStore = new SignerStore(this.context.api);
 
   componentWillMount () {
@@ -187,9 +186,8 @@ export default class RequestSign extends Component {
   }
 
   renderActions () {
-    const { accounts, address, confirmElement, data, id, isFocussed, isFinished, isSending, netVersion, onReject, status } = this.props;
+    const { accounts, address, confirmElement, data, id, isDisabled, isFocussed, isFinished, isSending, netVersion, onConfirm, onReject, status } = this.props;
     const account = accounts[address] || {};
-    const isDisabled = account.hardware && !this.hardwareStore.isConnected(address);
 
     if (isFinished) {
       if (status === 'confirmed') {
@@ -227,17 +225,11 @@ export default class RequestSign extends Component {
         isFocussed={ isFocussed }
         isSending={ isSending }
         netVersion={ netVersion }
-        onConfirm={ this.onConfirm }
+        onConfirm={ onConfirm }
         onReject={ onReject }
         className={ styles.actions }
         dataToSign={ { data } }
       />
     );
-  }
-
-  onConfirm = (data) => {
-    const { password, dataSigned, wallet } = data;
-
-    this.props.onConfirm({ password, dataSigned, wallet });
   }
 }
