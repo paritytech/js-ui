@@ -18,10 +18,12 @@ import BigNumber from 'bignumber.js';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
-import { connect } from 'react-redux';
+import { observer } from 'mobx-react';
 
 import { DEFAULT_GAS } from '@parity/shared/util/constants';
 import { txLink } from '@parity/etherscan';
+
+import NetChainStore from '../NetChain/store';
 
 import Warning from '../Warning';
 import Progress from '../Progress';
@@ -29,7 +31,8 @@ import ShortenedHash from '../ShortenedHash';
 
 import styles from './txHash.css';
 
-class TxHash extends Component {
+@observer
+export default class TxHash extends Component {
   static contextTypes = {
     api: PropTypes.object.isRequired
   }
@@ -37,7 +40,6 @@ class TxHash extends Component {
   static propTypes = {
     hash: PropTypes.string.isRequired,
     maxConfirmations: PropTypes.number,
-    netVersion: PropTypes.string.isRequired,
     summary: PropTypes.bool
   }
 
@@ -54,6 +56,7 @@ class TxHash extends Component {
   }
 
   componentWillMount () {
+    this.netChainStore = NetChainStore.get(this.context.api);
     this.fetchTransaction();
   }
 
@@ -118,7 +121,8 @@ class TxHash extends Component {
   }
 
   render () {
-    const { hash, netVersion, summary } = this.props;
+    const { hash, summary } = this.props;
+    const { netVersion } = this.netChainStore;
 
     const hashLink = (
       <a href={ txLink(hash, false, netVersion) } target='_blank'>
@@ -249,16 +253,3 @@ class TxHash extends Component {
       });
   }
 }
-
-function mapStateToProps (state) {
-  const { netVersion } = state.nodeStatus;
-
-  return {
-    netVersion
-  };
-}
-
-export default connect(
-  mapStateToProps,
-  null
-)(TxHash);

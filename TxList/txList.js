@@ -17,6 +17,7 @@
 import { observer } from 'mobx-react';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { observer } from 'mobx-react';
 
 import NetChainStore from '../NetChain/store';
 
@@ -26,7 +27,7 @@ import TxRow from './TxRow';
 import styles from './txList.css';
 
 @observer
-class TxList extends Component {
+export default class TxList extends Component {
   static contextTypes = {
     api: PropTypes.object.isRequired
   };

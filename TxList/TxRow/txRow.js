@@ -14,12 +14,12 @@
 // You should have received a copy of the GNU General Public License
 // along with Parity.  If not, see <http://www.gnu.org/licenses/>.
 
-import moment from 'moment';
 import dateDifference from 'date-difference';
-import { FormattedMessage } from 'react-intl';
 import React, { Component } from 'react';
+import { FormattedMessage } from 'react-intl';
+import { observer } from 'mobx-react';
+import moment from 'moment';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 
 import { txLink } from '@parity/etherscan';
 
@@ -29,18 +29,18 @@ import IdentityName from '../../IdentityName';
 import MethodDecoding from '../../MethodDecoding';
 import MethodDecodingStore from '../../MethodDecoding/methodDecodingStore';
 
+import Store from './store';
 import styles from '../txList.css';
 
-class TxRow extends Component {
+@observer
+export default class TxRow extends Component {
   static contextTypes = {
     api: PropTypes.object.isRequired
   };
 
   static propTypes = {
-    accountAddresses: PropTypes.array.isRequired,
     address: PropTypes.string.isRequired,
     blockNumber: PropTypes.object,
-    contractAddresses: PropTypes.array.isRequired,
     netVersion: PropTypes.string.isRequired,
     tx: PropTypes.object.isRequired,
 
@@ -66,6 +66,7 @@ class TxRow extends Component {
   };
 
   methodDecodingStore = MethodDecodingStore.get(this.context.api);
+  store = Store.get(this.context.api);
 
   componentWillMount () {
     const { address, tx } = this.props;
@@ -116,7 +117,7 @@ class TxRow extends Component {
   }
 
   renderAddress (address, isDeploy = false) {
-    const isKnownContract = this.getIsKnownContract(address);
+    const isKnownContract = this.store.isContract(address);
     let esLink = null;
 
     if (address && (!isDeploy || isKnownContract)) {
@@ -311,18 +312,9 @@ class TxRow extends Component {
     );
   }
 
-  getIsKnownContract (address) {
-    const { contractAddresses } = this.props;
-
-    return contractAddresses
-      .map((a) => a.toLowerCase())
-      .includes(address.toLowerCase());
-  }
-
   addressLink (address) {
-    const { accountAddresses } = this.props;
-    const isAccount = accountAddresses.includes(address);
-    const isContract = this.getIsKnownContract(address);
+    const isAccount = this.store.isAccount(address);
+    const isContract = this.store.isContract(address);
 
     if (isContract) {
       return `/contract/${address}`;
@@ -408,24 +400,3 @@ class TxRow extends Component {
     this.setState({ isCancelOpen: false, isEditOpen: false });
   }
 }
-
-function mapStateToProps (initState) {
-  const { accounts, contracts } = initState.personal;
-  const accountAddresses = Object.keys(accounts);
-  const contractAddresses = Object.keys(contracts);
-
-  return (state) => {
-    const { netVersion } = state.nodeStatus;
-
-    return {
-      accountAddresses,
-      contractAddresses,
-      netVersion
-    };
-  };
-}
-
-export default connect(
-  mapStateToProps,
-  null
-)(TxRow);

@@ -63,30 +63,15 @@ function createApi () {
   return api;
 }
 
-function createRedux () {
-  return {
-    dispatch: sinon.stub(),
-    subscribe: sinon.stub(),
-    getState: () => {
-      return {
-        nodeStatus: {
-          netVersion: '42'
-        }
-      };
-    }
-  };
-}
-
 function render (props) {
-  const baseComponent = shallow(
+  const component = shallow(
     <TxHash
       hash={ TXHASH }
       { ...props }
     />,
-    { context: { store: createRedux() } }
+    { context: { api: createApi() } }
   );
 
-  component = baseComponent.find('TxHash').shallow({ context: { api: createApi() } });
   instance = component.instance();
 
   return component;

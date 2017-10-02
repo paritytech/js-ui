@@ -21,7 +21,6 @@ import sinon from 'sinon';
 import SignRequest from './';
 
 let component;
-let reduxStore;
 let signerStore;
 
 function createSignerStore () {
@@ -31,25 +30,9 @@ function createSignerStore () {
   };
 }
 
-function createReduxStore () {
-  return {
-    dispatch: sinon.stub(),
-    subscribe: sinon.stub(),
-    getState: () => {
-      return {
-        personal: {
-          accounts: {}
-        }
-      };
-    }
-  };
-}
-
 function render () {
-  reduxStore = createReduxStore();
   signerStore = createSignerStore();
   const context = {
-    store: reduxStore,
     api: {
       transport: {
         on: sinon.stub()
@@ -68,7 +51,7 @@ function render () {
   component = shallow(
     <SignRequest signerStore={ signerStore } />,
     { context }
-  ).find('SignRequest').shallow({ context });
+  );
 
   return component;
 }
