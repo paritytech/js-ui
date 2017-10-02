@@ -20,21 +20,14 @@ import PropTypes from 'prop-types';
 import styles from './form.css';
 
 export default function Form ({ children, className }) {
-  const _onSubmit = () => false;
-
-  // HACK: hidden inputs to disable Chrome's autocomplete
   return (
-    <form
-      autoComplete='new-password'
-      className={ `${styles.form} ${className}` }
-      onSubmit={ _onSubmit }
-    >
+    <div className={ `${styles.form} ${className}` }>
       <div className={ styles.autofill }>
         <input type='text' name='fakeusernameremembered' />
         <input type='password' name='fakepasswordremembered' />
       </div>
       { children }
-    </form>
+    </div>
   );
 }
 
