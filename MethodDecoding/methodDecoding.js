@@ -22,9 +22,10 @@ import { FormattedMessage } from 'react-intl';
 import { connect } from 'react-redux';
 
 import IdentityIcon from '../IdentityIcon';
-import { TypedInput, Label } from '../Form';
+import { TypedInput, InputAddress } from '../Form';
 import Loading from '../Loading';
 import MethodDecodingStore from './methodDecodingStore';
+import TokenValue from './tokenValue';
 
 import { ASCII_INPUT, TOKEN_METHODS } from './constants';
 import styles from './methodDecoding.css';
@@ -620,12 +621,12 @@ class MethodDecoding extends Component {
   renderAddressName (address, withName = true) {
     return (
       <div className={ styles.addressContainer }>
-        <IdentityIcon
-          address={ address }
-          center
-          inline
+        <InputAddress
+          disabled
+          className={ styles.address }
+          value={ address }
+          text={ withName }
         />
-        <Label>{address}</Label>
       </div>
     );
   }

@@ -23,6 +23,7 @@ import Store from '../NetChain/store';
 const SYMBOL_ETC = 'ETC';
 const SYMBOL_ETH = 'ETH';
 const SYMBOL_EXP = 'EXP';
+const SYMBOL_MUSIC = 'MUSIC';
 
 function renderSymbol (netChain) {
   switch (netChain) {
@@ -31,6 +32,9 @@ function renderSymbol (netChain) {
 
     case 'expanse':
       return SYMBOL_EXP;
+
+    case 'musicoin':
+      return SYMBOL_MUSIC;
 
     default:
       return SYMBOL_ETH;
