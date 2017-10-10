@@ -16,6 +16,7 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
+import { pick } from 'lodash';
 import { connect } from 'react-redux';
 
 import { nodeOrStringProptype } from '@parity/shared/util/proptypes';
@@ -23,11 +24,27 @@ import { nodeOrStringProptype } from '@parity/shared/util/proptypes';
 import AddressSelect from '../AddressSelect';
 
 function InputAddressSelect ({ accounts, allowCopy, className, contacts, contracts, label, hint, error, value, onChange, readOnly }) {
+  const nextAllowedValues = allowedValues
+    ? [].concat(allowedValues, value || [])
+    : null;
+
+  const filteredAccounts = nextAllowedValues
+    ? pick(accounts, nextAllowedValues)
+    : accounts;
+
+  const filteredContacts = nextAllowedValues
+    ? pick(contacts, nextAllowedValues)
+    : accounts;
+
+  const filteredContracts = nextAllowedValues
+    ? pick(contracts, nextAllowedValues)
+    : accounts;
+
   return (
     <AddressSelect
       allowCopy={ allowCopy }
       allowInput
-      accounts={ accounts }
+      accounts={ filteredAccounts }
       className={ className }
       contacts={ contacts }
       contracts={ contracts }
@@ -47,6 +64,7 @@ InputAddressSelect.propTypes = {
   contracts: PropTypes.object.isRequired,
 
   allowCopy: PropTypes.bool,
+  allowedValues: PropTypes.array,
   className: PropTypes.string,
   error: nodeOrStringProptype(),
   hint: nodeOrStringProptype(),

@@ -16,6 +16,7 @@
 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { eq } from 'lodash';
 import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
 import keycode, { codes } from 'keycode';
@@ -91,6 +92,18 @@ class AddressSelect extends Component {
   }
 
   componentWillReceiveProps (nextProps) {
+    if (!eq(Object.keys(this.props.accounts), Object.keys(nextProps.accounts))) {
+      return this.setValues(nextProps);
+    }
+
+    if (!eq(Object.keys(this.props.contacts), Object.keys(nextProps.contacts))) {
+      return this.setValues(nextProps);
+    }
+
+    if (!eq(Object.keys(this.props.contracts), Object.keys(nextProps.contracts))) {
+      return this.setValues(nextProps);
+    }
+
     if (this.store.values && this.store.values.length > 0) {
       return;
     }
