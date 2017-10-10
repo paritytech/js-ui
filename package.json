@@ -19,8 +19,8 @@
   "scripts": {
     "build": "NODE_ENV=production webpack --progress",
     "lint": "npm run lint:css && npm run lint:js",
-    "lint:css": "stylelint ./src/**/*.css",
-    "lint:js": "eslint --ignore-path .gitignore ./src/",
+    "lint:css": "stylelint ./**/*.css",
+    "lint:js": "eslint --ignore-path .gitignore .",
     "test": "echo \"WARN: npm run test skipped\""
   },
   "devDependencies": {
@@ -48,7 +48,9 @@
     "eslint-plugin-node": "^5.1.1",
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-react": "^7.1.0",
-    "eslint-plugin-standard": "^3.0.1"
+    "eslint-plugin-standard": "^3.0.1",
+    "stylelint": "^8.2.0",
+    "stylelint-config-standard": "^17.0.0"
   },
   "dependencies": {
     "@parity/api": "^2",
