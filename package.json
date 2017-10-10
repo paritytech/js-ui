@@ -17,7 +17,11 @@
   },
   "keywords": [],
   "scripts": {
-    "build": "NODE_ENV=production webpack --progress"
+    "build": "NODE_ENV=production webpack --progress",
+    "lint": "npm run lint:css && npm run lint:js",
+    "lint:css": "stylelint ./src/**/*.css",
+    "lint:js": "eslint --ignore-path .gitignore ./src/",
+    "test": "echo \"WARN: npm run test skipped\""
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
