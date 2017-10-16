@@ -18,7 +18,9 @@ import { observer } from 'mobx-react';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
+import ReactMarkdown from 'react-markdown';
 
+import { hexToAscii } from '@parity/api/util/format';
 import SignerStore from '@parity/shared/mobx/signerStore';
 
 import Account from '../Account';
@@ -29,14 +31,37 @@ import Origin from '../Origin';
 import styles from './requestSign.css';
 
 function isAscii (data) {
-  for (var i = 2; i < data.length; i += 2) {
+  for (let i = 2; i < data.length; i += 2) {
     let n = parseInt(data.substr(i, 2), 16);
 
     if (n < 32 || n >= 128) {
       return false;
     }
   }
+
   return true;
+}
+
+function decodeMarkdown (data) {
+  return decodeURIComponent(escape(hexToAscii(data)));
+}
+
+export function isMarkdown (data) {
+  try {
+    const decoded = decodeMarkdown(data);
+
+    for (let i = 0; i < decoded.length; i++) {
+      const code = decoded.charCodeAt(i);
+
+      if (code < 32 && code !== 10) {
+        return false;
+      }
+    }
+
+    return decoded.indexOf('#') !== -1 || decoded.indexOf('*') !== -1;
+  } catch (error) {
+    return false;
+  }
 }
 
 @observer
@@ -116,16 +141,22 @@ export default class RequestSign extends Component {
     );
   }
 
-  renderBinaryDetails (data) {
+  renderData (data) {
+    if (isMarkdown(data)) {
+      return (
+        <ReactMarkdown source={ decodeMarkdown(data) } />
+      );
+    }
+
+    if (isAscii(data)) {
+      return hexToAscii(data);
+    }
+
     return (
-      <div className={ styles.signData }>
-        <p>
-          <FormattedMessage
-            id='signer.signRequest.unknownBinary'
-            defaultMessage='(Unknown binary data)'
-          />
-        </p>
-      </div>
+      <FormattedMessage
+        id='signer.signRequest.unknownBinary'
+        defaultMessage='(Unknown binary data)'
+      />
     );
   }
 
@@ -167,11 +198,9 @@ export default class RequestSign extends Component {
               defaultMessage='A request to sign data using your account:'
             />
           </p>
-          {
-            isAscii(data)
-              ? this.renderAsciiDetails(api.util.hexToAscii(data))
-              : this.renderBinaryDetails(data)
-          }
+          <div className={ styles.signData }>
+            <p>{ this.renderData(data) }</p>
+          </div>
           <p>
             <strong>
               <FormattedMessage
