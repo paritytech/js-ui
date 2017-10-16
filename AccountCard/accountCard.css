@@ -19,7 +19,6 @@
   align-items: stretch;
   display: flex;
   flex-direction: row;
-  height: 100%;
   overflow: hidden;
   transition: transform ease-out 0.1s;
   transform: scale(1);

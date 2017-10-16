@@ -34,6 +34,7 @@ export default class IdentityIcon extends Component {
 
   static propTypes = {
     address: PropTypes.string,
+    alt: PropTypes.string,
     button: PropTypes.bool,
     center: PropTypes.bool,
     className: PropTypes.string,
@@ -140,6 +141,7 @@ export default class IdentityIcon extends Component {
 
     return (
       <img
+        alt={ alt || address }
         className={ classes }
         data-address-img
         height={ size }

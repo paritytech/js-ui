@@ -15,11 +15,12 @@
 // along with Parity.  If not, see <http://www.gnu.org/licenses/>.
 
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import PropTypes from 'prop-types';
 
 import { fetchTokens } from '@parity/shared/redux/providers/tokensActions';
+
 import styles from './methodDecoding.css';
 
 class TokenValue extends Component {

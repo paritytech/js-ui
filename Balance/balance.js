@@ -20,144 +20,114 @@ import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 import { connect } from 'react-redux';
 
-import TokenImage from '../TokenImage';
+import TokenValue from './tokenValue';
 
 import styles from './balance.css';
 
-function Balance ({ balance, className, showOnlyEth, tokens }) {
-  if (Object.keys(balance).length === 0) {
-    return null;
-  }
+export class Balance extends Component {
+  static contextTypes = {
+    api: PropTypes.object
+  };
 
-  let body = Object
-    .keys(balance)
-    .sort((tokenIdA, tokenIdB) => {
-      const tokenA = tokens[tokenIdA];
-      const tokenB = tokens[tokenIdB];
+  static propTypes = {
+    balance: PropTypes.object.isRequired,
+    tokens: PropTypes.object.isRequired,
+    address: PropTypes.string,
+    className: PropTypes.string,
+    showOnlyEth: PropTypes.bool,
+    showZeroValues: PropTypes.bool
+  };
 
-      if (tokenA.native) {
-        return -1;
-      }
+  static defaultProps = {
+    showOnlyEth: false,
+    showZeroValues: false
+  };
 
-      if (tokenB.native) {
-        return 1;
-      }
+  render () {
+    const { balance, className, showOnlyEth, tokens } = this.props;
 
-      return (tokenA.name || tokenA.tag || '').localeCompare(tokenB.name || tokenB.tag || '');
-    })
-    .map((tokenId) => {
-      const token = tokens[tokenId];
-      const balanceValue = balance[tokenId];
+    if (Object.keys(balance).length === 0) {
+      return null;
+    }
 
-      const isEthToken = token.native;
-      const isFullToken = !showOnlyEth || isEthToken;
-      const hasBalance = (balanceValue instanceof BigNumber) && balanceValue.gt(0);
+    let body = Object.keys(balance)
+      .sort((tokenIdA, tokenIdB) => {
+        const tokenA = tokens[tokenIdA];
+        const tokenB = tokens[tokenIdB];
 
-      if (!hasBalance && !isEthToken) {
-        return null;
-      }
+        if (tokenA.native) {
+          return -1;
+        }
 
-      const bnf = new BigNumber(token.format || 1);
-      let decimals = 0;
+        if (tokenB.native) {
+          return 1;
+        }
 
-      if (bnf.gte(1000)) {
-        decimals = 3;
-      } else if (bnf.gte(100)) {
-        decimals = 2;
-      } else if (bnf.gte(10)) {
-        decimals = 1;
-      }
+        return (tokenA.name || tokenA.tag || '').localeCompare(tokenB.name || tokenB.tag || '');
+      })
+      .map((tokenId) => {
+        const token = tokens[tokenId];
+        const balanceValue = balance[tokenId];
 
-      const rawValue = new BigNumber(balanceValue).div(bnf);
-      const value = rawValue.toFormat(decimals);
-      const classNames = [styles.balance];
-      let details = null;
+        const isEthToken = token.native;
+        const hasBalance = (balanceValue instanceof BigNumber) && balanceValue.gt(0);
 
-      if (isFullToken) {
-        classNames.push(styles.full);
-        details = [
-          <div
-            className={ styles.value }
-            key='value'
-          >
-            <span title={ `${rawValue.toFormat()} ${token.tag}` }>
-              { value }
-            </span>
-          </div>,
-          <div
-            className={ styles.tag }
-            key='tag'
-          >
-            { token.tag }
-          </div>
-        ];
-      }
+        if (!hasBalance && !isEthToken) {
+          return null;
+        }
 
-      return (
-        <div
-          className={ classNames.join(' ') }
-          key={ tokenId }
-        >
-          <TokenImage token={ token } />
-          { details }
+        return (
+          <TokenValue
+            key={ tokenId }
+            showOnlyEth={ showOnlyEth }
+            token={ token }
+            value={ balanceValue }
+          />
+        );
+      })
+      .filter((node) => node);
+
+    if (!body.length) {
+      body = (
+        <div className={ styles.empty }>
+          <FormattedMessage
+            id='ui.balance.none'
+            defaultMessage='No balances associated with this account'
+          />
         </div>
       );
-    })
-    .filter((node) => node);
+    }
 
-  if (!body.length) {
-    body = (
-      <div className={ styles.empty }>
-        <FormattedMessage
-          id='ui.balance.none'
-          defaultMessage='No balances associated with this account'
-        />
+    return (
+      <div
+        className={
+          [
+            styles.balances,
+            showOnlyEth
+              ? ''
+              : styles.full,
+            className
+          ].join(' ')
+        }
+      >
+        { body }
       </div>
     );
   }
-
-  return (
-    <div
-      className={
-        [
-          styles.balances,
-          showOnlyEth
-            ? ''
-            : styles.full,
-          className
-        ].join(' ')
-      }
-    >
-      { body }
-    </div>
-  );
 }
 
-Balance.propTypes = {
-  balance: PropTypes.object.isRequired,
-  tokens: PropTypes.object.isRequired,
-  address: PropTypes.string,
-  className: PropTypes.string,
-  showOnlyEth: PropTypes.bool,
-  showZeroValues: PropTypes.bool
-};
-
-Balance.defaultProps = {
-  showOnlyEth: false,
-  showZeroValues: false
-};
-
 function mapStateToProps (state, props) {
-  const { balances, tokens } = state;
+  const { balances, tokens: allTokens } = state;
   const { address } = props;
+  const balance = balances[address] || props.balance || {};
+
+  const tokenIds = Object.keys(balance);
+  const tokens = pick(allTokens, tokenIds);
 
   return {
-    balance: balances[address] || props.balance || {},
+    balance,
     tokens
   };
 }
 
-export default connect(
-  mapStateToProps,
-  null
-)(Balance);
+export default connect(mapStateToProps)(Balance);

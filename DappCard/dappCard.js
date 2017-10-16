@@ -19,6 +19,7 @@ import PropTypes from 'prop-types';
 
 import Container, { Title as ContainerTitle } from '../Container';
 import DappIcon from '../DappIcon';
+import DappVouchFor from '../DappVouchFor';
 import Tags from '../Tags';
 
 import styles from './dappCard.css';
@@ -57,6 +58,7 @@ export default class DappCard extends Component {
           app={ app }
           className={ styles.image }
         />
+        <DappVouchFor app={ app } />
         <Tags
           className={ styles.tags }
           tags={

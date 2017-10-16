@@ -23,8 +23,6 @@ import apiutil from '@parity/api/util';
 
 import Balance from './balance';
 
-const ADDRESS = '0x123456789abcdef0123456789abcdef0123456789abcdef';
-
 const TOKENS = {
   'eth': { tag: 'ETH' },
   'gav': { tag: 'GAV', format: 1 },
@@ -38,25 +36,7 @@ const BALANCE = {
 };
 
 let api;
-let store;
 let component;
-
-function createStore () {
-  store = {
-    dispatch: sinon.stub(),
-    subscribe: sinon.stub(),
-    getState: () => {
-      return {
-        balances: {
-          [ADDRESS]: BALANCE
-        },
-        tokens: TOKENS
-      };
-    }
-  };
-
-  return store;
-}
 
 function createApi () {
   api = {
@@ -68,20 +48,25 @@ function createApi () {
 }
 
 function render (props = {}) {
+  if (!props.balance) {
+    props.balance = BALANCE;
+  }
+
+  if (!props.tokens) {
+    props.tokens = TOKENS;
+  }
+
+  const api = createApi();
+
   component = shallow(
     <Balance
-      address={ ADDRESS }
       className='testClass'
       { ...props }
     />,
     {
-      context: {
-        api: createApi(),
-        store: createStore()
-      }
+      context: { api }
     }
-  ).find('Balance').shallow();
-  console.log(component.debug());
+  );
 
   return component;
 }
@@ -100,6 +85,13 @@ describe('ui/Balance', () => {
   });
 
   it('renders all the non-zero balances', () => {
-    expect(component.find('TokenImage')).to.have.length(2);
+    expect(component.find('Connect(TokenValue)')).to.have.length(2);
+  });
+
+  describe('render specifiers', () => {
+    it('renders all the tokens with showZeroValues', () => {
+      render({ showZeroValues: true });
+      expect(component.find('Connect(TokenValue)')).to.have.length(2);
+    });
   });
 });

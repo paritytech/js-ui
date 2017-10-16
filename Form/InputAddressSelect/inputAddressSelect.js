@@ -34,11 +34,11 @@ function InputAddressSelect ({ accounts, allowCopy, className, contacts, contrac
 
   const filteredContacts = nextAllowedValues
     ? pick(contacts, nextAllowedValues)
-    : accounts;
+    : contacts;
 
   const filteredContracts = nextAllowedValues
     ? pick(contracts, nextAllowedValues)
-    : accounts;
+    : contracts;
 
   return (
     <AddressSelect
@@ -62,7 +62,6 @@ InputAddressSelect.propTypes = {
   accounts: PropTypes.object.isRequired,
   contacts: PropTypes.object.isRequired,
   contracts: PropTypes.object.isRequired,
-
   allowCopy: PropTypes.bool,
   allowedValues: PropTypes.array,
   className: PropTypes.string,
