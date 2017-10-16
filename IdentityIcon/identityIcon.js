@@ -88,7 +88,7 @@ export default class IdentityIcon extends Component {
   }
 
   render () {
-    const { address, button, className, center, disabled, inline, onClick, padded, tiny } = this.props;
+    const { address, alt, button, className, center, disabled, inline, onClick, padded, tiny } = this.props;
     const { iconsrc } = this.state;
     const classes = [
       styles.icon,
