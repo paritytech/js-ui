@@ -205,7 +205,7 @@ export default class RequestSign extends Component {
             <strong>
               <FormattedMessage
                 id='signer.signRequest.warning'
-                defaultMessage='WARNING: This consequences of doing this may be grave. Confirm the request only if you are sure.'
+                defaultMessage='WARNING: The consequences of doing this may be grave. Confirm the request only if you are sure.'
               />
             </strong>
           </p>
