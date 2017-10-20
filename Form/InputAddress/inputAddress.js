@@ -16,7 +16,6 @@
 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 
 import util from '@parity/api/util';
 import { nodeOrStringProptype } from '@parity/shared/util/proptypes';
@@ -27,7 +26,7 @@ import Input from '../Input';
 
 import styles from './inputAddress.css';
 
-class InputAddress extends Component {
+export default class InputAddress extends Component {
   static propTypes = {
     account: PropTypes.object,
     allowCopy: PropTypes.bool,
@@ -168,29 +167,3 @@ class InputAddress extends Component {
     }
   }
 }
-
-function mapStateToProps (state, props) {
-  const { text, value } = props;
-
-  if (!text || !value) {
-    return {};
-  }
-
-  const lcValue = value.toLowerCase();
-  const { accountsInfo } = state.personal;
-  const { tokens } = state;
-
-  const accountInfo = Object.values(accountsInfo).find((account) => account.address.toLowerCase() === lcValue);
-  const token = Object.values(tokens).find((token) => token.address.toLowerCase() === lcValue);
-
-  const account = accountInfo || token || null;
-
-  return {
-    account
-  };
-}
-
-export default connect(
-  mapStateToProps,
-  null
-)(InputAddress);
