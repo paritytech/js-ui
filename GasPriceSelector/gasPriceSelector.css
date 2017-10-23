@@ -20,13 +20,15 @@
   width: 100%;
 }
 
-.chartRow, .sliderRow {
+.chartRow,
+.sliderRow {
   display: flex;
   flex-wrap: wrap;
   position: relative;
 }
 
 .chartRow {
+  color: inherit;
 }
 
 .slider {

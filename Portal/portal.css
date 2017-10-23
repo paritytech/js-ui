@@ -93,18 +93,17 @@ $backgroundOverlay: rgba(255, 255, 255, 0.95);
 
   .buttonRow {
     display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
+    flex-flow: row nowrap;
     justify-content: flex-end;
     padding: $modalPadding 0 0 0;
 
-    /*button:not([disabled]) {
+    /* button:not([disabled]) {
       color: white !important;
 
       svg {
         fill: white !important;
       }
-    }*/
+    } */
   }
 
   .childContainer {

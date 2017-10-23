@@ -45,6 +45,7 @@ i.image {
 }
 
 .title {
+  color: inherit;
 }
 
 .titleLink {

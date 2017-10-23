@@ -30,6 +30,7 @@
   }
 
   .children {
+    color: inherit;
   }
 
   .buttons {

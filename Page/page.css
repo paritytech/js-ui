@@ -19,15 +19,15 @@
 .layoutPadded {
   background: #fcfcfc;
 
-  &>div {
+  & > div {
     margin-bottom: 0.5em;
   }
 }
 
 .layout {
-  padding: 0 1.5em 3em 1.5em;
+  padding: 0 1.5em 3em;
 }
 
 .layoutPadded {
-  padding: 0.5em 1.5em 3em 1.5em;
+  padding: 0.5em 1.5em 3em;
 }

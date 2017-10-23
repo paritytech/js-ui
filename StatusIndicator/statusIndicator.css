@@ -14,13 +14,15 @@
 /* You should have received a copy of the GNU General Public License
 /* along with Parity.  If not, see <http://www.gnu.org/licenses/>.
 */
+
 .status {
   display: inline-block;
 }
 
-.radial,.signal {
+.radial,
+.signal {
   display: inline-block;
-  margin: .2em;
+  margin: 0.2em;
   width: 1em;
   height: 1em;
   white-space: nowrap;
@@ -34,9 +36,11 @@
   &.ok {
     background-color: #070;
   }
+
   &.bad {
     background-color: #c00;
   }
+
   &.needsAttention {
     background-color: #dc0;
   }
@@ -44,7 +48,7 @@
 
 .signal {
   width: 2em;
-  width: calc(.9em + 5px);
+  width: calc(0.9em + 5px);
   text-transform: initial;
   vertical-align: middle;
   margin-top: -0.5em;
@@ -53,24 +57,24 @@
     display: inline-block;
     border: 1px solid #444;
     box-shadow: 0 0 1px rgba(0, 0, 0, 0.8);
-    width: .3em;
+    width: 0.3em;
     height: 1em;
     opacity: 0.7;
     background-color: rgba(0, 0, 0, 0.6);
     vertical-align: bottom;
 
     &.active {
-      opacity: 1.0;
-      background-image: linear-gradient(0, rgba(255, 255, 255, 0.38) 0%, rgba(255, 255, 255, 0) 100%);
+      opacity: 1;
+      background-image: linear-gradient(0deg, rgba(255, 255, 255, 0.38) 0%, rgba(255, 255, 255, 0) 100%);
     }
 
     &.bad {
-      height: .4em;
+      height: 0.4em;
       border-right: 0;
     }
 
     &.needsAttention {
-      height: .6em;
+      height: 0.6em;
       border-right: 0;
     }
 

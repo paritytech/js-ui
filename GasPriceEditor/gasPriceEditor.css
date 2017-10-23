@@ -22,8 +22,7 @@
 
 .conditionContainer {
   display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
+  flex-flow: row nowrap;
   margin-bottom: 1.5em;
 
   .input {
@@ -36,15 +35,15 @@
   flex-direction: column;
   margin-bottom: 1em;
 
-  &>label {
+  & > label {
     margin-bottom: 0.5em;
   }
 
-  &>div {
+  & > div {
     display: flex;
     flex-direction: row;
 
-    &>div {
+    & > div {
       width: auto !important;
 
       label {
@@ -64,12 +63,11 @@
 .editColumn {
   flex: 35;
   padding-left: 1em;
-  justify-ontent: space-around;
+  justify-content: space-around;
   padding-bottom: 12;
   display: flex;
-  flex-wrap: wrap;
+  flex-flow: column wrap;
   position: relative;
-  flex-direction: column;
 }
 
 .gasPriceDesc {
@@ -83,7 +81,6 @@
 
 .row {
   display: flex;
-  flex-wrap: wrap;
+  flex-flow: column wrap;
   position: relative;
-  flex-direction: column;
 }

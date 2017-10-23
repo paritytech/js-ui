@@ -35,7 +35,7 @@
 
   td {
     vertical-align: top;
-    padding: 0.75em 0.75em;
+    padding: 0.75em;
 
     &.method {
       width: 40%;
@@ -86,7 +86,7 @@
   }
 
   .pending {
-    padding: 0em;
+    padding: 0;
   }
 
   .pending div {
