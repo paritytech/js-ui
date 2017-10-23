@@ -23,9 +23,7 @@ export default class CustomTooltip extends Component {
     histogram: PropTypes.object.isRequired,
     intl: PropTypes.object.isRequired,
     active: PropTypes.bool,
-    label: PropTypes.number,
-    payload: PropTypes.array,
-    type: PropTypes.string
+    label: PropTypes.number
   };
 
   static childContextTypes = {

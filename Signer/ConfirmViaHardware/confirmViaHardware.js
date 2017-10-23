@@ -17,13 +17,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
-import ReactTooltip from 'react-tooltip';
 
 import HardwareStore from '@parity/shared/mobx/hardwareStore';
 
 import Button from '../../Button';
 import Form from '../../Form';
-import Input from '../../Form/Input';
 import IdentityIcon from '../../IdentityIcon';
 
 import styles from '../ConfirmViaPassword/confirmViaPassword.css';
@@ -34,10 +32,8 @@ export default class ConfirmViaHardware extends Component {
   };
 
   static propTypes = {
-    account: PropTypes.object,
     address: PropTypes.string.isRequired,
     isDisabled: PropTypes.bool,
-    isFocussed: PropTypes.bool,
     isSending: PropTypes.bool.isRequired,
     onConfirm: PropTypes.func.isRequired
   };
@@ -45,7 +41,7 @@ export default class ConfirmViaHardware extends Component {
   hardwareStore = HardwareStore.get(this.context.api);
 
   render () {
-    const { account, address, isDisabled, isSending, onConfirm } = this.props;
+    const { address, isDisabled, isSending, onConfirm } = this.props;
     const _isDisabled = isDisabled || !this.hardwareStore.isConnected(address);
 
     return (
@@ -93,8 +89,8 @@ export default class ConfirmViaHardware extends Component {
   }
 
   renderHint () {
-    const { address, isSending } = this.props;
-    const _isDisabled = !this.hardwareStore.isConnected(address);
+    const { address, isDisabled, isSending } = this.props;
+    const _isDisabled = isDisabled || !this.hardwareStore.isConnected(address);
 
     if (isSending) {
       return (
@@ -105,7 +101,7 @@ export default class ConfirmViaHardware extends Component {
           />
         </div>
       );
-    } else if (isDisabled) {
+    } else if (_isDisabled) {
       return (
         <div className={ styles.passwordHint }>
           <FormattedMessage

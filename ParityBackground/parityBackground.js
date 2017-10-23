@@ -45,7 +45,7 @@ export default class ParityBackground extends Component {
     children: PropTypes.node,
     className: PropTypes.string,
     onClick: PropTypes.func,
-    seed: PropTypes.string,
+    seed: PropTypes.string, // eslint-disable-line
     style: PropTypes.object
   };
 

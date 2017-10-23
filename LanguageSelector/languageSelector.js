@@ -32,7 +32,7 @@ const LocaleStore = {
       locales: []
     };
   }
-}
+};
 
 @observer
 export default class LanguageSelector extends Component {

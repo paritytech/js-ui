@@ -26,7 +26,7 @@ import styles from './certifications.css';
 
 class Certifications extends Component {
   static propTypes = {
-    address: PropTypes.string.isRequired,
+    address: PropTypes.string.isRequired, // eslint-disable-line
     certifications: PropTypes.array.isRequired,
     className: PropTypes.string,
     dappsUrl: PropTypes.string.isRequired,

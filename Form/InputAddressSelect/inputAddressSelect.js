@@ -23,7 +23,7 @@ import { nodeOrStringProptype } from '@parity/shared/util/proptypes';
 
 import AddressSelect from '../AddressSelect';
 
-function InputAddressSelect ({ accounts, allowCopy, className, contacts, contracts, label, hint, error, value, onChange, readOnly }) {
+function InputAddressSelect ({ accounts, allowCopy, allowedValues, className, contacts, contracts, label, hint, error, value, onChange, readOnly }) {
   const nextAllowedValues = allowedValues
     ? [].concat(allowedValues, value || [])
     : null;
@@ -32,13 +32,13 @@ function InputAddressSelect ({ accounts, allowCopy, className, contacts, contrac
     ? pick(accounts, nextAllowedValues)
     : accounts;
 
-  const filteredContacts = nextAllowedValues
-    ? pick(contacts, nextAllowedValues)
-    : contacts;
-
-  const filteredContracts = nextAllowedValues
-    ? pick(contracts, nextAllowedValues)
-    : contracts;
+  // const filteredContacts = nextAllowedValues
+  //   ? pick(contacts, nextAllowedValues)
+  //   : contacts;
+  //
+  // const filteredContracts = nextAllowedValues
+  //   ? pick(contracts, nextAllowedValues)
+  //   : contracts;
 
   return (
     <AddressSelect

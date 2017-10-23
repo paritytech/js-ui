@@ -29,9 +29,6 @@ import SortStore from './sortStore';
 @observer
 export default class ActionbarSort extends Component {
   static propTypes = {
-    id: PropTypes.string.isRequired,
-    onChange: PropTypes.func.isRequired,
-
     order: PropTypes.string,
     showDefault: PropTypes.bool,
     metas: PropTypes.array

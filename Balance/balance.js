@@ -33,10 +33,10 @@ export class Balance extends Component {
   static propTypes = {
     balance: PropTypes.object.isRequired,
     tokens: PropTypes.object.isRequired,
-    address: PropTypes.string,
+    address: PropTypes.string, // eslint-disable-line
     className: PropTypes.string,
     showOnlyEth: PropTypes.bool,
-    showZeroValues: PropTypes.bool
+    showZeroValues: PropTypes.bool // eslint-disable-line
   };
 
   static defaultProps = {

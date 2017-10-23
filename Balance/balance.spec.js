@@ -14,10 +14,11 @@
 // You should have received a copy of the GNU General Public License
 // along with Parity.  If not, see <http://www.gnu.org/licenses/>.
 
+/* eslint-disable no-unused-expressions */
+
 import BigNumber from 'bignumber.js';
 import { shallow } from 'enzyme';
 import React from 'react';
-import sinon from 'sinon';
 
 import apiutil from '@parity/api/util';
 

@@ -82,17 +82,17 @@ class TokenValue extends Component {
         <TokenImage token={ token } />
         {
           isFullToken
-          ? [
-            <div className={ styles.value } key='value'>
-              <span title={ `${rawValue.toFormat()} ${token.tag}` }>
-                { rawValue.toFormat(decimals) }
-              </span>
-            </div>,
-            <div className={ styles.tag } key='tag'>
-              { token.tag }
-            </div>
-          ]
-          : null
+            ? [
+              <div className={ styles.value } key='value'>
+                <span title={ `${rawValue.toFormat()} ${token.tag}` }>
+                  { rawValue.toFormat(decimals) }
+                </span>
+              </div>,
+              <div className={ styles.tag } key='tag'>
+                { token.tag }
+              </div>
+            ]
+            : null
         }
       </div>
     );

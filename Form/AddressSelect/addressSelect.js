@@ -57,8 +57,8 @@ class AddressSelect extends Component {
     accounts: PropTypes.object,
     contacts: PropTypes.object,
     contracts: PropTypes.object,
-    tokens: PropTypes.object,
-    reverse: PropTypes.object,
+    tokens: PropTypes.object, // eslint-disable-line
+    reverse: PropTypes.object, // eslint-disable-line
 
     // Optional props
     allowCopy: PropTypes.bool,
@@ -485,7 +485,7 @@ class AddressSelect extends Component {
       const nextValues = values[nextCat];
       const nextFocus = nextValues ? nextValues.values[0] : null;
 
-      return this.focusItem(nextFocus && nextFocus.index || 1);
+      return this.focusItem((nextFocus && nextFocus.index) || 1);
     }
 
     event.preventDefault();

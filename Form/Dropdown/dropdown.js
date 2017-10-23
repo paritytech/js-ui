@@ -59,19 +59,16 @@ Dropdown.contextTypes = {
 };
 
 Dropdown.propTypes = {
-  children: PropTypes.node,
   className: PropTypes.string,
-  disabled: PropTypes.bool,          // A disabled dropdown menu or item does not allow user interaction.
+  disabled: PropTypes.bool, // A disabled dropdown menu or item does not allow user interaction.
   error: PropTypes.any,
-  fullWidth: PropTypes.bool,         // A dropdown can take the full width of its parent.
-  hint: PropTypes.node,            // Placeholder text.
+  fullWidth: PropTypes.bool, // A dropdown can take the full width of its parent.
+  hint: PropTypes.node, // Placeholder text.
   label: PropTypes.node,
-  name: PropTypes.func,              // Name of the hidden input which holds the value.
-  onChange: PropTypes.func,          // Called when the user attempts to change the value.
+  onChange: PropTypes.func, // Called when the user attempts to change the value.
   onBlur: PropTypes.func,
   onKeyDown: PropTypes.func,
-  options: PropTypes.any,            // Array of Dropdown.Item props e.g. `{ text: '', value: '' }`
+  options: PropTypes.any, // Array of Dropdown.Item props e.g. `{ text: '', value: '' }`
   text: PropTypes.any,
-  value: PropTypes.any,               // Current value. Creates a controlled component.
-  values: PropTypes.array
+  value: PropTypes.any // Current value. Creates a controlled component.
 };

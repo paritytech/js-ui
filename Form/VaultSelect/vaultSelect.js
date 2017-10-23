@@ -33,7 +33,7 @@ const VaultStore = {
       loadVaults: () => {}
     };
   }
-}
+};
 
 export default class VaultSelect extends Component {
   static contextTypes = {

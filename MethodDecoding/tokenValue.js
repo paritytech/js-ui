@@ -25,7 +25,7 @@ import styles from './methodDecoding.css';
 
 class TokenValue extends Component {
   static propTypes = {
-    id: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired, // eslint-disable-line
     value: PropTypes.object.isRequired,
 
     fetchTokens: PropTypes.func,

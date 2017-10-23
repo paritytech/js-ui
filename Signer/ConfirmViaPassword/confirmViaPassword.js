@@ -73,7 +73,7 @@ export default class ConfirmViaPassword extends Component {
   }
 
   render () {
-    const { account, address, isDisabled, isSending } = this.props;
+    const { address, isDisabled, isSending } = this.props;
 
     return (
       <div className={ styles.confirmForm }>
@@ -122,7 +122,6 @@ export default class ConfirmViaPassword extends Component {
   }
 
   renderPassword () {
-    const { account } = this.props;
     const { password } = this.state;
 
     return (
@@ -149,7 +148,7 @@ export default class ConfirmViaPassword extends Component {
   }
 
   renderHint () {
-    const { account, isDisabled, isSending } = this.props;
+    const { account } = this.props;
     const passwordHint = (account.meta && account.meta.passwordHint) || null;
 
     if (!passwordHint) {
@@ -170,8 +169,6 @@ export default class ConfirmViaPassword extends Component {
   }
 
   renderTooltip () {
-    const { account } = this.props;
-
     if (this.state.password.length) {
       return null;
     }

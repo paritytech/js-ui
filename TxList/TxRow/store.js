@@ -61,12 +61,12 @@ export default class Store {
         const lAddress = address.toLowerCase();
 
         if (uuid) {
-          accounts.push(_address);
+          accounts.push(lAddress);
         } else if (meta) {
           if (meta.contract) {
             contracts.push(lAddress);
           } else if (meta.hardware || meta.external) {
-            accounts.push(alAddress);
+            accounts.push(lAddress);
           }
         }
       });

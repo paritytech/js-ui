@@ -14,13 +14,15 @@
 // You should have received a copy of the GNU General Public License
 // along with Parity.  If not, see <http://www.gnu.org/licenses/>.
 
+/* eslint-disable no-unused-expressions */
+
 import { shallow } from 'enzyme';
 import React from 'react';
 import sinon from 'sinon';
 
 import { asciiToHex } from '@aprity/api/util/format';
 
-import SignRequest, { isMarkdown } from '.requestSign';
+import SignRequest, { isMarkdown } from '.request';
 
 let component;
 let signerStore;

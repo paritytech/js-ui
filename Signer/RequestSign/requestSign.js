@@ -161,7 +161,6 @@ export default class RequestSign extends Component {
   }
 
   renderDetails () {
-    const { api } = this.context;
     const { accounts, address, data, netVersion, origin } = this.props;
     const { hashToSign } = this.state;
     const { balances, externalLink } = this.signerStore;

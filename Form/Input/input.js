@@ -41,7 +41,7 @@ export default class Input extends Component {
       PropTypes.string
     ]),
     allowPaste: PropTypes.bool,
-    autoFocus: PropTypes.bool,
+    autoFocus: PropTypes.bool, // eslint-disable-line
     children: PropTypes.node,
     className: PropTypes.string,
     defaultValue: PropTypes.string,

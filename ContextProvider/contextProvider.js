@@ -31,7 +31,7 @@ const LocaleStore = {
       messages: {}
     };
   }
-}
+};
 
 @observer
 export default class ContextProvider extends Component {

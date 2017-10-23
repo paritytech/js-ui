@@ -33,9 +33,9 @@ export default class InputChip extends Component {
   };
 
   static propTypes = {
-    autoFocus: PropTypes.bool,
+    autoFocus: PropTypes.bool, // eslint-disable-line
     addOnBlur: PropTypes.bool,
-    clearOnBlur: PropTypes.bool,
+    clearOnBlur: PropTypes.bool, // eslint-disable-line
     className: PropTypes.string,
     hint: nodeOrStringProptype(),
     label: nodeOrStringProptype(),
