@@ -20,7 +20,7 @@ import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 import ReactMarkdown from 'react-markdown';
 
-import { hexToAscii } from '@parity/api/util/format';
+import { hexToAscii } from '@parity/api/lib/util/format';
 import SignerStore from '@parity/shared/mobx/signerStore';
 
 import Account from '../Account';

@@ -1,7 +1,7 @@
 {
   "name": "@parity/ui",
   "description": "Parity React UI components",
-  "version": "2.0.53",
+  "version": "2.1.0",
   "main": "index.js",
   "author": "Parity Team <admin@parity.io>",
   "maintainers": [
@@ -53,9 +53,9 @@
     "stylelint-config-standard": "^17.0.0"
   },
   "dependencies": {
-    "@parity/api": "^2",
-    "@parity/etherscan": "^2",
-    "@parity/shared": "^2",
+    "@parity/api": "2.1.x",
+    "@parity/etherscan": "2.1.x",
+    "@parity/shared": "2.1.x",
     "bignumber.js": "3.0.1",
     "brace": "0.9.0",
     "date-difference": "1.0.0",

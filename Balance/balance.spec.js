@@ -20,7 +20,7 @@ import BigNumber from 'bignumber.js';
 import { shallow } from 'enzyme';
 import React from 'react';
 
-import apiutil from '@parity/api/util';
+import apiutil from '@parity/api/lib/util';
 
 import Balance from './balance';
 

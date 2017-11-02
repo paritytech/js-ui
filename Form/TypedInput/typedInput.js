@@ -19,8 +19,8 @@ import PropTypes from 'prop-types';
 import { range } from 'lodash';
 import BigNumber from 'bignumber.js';
 
-import { fromWei, toWei } from '@parity/api/util/wei';
-import { bytesToHex } from '@parity/api/util/format';
+import { fromWei, toWei } from '@parity/api/lib/util/wei';
+import { bytesToHex } from '@parity/api/lib/util/format';
 import { ABI_TYPES, parseAbiType } from '@parity/shared/util/abi';
 import { nodeOrStringProptype } from '@parity/shared/util/proptypes';
 
