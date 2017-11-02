@@ -20,7 +20,7 @@ import { shallow } from 'enzyme';
 import React from 'react';
 import sinon from 'sinon';
 
-import { asciiToHex } from '@aprity/api/util/format';
+import { asciiToHex } from '@aprity/api/lib/util/format';
 
 import SignRequest, { isMarkdown } from '.request';
 
