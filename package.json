@@ -1,8 +1,10 @@
 {
   "name": "@parity/ui",
   "description": "Parity React UI components",
-  "version": "2.1.2",
-  "main": "index.js",
+  "version": "2.2.0",
+  "main": "lib/index.js",
+  "module": "src/index.js",
+  "jsnext:main": "src/index.js",
   "author": "Parity Team <admin@parity.io>",
   "maintainers": [
     "Jaco Greeff",
@@ -17,10 +19,10 @@
   },
   "keywords": [],
   "scripts": {
-    "build": "echo \"WARN: npm run build skipped\"",
+    "build": "babel src --out-dir lib --ignore *.spec.js",
     "lint": "npm run lint:css && npm run lint:js",
-    "lint:css": "stylelint ./**/*.css",
-    "lint:js": "eslint --ignore-path .gitignore .",
+    "lint:css": "stylelint ./src/**/*.css",
+    "lint:js": "eslint src",
     "test": "echo \"WARN: npm run test skipped\""
   },
   "devDependencies": {
@@ -35,9 +37,6 @@
     "babel-plugin-transform-react-remove-prop-types": "^0.4.8",
     "babel-plugin-webpack-alias": "^2.1.2",
     "babel-preset-env": "^1.6.0",
-    "babel-preset-es2015": "^6.24.1",
-    "babel-preset-es2016": "^6.24.1",
-    "babel-preset-es2017": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
     "eslint": "^4.4.0",
