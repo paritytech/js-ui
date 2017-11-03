@@ -16,7 +16,7 @@
 
 import React from 'react';
 
-import { nodeOrStringProptype } from '@parity/shared/util/proptypes';
+import { nodeOrStringProptype } from '@parity/shared/lib/util/proptypes';
 
 import styles from './overlay.css';
 

@@ -18,7 +18,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Button as SemanticButton } from 'semantic-ui-react';
 
-import { nodeOrStringProptype } from '@parity/shared/util/proptypes';
+import { nodeOrStringProptype } from '@parity/shared/lib/util/proptypes';
 
 export default function Button ({ active, animated, basic, className, color, disabled, fullWidth, icon, isDisabled, label, onClick, primary, size, toggle }) {
   const _isDisabled = isDisabled || disabled;

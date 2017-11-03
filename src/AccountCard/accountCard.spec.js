@@ -21,7 +21,7 @@ import { shallow } from 'enzyme';
 import React from 'react';
 import sinon from 'sinon';
 
-import { ETH_TOKEN } from '@parity/shared/util/tokens';
+import { ETH_TOKEN } from '@parity/shared/lib/util/tokens';
 
 import AccountCard from './';
 

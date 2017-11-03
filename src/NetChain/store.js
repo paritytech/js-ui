@@ -16,7 +16,7 @@
 
 import { action, computed, observable } from 'mobx';
 
-import { isTestnet } from '@parity/shared/util/testnet';
+import { isTestnet } from '@parity/shared/lib/util/testnet';
 
 export default class Store {
   @observable netChain = '';

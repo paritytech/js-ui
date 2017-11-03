@@ -16,8 +16,8 @@
 
 import Abi from '@parity/abi';
 import { decodeMethodInput } from '@parity/api/lib/util/decode';
-import Contracts from '@parity/shared/contracts';
-import * as abis from '@parity/shared/contracts/abi';
+import Contracts from '@parity/shared/lib/contracts';
+import * as abis from '@parity/shared/lib/contracts/abi';
 
 const CONTRACT_CREATE = '0x60606040';
 

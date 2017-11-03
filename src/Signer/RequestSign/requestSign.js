@@ -21,7 +21,7 @@ import { FormattedMessage } from 'react-intl';
 import ReactMarkdown from 'react-markdown';
 
 import { hexToAscii } from '@parity/api/lib/util/format';
-import SignerStore from '@parity/shared/mobx/signerStore';
+import SignerStore from '@parity/shared/lib/mobx/signerStore';
 
 import Account from '../Account';
 import ConfirmForm from '../ConfirmForm';

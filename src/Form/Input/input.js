@@ -20,8 +20,8 @@ import { noop } from 'lodash';
 import keycode from 'keycode';
 import { Input as SemanticInput } from 'semantic-ui-react';
 
-import { nodeOrStringProptype } from '@parity/shared/util/proptypes';
-import { parseI18NString } from '@parity/shared/util/messages';
+import { nodeOrStringProptype } from '@parity/shared/lib/util/proptypes';
+import { parseI18NString } from '@parity/shared/lib/util/messages';
 
 import CopyToClipboard from '../../CopyToClipboard';
 import LabelWrapper from '../LabelWrapper';

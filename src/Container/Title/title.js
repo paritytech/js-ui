@@ -17,7 +17,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { nodeOrStringProptype } from '@parity/shared/util/proptypes';
+import { nodeOrStringProptype } from '@parity/shared/lib/util/proptypes';
 
 import Actions from './Actions';
 import Byline from './Byline';

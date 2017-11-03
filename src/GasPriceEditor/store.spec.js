@@ -19,8 +19,8 @@
 import BigNumber from 'bignumber.js';
 import sinon from 'sinon';
 
-import { DEFAULT_GAS, DEFAULT_GASPRICE, MAX_GAS_ESTIMATION } from '@parity/shared/util/constants';
-import { ERRORS } from '@parity/shared/util/validation';
+import { DEFAULT_GAS, DEFAULT_GASPRICE, MAX_GAS_ESTIMATION } from '@parity/shared/lib/util/constants';
+import { ERRORS } from '@parity/shared/lib/util/validation';
 
 import GasPriceEditor from './gasPriceEditor';
 import { CONDITIONS } from './store';

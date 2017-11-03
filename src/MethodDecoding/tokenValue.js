@@ -19,7 +19,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 
-import { fetchTokens } from '@parity/shared/redux/providers/tokensActions';
+import { fetchTokens } from '@parity/shared/lib/redux/providers/tokensActions';
 
 import styles from './methodDecoding.css';
 

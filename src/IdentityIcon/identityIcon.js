@@ -18,7 +18,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import { createIdentityImg } from '@parity/api/lib/util/identity';
-import { isNullAddress } from '@parity/shared/util/validation';
+import { isNullAddress } from '@parity/shared/lib/util/validation';
 
 import IconCache from '../IconCache';
 import { CancelIcon, ContractIcon } from '../Icons';

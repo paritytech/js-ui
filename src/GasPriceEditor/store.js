@@ -17,8 +17,8 @@
 import BigNumber from 'bignumber.js';
 import { action, computed, observable, transaction } from 'mobx';
 
-import { ERRORS, validatePositiveNumber } from '@parity/shared/util/validation';
-import { DEFAULT_GAS, DEFAULT_GASPRICE, MAX_GAS_ESTIMATION } from '@parity/shared/util/constants';
+import { ERRORS, validatePositiveNumber } from '@parity/shared/lib/util/validation';
+import { DEFAULT_GAS, DEFAULT_GASPRICE, MAX_GAS_ESTIMATION } from '@parity/shared/lib/util/constants';
 
 const CONDITIONS = {
   NONE: 'none',

@@ -20,7 +20,7 @@ import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 import { observer } from 'mobx-react';
 
-import { DEFAULT_GAS } from '@parity/shared/util/constants';
+import { DEFAULT_GAS } from '@parity/shared/lib/util/constants';
 import { txLink } from '@parity/etherscan';
 
 import NetChainStore from '../NetChain/store';

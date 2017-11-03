@@ -22,7 +22,7 @@ import ReactPortal from 'react-portal';
 import keycode from 'keycode';
 import { noop } from 'lodash';
 
-import { nodeOrStringProptype } from '@parity/shared/util/proptypes';
+import { nodeOrStringProptype } from '@parity/shared/lib/util/proptypes';
 
 import { CloseIcon } from '../Icons';
 import StackEventListener from '../StackEventListener';

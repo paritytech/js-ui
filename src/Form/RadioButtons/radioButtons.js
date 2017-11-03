@@ -18,7 +18,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Radio as SemanticRadio } from 'semantic-ui-react';
 
-import { arrayOrObjectProptype } from '@parity/shared/util/proptypes';
+import { arrayOrObjectProptype } from '@parity/shared/lib/util/proptypes';
 
 import LabelWrapper from '../LabelWrapper';
 import Label from '../Label';

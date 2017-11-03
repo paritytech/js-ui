@@ -53,7 +53,7 @@
   "dependencies": {
     "@parity/api": "2.1.x",
     "@parity/etherscan": "2.1.x",
-    "@parity/shared": "2.1.x",
+    "@parity/shared": "2.2.x",
     "bignumber.js": "3.0.1",
     "brace": "0.9.0",
     "date-difference": "1.0.0",

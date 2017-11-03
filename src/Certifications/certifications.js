@@ -18,7 +18,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import defaultIcon from '@parity/shared/assets/images/certifications/unknown.svg';
+import defaultIcon from '@parity/shared/lib/assets/images/certifications/unknown.svg';
 
 import IconCache from '../IconCache';
 

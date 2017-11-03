@@ -18,7 +18,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 
-import { generateTxQr, generateDecryptQr, generateDataQr } from '@parity/shared/util/qrscan';
+import { generateTxQr, generateDecryptQr, generateDataQr } from '@parity/shared/lib/util/qrscan';
 
 import Button from '../../Button';
 import Form from '../../Form';

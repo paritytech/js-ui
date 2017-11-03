@@ -17,7 +17,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import { arrayOrObjectProptype } from '@parity/shared/util/proptypes';
+import { arrayOrObjectProptype } from '@parity/shared/lib/util/proptypes';
 
 import styles from './tags.css';
 

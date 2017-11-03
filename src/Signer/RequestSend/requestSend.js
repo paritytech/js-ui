@@ -19,7 +19,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 
-import SignerStore from '@parity/shared/mobx/signerStore';
+import SignerStore from '@parity/shared/lib/mobx/signerStore';
 
 import Button from '../../Button';
 import GasPriceEditor from '../../GasPriceEditor';

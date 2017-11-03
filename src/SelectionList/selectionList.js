@@ -18,7 +18,7 @@ import { noop } from 'lodash';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import { arrayOrObjectProptype } from '@parity/shared/util/proptypes';
+import { arrayOrObjectProptype } from '@parity/shared/lib/util/proptypes';
 
 import { StarIcon } from '../Icons';
 import SectionList from '../SectionList';

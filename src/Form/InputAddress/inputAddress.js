@@ -19,8 +19,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import util from '@parity/api/lib/util';
-import { nodeOrStringProptype } from '@parity/shared/util/proptypes';
-import { isNullAddress } from '@parity/shared/util/validation';
+import { nodeOrStringProptype } from '@parity/shared/lib/util/proptypes';
+import { isNullAddress } from '@parity/shared/lib/util/validation';
 
 import IdentityIcon from '../../IdentityIcon';
 import Input from '../Input';

@@ -18,7 +18,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Dropdown as SemanticDropdown } from 'semantic-ui-react';
 
-import { parseI18NString } from '@parity/shared/util/messages';
+import { parseI18NString } from '@parity/shared/lib/util/messages';
 
 import LabelWrapper from '../LabelWrapper';
 

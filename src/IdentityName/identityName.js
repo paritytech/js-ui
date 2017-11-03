@@ -19,7 +19,7 @@ import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 import { connect } from 'react-redux';
 
-import { isNullAddress } from '@parity/shared/util/validation';
+import { isNullAddress } from '@parity/shared/lib/util/validation';
 
 import ShortenedHash from '../ShortenedHash';
 

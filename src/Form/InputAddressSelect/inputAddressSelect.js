@@ -19,7 +19,7 @@ import PropTypes from 'prop-types';
 import { pick } from 'lodash';
 import { connect } from 'react-redux';
 
-import { nodeOrStringProptype } from '@parity/shared/util/proptypes';
+import { nodeOrStringProptype } from '@parity/shared/lib/util/proptypes';
 
 import AddressSelect from '../AddressSelect';
 

@@ -24,9 +24,9 @@ import { FormattedMessage } from 'react-intl';
 import { observer } from 'mobx-react';
 
 import apiutil from '@parity/api/lib/util';
-import { nodeOrStringProptype } from '@parity/shared/util/proptypes';
-import { parseI18NString } from '@parity/shared/util/messages';
-import { validateAddress } from '@parity/shared/util/validation';
+import { nodeOrStringProptype } from '@parity/shared/lib/util/proptypes';
+import { parseI18NString } from '@parity/shared/lib/util/messages';
+import { validateAddress } from '@parity/shared/lib/util/validation';
 
 import AccountCard from '../../AccountCard';
 import CopyToClipboard from '../../CopyToClipboard';

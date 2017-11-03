@@ -21,8 +21,8 @@ import BigNumber from 'bignumber.js';
 
 import { fromWei, toWei } from '@parity/api/lib/util/wei';
 import { bytesToHex } from '@parity/api/lib/util/format';
-import { ABI_TYPES, parseAbiType } from '@parity/shared/util/abi';
-import { nodeOrStringProptype } from '@parity/shared/util/proptypes';
+import { ABI_TYPES, parseAbiType } from '@parity/shared/lib/util/abi';
+import { nodeOrStringProptype } from '@parity/shared/lib/util/proptypes';
 
 import Button from '../../Button';
 import Dropdown from '../../Form/Dropdown';

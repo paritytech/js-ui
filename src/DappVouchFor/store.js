@@ -17,8 +17,8 @@
 import { action, observable } from 'mobx';
 import { uniq } from 'lodash';
 
-import Contracts from '@parity/shared/contracts';
-import { vouchfor as vouchForAbi } from '@parity/shared/contracts/abi';
+import Contracts from '@parity/shared/lib/contracts';
+import { vouchfor as vouchForAbi } from '@parity/shared/lib/contracts/abi';
 
 let contractPromise = null;
 

@@ -18,7 +18,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 
-import HardwareStore from '@parity/shared/mobx/hardwareStore';
+import HardwareStore from '@parity/shared/lib/mobx/hardwareStore';
 
 import Button from '../../Button';
 import Form from '../../Form';
