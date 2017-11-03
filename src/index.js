@@ -16,7 +16,7 @@
 
 import 'semantic-ui-css/semantic.css';
 
-import packageJson from './package.json';
+import packageJson from '../package.json';
 
 export AccountCard from './AccountCard';
 export Actionbar, { Export as ActionbarExport, Import as ActionbarImport, Search as ActionbarSearch, Sort as ActionbarSort } from './Actionbar';
