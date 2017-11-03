@@ -19,7 +19,7 @@
   },
   "keywords": [],
   "scripts": {
-    "build": "babel src --out-dir lib --ignore *.spec.js",
+    "build": "babel src --out-dir lib --ignore *.spec.js --copy-files",
     "lint": "npm run lint:css && npm run lint:js",
     "lint:css": "stylelint ./src/**/*.css",
     "lint:js": "eslint src",
