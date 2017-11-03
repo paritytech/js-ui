@@ -8,8 +8,7 @@
     "transform-decorators-legacy",
     "transform-class-properties",
     "transform-object-rest-spread",
-    "transform-react-remove-prop-types",
-    "transform-es2015-modules-commonjs"
+    "transform-react-remove-prop-types"
   ],
   "retainLines": true
 }
