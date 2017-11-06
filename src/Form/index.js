@@ -25,6 +25,7 @@ export InputAddressSelect from './InputAddressSelect';
 export InputChip from './InputChip';
 export InputDateTime from './InputDateTime';
 export Label from './Label';
+export LabelWrapper from './LabelWrapper';
 export RadioButtons from './RadioButtons';
 export Toggle from './Toggle';
 export TypedInput from './TypedInput';

@@ -37,7 +37,7 @@ export DappIcon from './DappIcon';
 export DappLink from './DappLink';
 export Errors from './Errors';
 export Features, { FEATURES, FeaturesStore } from './Features';
-export Form, { AddressSelect, Checkbox, DappUrlInput, Dropdown, FileSelect, Input, InputAddress, InputAddressSelect, InputChip, InputDateTime, Label, RadioButtons, Slider, Toggle, TypedInput, VaultSelect, Tab } from './Form';
+export Form, { AddressSelect, Checkbox, DappUrlInput, Dropdown, FileSelect, Input, InputAddress, InputAddressSelect, InputChip, InputDateTime, Label, LabelWrapper, RadioButtons, Slider, Toggle, TypedInput, VaultSelect, Tab } from './Form';
 export GasPriceEditor from './GasPriceEditor';
 export GasPriceSelector from './GasPriceSelector';
 export GradientBg from './GradientBg';
