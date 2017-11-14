@@ -1,7 +1,7 @@
 {
   "name": "@parity/ui",
   "description": "Parity React UI components",
-  "version": "2.2.10",
+  "version": "2.2.11",
   "main": "lib/index.js",
   "module": "src/index.js",
   "jsnext:main": "src/index.js",
