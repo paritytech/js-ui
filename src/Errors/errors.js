@@ -82,9 +82,7 @@ class Errors extends Component {
   }
 
   onRequestClose = (reason) => {
-    if (reason === 'timeout') {
-      this.props.onCloseErrors();
-    }
+    this.props.onCloseErrors();
   }
 }
 
