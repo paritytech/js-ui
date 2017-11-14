@@ -29,8 +29,9 @@ export default class Snackbar extends Component {
     action: PropTypes.any,
     open: PropTypes.bool,
     message: PropTypes.string,
-    autoHideDuration: PropTypes.number,
+    autoHideDuration: PropTypes.number, // eslint-disable-line
     bodyStyle: PropTypes.object,
+    className: PropTypes.string,
     onRequestClose: PropTypes.func
   };
 
@@ -38,24 +39,32 @@ export default class Snackbar extends Component {
     autoHideDuration: 3500
   };
 
+  componentWillMount () {
+    this.updateState(this.props);
+  }
+
   componentWillUpdate (nextProps) {
+    this.updateState(nextProps);
+  }
+
+  updateState (props) {
     if (this.state.opened) {
       return;
     }
 
-    if (nextProps.open === true) {
+    if (props.open === true) {
       this.show();
 
-      setTimeout(this.hide, nextProps.autoHideDuration);
+      setTimeout(this.hide, props.autoHideDuration);
     }
   }
 
   render () {
-    const { bodyStyle, message } = this.props;
+    const { bodyStyle, className, message, open } = this.props;
     const { opened } = this.state;
     let { action } = this.props;
 
-    if (!opened) {
+    if (!opened || !open) {
       return false;
     }
 
@@ -69,7 +78,7 @@ export default class Snackbar extends Component {
     }
 
     return (
-      <div className={ styles.snacks }>
+      <div className={ `${styles.snacks} ${className}` }>
         <div style={ bodyStyle }>
           <span>{ message }</span>
           <span id={ styles.action } onClick={ this.autoHide }>{ action }</span>
