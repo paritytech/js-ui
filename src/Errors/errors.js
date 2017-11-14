@@ -48,8 +48,6 @@ class Errors extends Component {
       return null;
     }
 
-    const text = this.getErrorMessage();
-
     return (
       <Snackbar
         className={ styles.container }
@@ -61,7 +59,7 @@ class Errors extends Component {
           />
         }
         autoHideDuration={ DURATION_OPEN }
-        message={ text }
+        message={ this.getErrorMessage() }
         onRequestClose={ this.onRequestClose }
         bodyStyle={ STYLE_CONTENT }
       />
