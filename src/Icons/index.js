@@ -50,6 +50,7 @@ export const FileUploadIcon = (props) => createIcon('upload', props);
 export const FingerprintIcon = (props) => createIcon('target', props);
 export const GasIcon = (props) => createIcon('settings', props);
 export const GotoIcon = (props) => createIcon('arrow circle right', props);
+export const HomeIcon = (props) => createIcon('home', props);
 export const InfoIcon = (props) => createIcon('info circle', props);
 export const KeyIcon = (props) => createIcon('key', props);
 export const KeyboardIcon = (props) => createIcon('keyboard', props);
