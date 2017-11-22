@@ -14,6 +14,7 @@
 // You should have received a copy of the GNU General Public License
 // along with Parity.  If not, see <http://www.gnu.org/licenses/>.
 
+import Api from '@parity/api';
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -31,14 +32,38 @@ export default function DappIcon ({ app, className, small }, { api }) {
     return createIcon(app['semantic-icon'], { className: classes });
   }
 
+  let imageSrc;
+
+  if (app.type === 'builtin' || app.type === 'view') {
+    let dapphost = process.env.DAPPS_URL || (
+      process.env.NODE_ENV === 'production'
+        ? `${dappsUrl}/ui`
+        : ''
+    );
+
+    if (dapphost === '/') {
+      dapphost = '';
+    }
+
+    const appId = Api.util.isHex(app.id)
+      ? app.id
+      : Api.util.sha3(app.url);
+
+    const fallbackSrc = window.location.protocol === 'file:'
+      ? `dapps/${appId}/icon.png`
+      : `${dapphost}/dapps/${appId}/icon.png`;
+
+    imageSrc = app.image || fallbackSrc;
+  } else if (app.type === 'local') {
+    imageSrc = `${dappsUrl}/${app.id}/${app.iconUrl}`;
+  } else {
+    imageSrc = app.image;
+  }
+
   return (
     <img
       className={ classes }
-      src={
-        app.type === 'local'
-          ? `${dappsUrl}/${app.id}/${app.iconUrl}`
-          : `${app.image}`
-      }
+      src={ imageSrc }
     />
   );
 }
