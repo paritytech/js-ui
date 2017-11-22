@@ -20,6 +20,7 @@
   "keywords": [],
   "scripts": {
     "build": "babel src --out-dir lib --ignore *.spec.js --copy-files",
+    "ci:makeshift": "makeshift",
     "lint": "npm run lint:css && npm run lint:js",
     "lint:css": "stylelint ./src/**/*.css",
     "lint:js": "eslint src",
@@ -47,6 +48,7 @@
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-react": "^7.1.0",
     "eslint-plugin-standard": "^3.0.1",
+    "makeshift": "^1.1.0",
     "stylelint": "^8.2.0",
     "stylelint-config-standard": "^17.0.0"
   },
