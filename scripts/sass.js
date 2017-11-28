@@ -1,13 +1,13 @@
 // Preprocess SASS to CSS in babel
 // https://github.com/michalkvasnicak/babel-plugin-css-modules-transform#using-a-preprocessor
 var sass = require('node-sass');
-var path = require('path');
 
-module.exports = function processSass(data, filename) {
-    var result;
-    result = sass.renderSync({
-        data: data,
-        file: filename
-    }).css;
-    return result.toString('utf8');
+module.exports = function processSass (data, filename) {
+  var result;
+
+  result = sass.renderSync({
+    data: data,
+    file: filename
+  }).css;
+  return result.toString('utf8');
 };
