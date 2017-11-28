@@ -86,8 +86,8 @@ $backgroundOverlay: rgba(255, 255, 255, 0.95);
   &.popover {
     left: $popoverLeft;
     top: $popoverTop;
-    height: calc(100vh - $popoverTop - $popoverBottom);
-    width: calc(100vw - $popoverLeft - $popoverRight);
+    height: calc(100vh - #{$popoverTop} - #{$popoverBottom});
+    width: calc(100vw - #{$popoverLeft} - #{$popoverRight});
     z-index: $popoverZ;
   }
 
