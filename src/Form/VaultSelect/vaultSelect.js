@@ -63,7 +63,7 @@ export default class VaultSelect extends Component {
       <div>
         { this.renderSelector() }
         <InputAddress
-          allowCopy={ false }
+          allowCopy={false}
           allowInvalid
           disabled
           hint={
@@ -78,8 +78,8 @@ export default class VaultSelect extends Component {
               defaultMessage='associated vault'
             />
           }
-          onClick={ this.openSelector }
-          value={ (value || '').toUpperCase() }
+          onClick={this.openSelector}
+          value={(value || '').toUpperCase()}
         />
       </div>
     );
@@ -95,10 +95,10 @@ export default class VaultSelect extends Component {
 
     return (
       <VaultSelector
-        onClose={ this.closeSelector }
-        onSelect={ this.onSelect }
-        selected={ value }
-        vaultStore={ this.vaultStore }
+        onClose={this.closeSelector}
+        onSelect={this.onSelect}
+        selected={value}
+        vaultStore={this.vaultStore}
       />
     );
   }

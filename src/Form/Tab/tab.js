@@ -22,12 +22,12 @@ import { Tab as SemanticTab } from 'semantic-ui-react';
 export default function Tab ({ activeIndex, as, defaultActiveIndex, menu, onTabChange, panes, label }) {
   return (
     <SemanticTab
-      activeIndex={ activeIndex }
-      as={ as }
-      defaultActiveIndex={ defaultActiveIndex }
-      menu={ menu }
-      onTabChange={ onTabChange }
-      panes={ panes }
+      activeIndex={activeIndex}
+      as={as}
+      defaultActiveIndex={defaultActiveIndex}
+      menu={menu}
+      onTabChange={onTabChange}
+      panes={panes}
     />
   );
 }

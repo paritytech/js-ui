@@ -23,7 +23,7 @@ export default function Balance ({ className, value }) {
     : '?';
 
   return (
-    <span className={ className }> <strong>{ formatted }</strong> <small>ETH</small></span>
+    <span className={className}> <strong>{ formatted }</strong> <small>ETH</small></span>
   );
 }
 

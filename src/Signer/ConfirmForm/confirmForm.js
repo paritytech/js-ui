@@ -60,27 +60,27 @@ export default class ConfirmForm extends Component {
     const ConfirmVia = confirmElement;
 
     return (
-      <Layout.Side className={ className }>
+      <Layout.Side className={className}>
         {
           isRejectOpen
-            ? <ConfirmReject onReject={ onReject } />
+            ? <ConfirmReject onReject={onReject} />
             : (
               <ConfirmVia
-                address={ address }
-                account={ account }
-                id={ id }
-                isDisabled={ isDisabled }
-                isFocussed={ isFocussed }
-                isSending={ isSending }
-                netVersion={ netVersion }
-                onConfirm={ onConfirm }
-                dataToSign={ dataToSign }
+                address={address}
+                account={account}
+                id={id}
+                isDisabled={isDisabled}
+                isFocussed={isFocussed}
+                isSending={isSending}
+                netVersion={netVersion}
+                onConfirm={onConfirm}
+                dataToSign={dataToSign}
               />
             )
         }
         <ConfirmRejectToggle
-          isRejectOpen={ isRejectOpen }
-          onToggle={ this.onToggleReject }
+          isRejectOpen={isRejectOpen}
+          onToggle={this.onToggleReject}
         />
       </Layout.Side>
     );

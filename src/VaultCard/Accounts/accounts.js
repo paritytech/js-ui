@@ -30,7 +30,7 @@ export default function Accounts ({ accounts, hideAccounts }) {
 
   if (!accounts || !accounts.length) {
     return (
-      <div className={ styles.empty }>
+      <div className={styles.empty}>
         <FormattedMessage
           id='vaults.accounts.empty'
           defaultMessage='There are no accounts in this vault'
@@ -40,17 +40,17 @@ export default function Accounts ({ accounts, hideAccounts }) {
   }
 
   return (
-    <div className={ styles.accounts }>
+    <div className={styles.accounts}>
       {
         accounts.map((address) => (
           <DappLink
-            key={ address }
-            to={ `/accounts/${address}` }
+            key={address}
+            to={`/accounts/${address}`}
           >
             <IdentityIcon
-              address={ address }
+              address={address}
               center
-              className={ styles.account }
+              className={styles.account}
             />
           </DappLink>
         ))

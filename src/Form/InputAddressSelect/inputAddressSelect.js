@@ -42,18 +42,18 @@ function InputAddressSelect ({ accounts, allowCopy, allowedValues, className, co
 
   return (
     <AddressSelect
-      allowCopy={ allowCopy }
+      allowCopy={allowCopy}
       allowInput
-      accounts={ filteredAccounts }
-      className={ className }
-      contacts={ contacts }
-      contracts={ contracts }
-      error={ error }
-      hint={ hint }
-      label={ label }
-      onChange={ onChange }
-      readOnly={ readOnly }
-      value={ value }
+      accounts={filteredAccounts}
+      className={className}
+      contacts={contacts}
+      contracts={contracts}
+      error={error}
+      hint={hint}
+      label={label}
+      onChange={onChange}
+      readOnly={readOnly}
+      value={value}
     />
   );
 }

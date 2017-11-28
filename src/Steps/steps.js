@@ -26,15 +26,15 @@ export default function Steps ({ activeStep, className, steps }) {
   }
 
   return (
-    <div className={ className }>
+    <div className={className}>
       <SemanticStep.Group ordered>
         {
           steps.filter((step) => step).map((step, index) => (
             <Step
-              isActive={ activeStep === index }
-              isCompleted={ activeStep > index }
-              key={ step.key || index }
-              label={ step.label || step }
+              isActive={activeStep === index}
+              isCompleted={activeStep > index}
+              key={step.key || index}
+              label={step.label || step}
             />
           ))
         }

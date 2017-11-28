@@ -45,7 +45,7 @@ function CurrencySymbol ({ className }, { api }) {
   const store = Store.get(api);
 
   return (
-    <span className={ className }>
+    <span className={className}>
       { renderSymbol(store.netChain) }
     </span>
   );

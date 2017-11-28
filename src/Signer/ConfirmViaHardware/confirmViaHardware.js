@@ -45,24 +45,24 @@ export default class ConfirmViaHardware extends Component {
     const _isDisabled = isDisabled || !this.hardwareStore.isConnected(address);
 
     return (
-      <div className={ styles.confirmForm }>
+      <div className={styles.confirmForm}>
         <Form>
           { this.renderHint() }
           <div
             data-effect='solid'
-            data-for={ `transactionConfirmForm${this.id}` }
+            data-for={`transactionConfirmForm${this.id}`}
             data-place='bottom'
             data-tip
           >
             <Button
-              className={ styles.confirmButton }
-              isDisabled={ _isDisabled || isSending }
+              className={styles.confirmButton}
+              isDisabled={_isDisabled || isSending}
               fullWidth
               icon={
                 <IdentityIcon
-                  address={ address }
+                  address={address}
                   button
-                  className={ styles.signerIcon }
+                  className={styles.signerIcon}
                 />
               }
               label={
@@ -80,7 +80,7 @@ export default class ConfirmViaHardware extends Component {
                     />
                   )
               }
-              onClick={ onConfirm }
+              onClick={onConfirm}
             />
           </div>
         </Form>
@@ -94,7 +94,7 @@ export default class ConfirmViaHardware extends Component {
 
     if (isSending) {
       return (
-        <div className={ styles.passwordHint }>
+        <div className={styles.passwordHint}>
           <FormattedMessage
             id='signer.sending.hardware.confirm'
             defaultMessage='Please confirm the transaction on your attached hardware device'
@@ -103,7 +103,7 @@ export default class ConfirmViaHardware extends Component {
       );
     } else if (_isDisabled) {
       return (
-        <div className={ styles.passwordHint }>
+        <div className={styles.passwordHint}>
           <FormattedMessage
             id='signer.sending.hardware.connect'
             defaultMessage='Please attach your hardware device before confirming the transaction'

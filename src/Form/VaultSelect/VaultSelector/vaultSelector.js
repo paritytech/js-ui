@@ -36,7 +36,7 @@ export default class VaultSelector extends Component {
     return (
       <Portal
         isChildModal
-        onClose={ this.onClose }
+        onClose={this.onClose}
         open
         title={
           <FormattedMessage
@@ -64,11 +64,11 @@ export default class VaultSelector extends Component {
 
     return (
       <SelectionList
-        items={ vaultsOpened }
-        isChecked={ this.isSelected }
+        items={vaultsOpened}
+        isChecked={this.isSelected}
         noStretch
-        onSelectClick={ this.onSelect }
-        renderItem={ this.renderVault }
+        onSelectClick={this.onSelect}
+        renderItem={this.renderVault}
       />
     );
   }
@@ -78,7 +78,7 @@ export default class VaultSelector extends Component {
       <VaultCard
         hideAccounts
         hideButtons
-        vault={ vault }
+        vault={vault}
       />
     );
   }

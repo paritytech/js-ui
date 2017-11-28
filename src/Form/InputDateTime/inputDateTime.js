@@ -31,17 +31,17 @@ export default function InputDateTime ({ className, hint, label, onChange, value
 
   return (
     <LabelWrapper
-      className={ `${styles.container} ${className}` }
-      label={ label }
+      className={`${styles.container} ${className}`}
+      label={label}
     >
       <div className='ui fluid input'>
         <DateTime
-          className={ styles.input }
-          inputProps={ {
+          className={styles.input}
+          inputProps={{
             placeholder: parseI18NString(context, hint)
-          } }
-          onChange={ _onChange }
-          value={ value }
+          }}
+          onChange={_onChange}
+          value={value}
         />
       </div>
     </LabelWrapper>

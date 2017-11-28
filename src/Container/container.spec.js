@@ -23,7 +23,7 @@ import Container from './container';
 
 function render (props) {
   return shallow(
-    <Container { ...props } />
+    <Container {...props} />
   );
 }
 

@@ -57,8 +57,8 @@ export default class SectionList extends Component {
     }
 
     return (
-      <section className={ [styles.section, className].join(' ') }>
-        <Overlay overlay={ overlay } />
+      <section className={[styles.section, className].join(' ')}>
+        <Overlay overlay={overlay} />
         { chunkArray(rendered, ITEMS_PER_ROW).map(this.renderRow) }
       </section>
     );
@@ -67,8 +67,8 @@ export default class SectionList extends Component {
   renderRow = (row, index) => {
     return (
       <div
-        className={ styles.row }
-        key={ `row_${index}` }
+        className={styles.row}
+        key={`row_${index}`}
       >
         { row }
       </div>
@@ -85,13 +85,13 @@ export default class SectionList extends Component {
 
     return (
       <div
-        className={ [
+        className={[
           styles.item,
           noStretch
             ? styles.stretchOff
             : styles.stretchOn
-        ].join(' ') }
-        key={ `item_${index}` }
+        ].join(' ')}
+        key={`item_${index}`}
       >
         { itemRendered }
       </div>

@@ -26,11 +26,11 @@ export default function Byline ({ byline }) {
   }
 
   return (
-    <div className={ styles.byline }>
+    <div className={styles.byline}>
       {
         typeof byline === 'string'
           ? (
-            <span title={ byline }>
+            <span title={byline}>
               { byline }
             </span>
           )

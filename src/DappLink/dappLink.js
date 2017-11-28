@@ -27,8 +27,8 @@ export default function DappLink ({ children, className, to }, { api }) {
 
   return (
     <div
-      className={ [styles.link, className].join(' ') }
-      onClick={ onClick }
+      className={[styles.link, className].join(' ')}
+      onClick={onClick}
     >
       { children }
     </div>

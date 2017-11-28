@@ -54,8 +54,8 @@ export default class SectionListExample extends Component {
   renderSimple () {
     return (
       <SectionList
-        items={ items }
-        renderItem={ this.renderItem }
+        items={items}
+        renderItem={this.renderItem}
       />
     );
   }
@@ -65,15 +65,15 @@ export default class SectionListExample extends Component {
     const overlay = (
       <div>
         <p>Overlay</p>
-        <button onClick={ this.hideOverlay }>hide</button>
+        <button onClick={this.hideOverlay}>hide</button>
       </div>
     );
 
     return (
       <SectionList
-        items={ items }
-        overlay={ showOverlay ? overlay : null }
-        renderItem={ this.renderItem }
+        items={items}
+        overlay={showOverlay ? overlay : null}
+        renderItem={this.renderItem}
       />
     );
   }
@@ -82,7 +82,7 @@ export default class SectionListExample extends Component {
     const { desc, name } = item;
 
     return (
-      <div style={ ITEM_STYLE }>
+      <div style={ITEM_STYLE}>
         <h3>{ name }</h3>
         <h3 data-hover='show'>{ desc }</h3>
       </div>

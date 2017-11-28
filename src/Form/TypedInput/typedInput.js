@@ -114,22 +114,22 @@ export default class TypedInput extends Component {
 
         return (
           <TypedInput
-            allowCopy={ allowCopy }
-            allowedValues={ allowedValues }
-            className={ className }
-            key={ `${subtype.type}_${index}` }
-            onChange={ onChange }
-            param={ subtype }
-            readOnly={ readOnly }
-            value={ value[index] }
+            allowCopy={allowCopy}
+            allowedValues={allowedValues}
+            className={className}
+            key={`${subtype.type}_${index}`}
+            onChange={onChange}
+            param={subtype}
+            readOnly={readOnly}
+            value={value[index]}
           />
         );
       });
 
       return (
         <LabelWrapper
-          className={ styles.inputs }
-          label={ label }
+          className={styles.inputs}
+          label={label}
         >
           { fixedLength || readOnly ? null : this.renderLength() }
           { inputs }
@@ -146,14 +146,14 @@ export default class TypedInput extends Component {
 
   renderLength () {
     return (
-      <div style={ { marginTop: '0.75em' } }>
+      <div style={{ marginTop: '0.75em' }}>
         <Button
-          icon={ <AddIcon /> }
-          onClick={ this.onAddField }
+          icon={<AddIcon />}
+          onClick={this.onAddField}
         />
         <Button
-          icon={ <RemoveIcon /> }
-          onClick={ this.onRemoveField }
+          icon={<RemoveIcon />}
+          onClick={this.onRemoveField}
         />
       </div>
     );
@@ -215,16 +215,16 @@ export default class TypedInput extends Component {
       : this.renderInteger(value, this.onEthValueChange);
 
     return (
-      <div className={ styles.ethInput }>
-        <div className={ styles.input }>
+      <div className={styles.ethInput}>
+        <div className={styles.input}>
           { input }
-          { isEth ? (<div className={ styles.label }>ETH</div>) : null }
+          { isEth ? (<div className={styles.label}>ETH</div>) : null }
         </div>
-        <div className={ styles.toggle }>
+        <div className={styles.toggle}>
           <Toggle
-            toggled={ this.state.isEth }
-            onToggle={ this.onEthTypeChange }
-            style={ { width: 46 } }
+            toggled={this.state.isEth}
+            onToggle={this.onEthTypeChange}
+            style={{ width: 46 }}
           />
         </div>
       </div>
@@ -255,18 +255,18 @@ export default class TypedInput extends Component {
 
     return (
       <Input
-        allowCopy={ allowCopy ? this.getNumberValue(value, false) : undefined }
-        className={ className }
-        label={ label }
-        hint={ hint }
-        value={ realValue }
-        error={ error }
-        onChange={ onChange }
-        readOnly={ readOnly }
-        type={ readOnly ? 'text' : 'number' }
-        step={ 1 }
-        min={ min !== null ? min : (param.signed ? null : 0) }
-        max={ max !== null ? max : null }
+        allowCopy={allowCopy ? this.getNumberValue(value, false) : undefined}
+        className={className}
+        label={label}
+        hint={hint}
+        value={realValue}
+        error={error}
+        onChange={onChange}
+        readOnly={readOnly}
+        type={readOnly ? 'text' : 'number'}
+        step={1}
+        min={min !== null ? min : (param.signed ? null : 0)}
+        max={max !== null ? max : null}
       />
     );
   }
@@ -286,17 +286,17 @@ export default class TypedInput extends Component {
 
     return (
       <Input
-        allowCopy={ allowCopy ? this.getNumberValue(value, false) : undefined }
-        className={ className }
-        label={ label }
-        hint={ hint }
-        value={ realValue }
-        error={ error }
-        onChange={ onChange }
-        readOnly={ readOnly }
+        allowCopy={allowCopy ? this.getNumberValue(value, false) : undefined}
+        className={className}
+        label={label}
+        hint={hint}
+        value={realValue}
+        error={error}
+        onChange={onChange}
+        readOnly={readOnly}
         type='text'
-        min={ min !== null ? min : (param.signed ? null : 0) }
-        max={ max !== null ? max : null }
+        min={min !== null ? min : (param.signed ? null : 0)}
+        max={max !== null ? max : null}
       />
     );
   }
@@ -306,14 +306,14 @@ export default class TypedInput extends Component {
 
     return (
       <Input
-        allowCopy={ allowCopy }
-        className={ className }
-        label={ label }
-        hint={ hint }
-        value={ value }
-        error={ error }
-        onSubmit={ this.onSubmit }
-        readOnly={ readOnly }
+        allowCopy={allowCopy}
+        className={className}
+        label={label}
+        hint={hint}
+        value={value}
+        error={error}
+        onSubmit={this.onSubmit}
+        readOnly={readOnly}
       />
     );
   }
@@ -324,15 +324,15 @@ export default class TypedInput extends Component {
 
     return (
       <InputAddressSelect
-        allowCopy={ allowCopy }
-        allowedValues={ allowedValues }
-        className={ className }
-        error={ error }
-        hint={ hint }
-        label={ label }
-        onChange={ this.onChange }
-        readOnly={ readOnly }
-        value={ value }
+        allowCopy={allowCopy}
+        allowedValues={allowedValues}
+        className={className}
+        error={error}
+        hint={hint}
+        label={label}
+        onChange={this.onChange}
+        readOnly={readOnly}
+        value={value}
       />
     );
   }
@@ -349,13 +349,13 @@ export default class TypedInput extends Component {
 
     return (
       <Dropdown
-        allowCopy={ allowCopy }
-        className={ className }
-        error={ error }
-        hint={ hint }
-        label={ label }
-        onChange={ this.onChangeBool }
-        value={ value }
+        allowCopy={allowCopy}
+        className={className}
+        error={error}
+        hint={hint}
+        label={label}
+        onChange={this.onChangeBool}
+        value={value}
         options={
           ['false', 'true'].map((bool) => {
             return {

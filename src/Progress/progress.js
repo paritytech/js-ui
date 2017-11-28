@@ -21,16 +21,16 @@ import { Progress as SemanticProgress } from 'semantic-ui-react';
 export default function Progress ({ className, color, isDeterminate, max, style, value }) {
   return (
     <SemanticProgress
-      className={ className }
-      color={ color }
-      indicating={ !isDeterminate }
+      className={className}
+      color={color}
+      indicating={!isDeterminate}
       percent={
         isDeterminate
           ? 100 * value / max
           : 100
       }
       size='small'
-      style={ style }
+      style={style}
     />
   );
 }

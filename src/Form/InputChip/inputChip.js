@@ -60,17 +60,17 @@ export default class InputChip extends Component {
 
     return (
       <LabelWrapper
-        className={ className }
-        label={ label }
+        className={className}
+        label={label}
       >
         <SemanticInput
           fluid
-          onBlur={ this.onBlur }
-          onChange={ this.onChange }
-          onKeyDown={ this.onKeyDown }
-          placeholder={ parseI18NString(this.context, hint) }
+          onBlur={this.onBlur}
+          onChange={this.onChange}
+          onKeyDown={this.onKeyDown}
+          placeholder={parseI18NString(this.context, hint)}
           ref='chipInput'
-          value={ textValue }
+          value={textValue}
         >
           <input />
         </SemanticInput>
@@ -86,9 +86,9 @@ export default class InputChip extends Component {
 
     return (
       <Chip
-        key={ chip }
-        label={ chip }
-        onDelete={ onDelete }
+        key={chip}
+        label={chip}
+        onDelete={onDelete}
       />
     );
   }

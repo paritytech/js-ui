@@ -33,9 +33,9 @@ function SignerPending ({ className, onClick }, { api }) {
   return (
     <Badge
       color='red'
-      className={ className }
-      onClick={ onClick }
-      value={ pendingCount }
+      className={className}
+      onClick={onClick}
+      value={pendingCount}
     />
   );
 }

@@ -26,12 +26,12 @@ let component;
 function render (props = {}) {
   component = shallow(
     <Title
-      activeStep={ 0 }
+      activeStep={0}
       byline='testByline'
       className='testClass'
       description='testDescription'
       title='testTitle'
-      { ...props }
+      {...props}
     />
   );
 

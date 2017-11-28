@@ -64,23 +64,23 @@ export default class TransactionDetails extends Component {
 
     return (
       <Layout.Main>
-        <div className={ styles.from }>
-          <div className={ styles.account }>
+        <div className={styles.from}>
+          <div className={styles.account}>
             <Account
-              accounts={ accounts }
-              address={ from }
-              balance={ fromBalance }
-              externalLink={ externalLink }
-              isDisabled={ isDisabled }
-              netVersion={ netVersion }
+              accounts={accounts}
+              address={from}
+              balance={fromBalance}
+              externalLink={externalLink}
+              isDisabled={isDisabled}
+              netVersion={netVersion}
             />
           </div>
-          <Origin origin={ origin } />
+          <Origin origin={origin} />
         </div>
-        <div className={ styles.method }>
+        <div className={styles.method}>
           <MethodDecoding
-            address={ from }
-            historic={ false }
+            address={from}
+            historic={false}
             transaction={
               gasStore
                 ? gasStore.overrideTransaction(transaction)
@@ -102,16 +102,16 @@ export default class TransactionDetails extends Component {
     }
 
     return (
-      <div className={ styles.editButtonRow }>
+      <div className={styles.editButtonRow}>
         <Button
-          icon={ <GasIcon /> }
+          icon={<GasIcon />}
           label={
             <FormattedMessage
               id='signer.mainDetails.editTx'
               defaultMessage='Edit conditions/gas/gasPrice'
             />
           }
-          onClick={ gasStore.toggleEditing }
+          onClick={gasStore.toggleEditing}
         />
       </div>
     );
@@ -124,31 +124,31 @@ export default class TransactionDetails extends Component {
     return (
       <div>
         <div
-          className={ styles.total }
+          className={styles.total}
           data-effect='solid'
-          data-for={ labelId }
+          data-for={labelId}
           data-place='bottom'
           data-tip
         >
           { totalValueDisplay } <small>ETH</small>
         </div>
-        <ReactTooltip id={ labelId }>
+        <ReactTooltip id={labelId}>
           <FormattedMessage
             id='signer.mainDetails.tooltips.total1'
             defaultMessage='The value of the transaction including the mining fee is {total} {type}.'
-            values={ {
+            values={{
               total: <strong>{ totalValueDisplayWei }</strong>,
               type: <small>WEI</small>
-            } }
+            }}
           />
           <br />
           <FormattedMessage
             id='signer.mainDetails.tooltips.total2'
             defaultMessage='(This includes a mining fee of {fee} {token})'
-            values={ {
+            values={{
               fee: <strong>{ feeEth }</strong>,
               token: <small>ETH</small>
-            } }
+            }}
           />
         </ReactTooltip>
       </div>
@@ -163,13 +163,13 @@ export default class TransactionDetails extends Component {
       <div>
         <div
           data-effect='solid'
-          data-for={ labelId }
+          data-for={labelId}
           data-tip
         >
           <strong>{ valueDisplay } </strong>
           <small>ETH</small>
         </div>
-        <ReactTooltip id={ labelId }>
+        <ReactTooltip id={labelId}>
           <FormattedMessage
             id='signer.mainDetails.tooltips.value1'
             defaultMessage='The value of the transaction.'

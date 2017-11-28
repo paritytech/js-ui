@@ -68,8 +68,8 @@ function createApi () {
 function render (props) {
   const component = shallow(
     <TxHash
-      hash={ TXHASH }
-      { ...props }
+      hash={TXHASH}
+      {...props}
     />,
     { context: { api: createApi() } }
   );

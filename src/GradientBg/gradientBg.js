@@ -21,7 +21,7 @@ import styles from './gradientBg.css';
 
 export default function GradientBg ({ children, className }) {
   return (
-    <div className={ [styles.background, className].join(' ') }>
+    <div className={[styles.background, className].join(' ')}>
       { children }
     </div>
   );

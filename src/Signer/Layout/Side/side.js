@@ -21,7 +21,7 @@ import styles from './side.css';
 
 export default function Side ({ children, className }) {
   return (
-    <div className={ `${styles.signerSide} ${className}` }>
+    <div className={`${styles.signerSide} ${className}`}>
       { children }
     </div>
   );

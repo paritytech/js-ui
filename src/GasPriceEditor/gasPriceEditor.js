@@ -80,9 +80,9 @@ export default class GasPriceEditor extends Component {
     const priceLabel = `price (current: ${new BigNumber(priceDefault).toFormat()})`;
 
     return (
-      <div className={ styles.container }>
+      <div className={styles.container}>
         <RadioButtons
-          className={ styles.conditionRadio }
+          className={styles.conditionRadio}
           label={
             <FormattedMessage
               id='txEditor.condition.label'
@@ -90,20 +90,20 @@ export default class GasPriceEditor extends Component {
             />
           }
           name='conditionType'
-          onChange={ this.onChangeConditionType }
-          value={ conditionType }
-          values={ CONDITION_VALUES }
+          onChange={this.onChangeConditionType}
+          value={conditionType}
+          values={CONDITION_VALUES}
         />
         { this.renderConditions() }
 
-        <div className={ styles.graphContainer }>
-          <div className={ styles.graphColumn }>
+        <div className={styles.graphContainer}>
+          <div className={styles.graphColumn}>
             <GasPriceSelector
-              histogram={ histogram }
-              onChange={ this.onEditGasPrice }
-              price={ price }
+              histogram={histogram}
+              onChange={this.onEditGasPrice}
+              price={price}
             />
-            <div className={ styles.gasPriceDesc }>
+            <div className={styles.gasPriceDesc}>
               <FormattedMessage
                 id='txEditor.gas.info'
                 defaultMessage='You can choose the gas price based on the distribution of recent included transaction gas prices. The lower the gas price is, the cheaper the transaction will be. The higher the gas price is, the faster it should get mined by the network.'
@@ -111,37 +111,37 @@ export default class GasPriceEditor extends Component {
             </div>
           </div>
 
-          <div className={ styles.editColumn }>
-            <div className={ styles.row }>
+          <div className={styles.editColumn}>
+            <div className={styles.row}>
               <Input
-                error={ errorGas }
+                error={errorGas}
                 hint='the amount of gas to use for the transaction'
-                label={ gasLabel }
-                min={ 1 }
-                onChange={ this.onEditGas }
+                label={gasLabel}
+                min={1}
+                onChange={this.onEditGas}
                 type='number'
-                value={ gas }
+                value={gas}
               />
               <Input
-                error={ errorPrice }
+                error={errorPrice}
                 hint='the price of gas to use for the transaction'
-                label={ priceLabel }
-                min={ 1 }
-                onChange={ this.onEditGasPrice }
+                label={priceLabel}
+                min={1}
+                onChange={this.onEditGasPrice}
                 type='number'
-                value={ price }
+                value={price}
               />
             </div>
-            <div className={ styles.row }>
+            <div className={styles.row}>
               <Input
                 disabled
-                error={ errorTotal }
+                error={errorTotal}
                 hint='the total amount of the transaction'
                 label='total transaction amount'
-                value={ `${eth} ETH` }
+                value={`${eth} ETH`}
               />
             </div>
-            <div className={ styles.row }>
+            <div className={styles.row}>
               { children }
             </div>
           </div>
@@ -159,10 +159,10 @@ export default class GasPriceEditor extends Component {
 
     if (conditionType === CONDITIONS.BLOCK) {
       return (
-        <div className={ styles.conditionContainer }>
-          <div className={ styles.input }>
+        <div className={styles.conditionContainer}>
+          <div className={styles.input}>
             <Input
-              error={ conditionBlockError }
+              error={conditionBlockError}
               hint={
                 <FormattedMessage
                   id='txEditor.condition.block.hint'
@@ -175,10 +175,10 @@ export default class GasPriceEditor extends Component {
                   defaultMessage='Transaction send block'
                 />
               }
-              min={ 1 }
-              onChange={ this.onChangeConditionBlock }
+              min={1}
+              onChange={this.onChangeConditionBlock}
               type='number'
-              value={ condition.block }
+              value={condition.block}
             />
           </div>
         </div>
@@ -186,8 +186,8 @@ export default class GasPriceEditor extends Component {
     }
 
     return (
-      <div className={ styles.conditionContainer }>
-        <div className={ styles.input }>
+      <div className={styles.conditionContainer}>
+        <div className={styles.input}>
           <InputDateTime
             hint={
               <FormattedMessage
@@ -201,8 +201,8 @@ export default class GasPriceEditor extends Component {
                 defaultMessage='Transaction send date and time'
               />
             }
-            onChange={ this.onChangeConditionDateTime }
-            value={ condition.time }
+            onChange={this.onChangeConditionDateTime}
+            value={condition.time}
           />
         </div>
       </div>

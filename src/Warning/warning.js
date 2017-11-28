@@ -26,7 +26,7 @@ export default function Warning ({ warning }) {
   }
 
   return (
-    <div className={ styles.warning }>
+    <div className={styles.warning}>
       { warning }
     </div>
   );

@@ -30,35 +30,35 @@ export default function RadioButtons ({ className, label, name, onChange, value,
 
   return (
     <LabelWrapper
-      className={ `${styles.container} ${className}` }
-      label={ label }
+      className={`${styles.container} ${className}`}
+      label={label}
     >
       {
         values.map(({ description, key, label }) => (
           <div
-            className={ styles.radioContainer }
-            key={ key }
+            className={styles.radioContainer}
+            key={key}
           >
             <SemanticRadio
-              checked={ value === key }
-              className={ styles.radio }
+              checked={value === key}
+              className={styles.radio}
               label={
-                <Label className={ styles.label }>
-                  <div className={ styles.name }>
+                <Label className={styles.label}>
+                  <div className={styles.name}>
                     { label }
                   </div>
                   {
                     description && (
-                      <div className={ styles.description }>
+                      <div className={styles.description}>
                         { description }
                       </div>
                     )
                   }
                 </Label>
               }
-              name={ name }
-              onChange={ _onChange }
-              value={ key }
+              name={name}
+              onChange={_onChange}
+              value={key}
             />
           </div>
         ))

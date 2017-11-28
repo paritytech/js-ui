@@ -21,10 +21,10 @@ import { Menu as SemanticMenu } from 'semantic-ui-react';
 export default function Tab ({ isActive, className, index, label, name, onClick, style }) {
   return (
     <SemanticMenu.Item
-      active={ isActive }
-      index={ index }
-      name={ name }
-      onClick={ onClick }
+      active={isActive}
+      index={index}
+      name={name}
+      onClick={onClick}
     >
       { label }
     </SemanticMenu.Item>

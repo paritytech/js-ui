@@ -70,30 +70,30 @@ export default class ConfirmViaQr extends Component {
       ? (
         <div
           data-effect='solid'
-          data-for={ `transactionConfirmForm${this.id}` }
+          data-for={`transactionConfirmForm${this.id}`}
           data-place='bottom'
           data-tip
         >
           <Button
-            className={ styles.confirmButton }
-            isDisabled={ isDisabled || isSending }
+            className={styles.confirmButton}
+            isDisabled={isDisabled || isSending}
             fullWidth
             icon={
               <IdentityIcon
-                address={ address }
+                address={address}
                 button
-                className={ styles.signerIcon }
+                className={styles.signerIcon}
               />
             }
-            label={ confirmText }
-            onClick={ this.onConfirm }
+            label={confirmText}
+            onClick={this.onConfirm}
           />
         </div>
       )
       : null;
 
     return (
-      <div className={ styles.confirmForm }>
+      <div className={styles.confirmForm}>
         <Form>
           { this.renderQrCode() }
           { this.renderQrScanner() }
@@ -125,7 +125,7 @@ export default class ConfirmViaQr extends Component {
     switch (qrState) {
       case QR_VISIBLE:
         return (
-          <div className={ styles.passwordHint }>
+          <div className={styles.passwordHint}>
             <FormattedMessage
               id='signer.sending.external.scanTx'
               defaultMessage='Please scan the transaction QR on your external device'
@@ -135,7 +135,7 @@ export default class ConfirmViaQr extends Component {
 
       case QR_SCAN:
         return (
-          <div className={ styles.passwordHint }>
+          <div className={styles.passwordHint}>
             <FormattedMessage
               id='signer.sending.external.scanSigned'
               defaultMessage='Scan the QR code of the signed transaction from your external device'
@@ -158,8 +158,8 @@ export default class ConfirmViaQr extends Component {
 
     return (
       <QrCode
-        className={ styles.qr }
-        value={ qr.value }
+        className={styles.qr}
+        value={qr.value}
       />
     );
   }
@@ -173,8 +173,8 @@ export default class ConfirmViaQr extends Component {
 
     return (
       <QrScan
-        className={ styles.camera }
-        onScan={ this.onScan }
+        className={styles.camera}
+        onScan={this.onScan}
       />
     );
   }

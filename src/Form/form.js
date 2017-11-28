@@ -21,8 +21,8 @@ import styles from './form.css';
 
 export default function Form ({ children, className }) {
   return (
-    <div className={ `${styles.form} ${className}` }>
-      <div className={ styles.autofill }>
+    <div className={`${styles.form} ${className}`}>
+      <div className={styles.autofill}>
         <input type='text' name='fakeusernameremembered' />
         <input type='password' name='fakepasswordremembered' />
       </div>

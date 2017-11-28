@@ -50,7 +50,7 @@ class Errors extends Component {
 
     return (
       <Snackbar
-        className={ styles.container }
+        className={styles.container}
         open
         action={
           <FormattedMessage
@@ -58,10 +58,10 @@ class Errors extends Component {
             defaultMessage='close'
           />
         }
-        autoHideDuration={ DURATION_OPEN }
-        message={ this.getErrorMessage() }
-        onRequestClose={ this.onRequestClose }
-        bodyStyle={ STYLE_CONTENT }
+        autoHideDuration={DURATION_OPEN}
+        message={this.getErrorMessage()}
+        onRequestClose={this.onRequestClose}
+        bodyStyle={STYLE_CONTENT}
       />
     );
   }

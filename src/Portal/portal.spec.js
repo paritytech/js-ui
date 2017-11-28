@@ -29,9 +29,9 @@ function render (props = {}) {
   onClose = sinon.stub();
   component = shallow(
     <Portal
-      onClose={ onClose }
+      onClose={onClose}
       open
-      { ...props }
+      {...props}
     />
   );
 

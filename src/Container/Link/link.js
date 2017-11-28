@@ -27,8 +27,8 @@ export default function Link ({ className, children, isDappLink, link }) {
 
   return (
     <ContainerClass
-      className={ [styles.link, className].join(' ') }
-      to={ link }
+      className={[styles.link, className].join(' ')}
+      to={link}
     >
       { children }
     </ContainerClass>

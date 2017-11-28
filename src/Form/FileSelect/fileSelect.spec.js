@@ -57,8 +57,8 @@ function render (props = {}) {
   onSelect = sinon.stub();
   component = shallow(
     <FileSelect
-      onSelect={ onSelect }
-      { ...props }
+      onSelect={onSelect}
+      {...props}
     />
   );
   instance = component.instance();

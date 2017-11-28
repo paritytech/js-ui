@@ -26,8 +26,8 @@ export default function Page ({ buttons, className, children, padded, title }) {
   return (
     <div>
       <Actionbar
-        buttons={ buttons }
-        title={ title }
+        buttons={buttons}
+        title={title}
       />
       <div
         className={

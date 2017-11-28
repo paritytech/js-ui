@@ -25,8 +25,8 @@ import styles from './confirmRejectToggle.css';
 export default function ConfirmRejectToggle ({ className, isRejectOpen, onToggle }) {
   return (
     <a
-      className={ `${styles.rejectToggle} ${className}` }
-      onClick={ onToggle }
+      className={`${styles.rejectToggle} ${className}`}
+      onClick={onToggle}
     >
       {
         isRejectOpen

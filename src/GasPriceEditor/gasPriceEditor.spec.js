@@ -62,8 +62,8 @@ function render (props = {}) {
 
   component = shallow(
     <GasPriceEditor
-      store={ store }
-      { ...props }
+      store={store}
+      {...props}
     />,
     {
       context: {

@@ -44,33 +44,33 @@ export default class CustomBar extends Component {
     return (
       <g>
         <Rectangle
-          x={ x - borderWidth }
-          y={ y }
-          width={ borderWidth }
-          height={ height }
-          fill={ borderColor }
+          x={x - borderWidth}
+          y={y}
+          width={borderWidth}
+          height={height}
+          fill={borderColor}
         />
         <Rectangle
-          x={ x + width }
-          y={ y }
-          width={ borderWidth }
-          height={ height }
-          fill={ borderColor }
+          x={x + width}
+          y={y}
+          width={borderWidth}
+          height={height}
+          fill={borderColor}
         />
         <Rectangle
-          x={ x - borderWidth }
-          y={ y - borderWidth }
-          width={ width + borderWidth * 2 }
-          height={ borderWidth }
-          fill={ borderColor }
+          x={x - borderWidth}
+          y={y - borderWidth}
+          width={width + borderWidth * 2}
+          height={borderWidth}
+          fill={borderColor}
         />
         <Rectangle
-          x={ x }
-          y={ y }
-          width={ width }
-          height={ height }
-          fill={ fill }
-          onClick={ onClick }
+          x={x}
+          y={y}
+          width={width}
+          height={height}
+          fill={fill}
+          onClick={onClick}
         />
       </g>
     );

@@ -33,12 +33,12 @@ function StatusIndicator ({ className, id, status, title = [], tooltipPlacement,
     : store.overall.message;
 
   return (
-    <span className={ [styles.status, className].join(' ') }>
+    <span className={[styles.status, className].join(' ')}>
       <span
-        className={ `${styles[type]} ${styles[checkStatus]}` }
-        data-tip={ message.length }
-        data-for={ `status-${id}` }
-        data-place={ tooltipPlacement }
+        className={`${styles[type]} ${styles[checkStatus]}`}
+        data-tip={message.length}
+        data-for={`status-${id}`}
+        data-place={tooltipPlacement}
         data-effect='solid'
       >
         {
@@ -49,8 +49,8 @@ function StatusIndicator ({ className, id, status, title = [], tooltipPlacement,
 
               return (
                 <span
-                  key={ signal }
-                  className={ `${styles.bar} ${styles[signal]} ${isActive ? styles.active : ''}` }
+                  key={signal}
+                  className={`${styles.bar} ${styles[signal]} ${isActive ? styles.active : ''}`}
                 />
               );
             })
@@ -60,10 +60,10 @@ function StatusIndicator ({ className, id, status, title = [], tooltipPlacement,
       {
         message.find((x) => !x.isEmpty)
           ? (
-            <ReactTooltip id={ `status-${id}` }>
+            <ReactTooltip id={`status-${id}`}>
               {
                 message.map((x) => (
-                  <div key={ x }>
+                  <div key={x}>
                     { x }
                   </div>)
                 )

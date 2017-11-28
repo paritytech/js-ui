@@ -22,9 +22,9 @@ import styles from './scrollableText.css';
 export default function ScrollableText ({ small, text }) {
   return (
     <input
-      className={ `${styles.input} ${small && styles.small}` }
+      className={`${styles.input} ${small && styles.small}`}
       readOnly
-      value={ text }
+      value={text}
     />
   );
 }

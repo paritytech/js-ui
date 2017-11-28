@@ -45,7 +45,7 @@ export default class Layout extends Component {
         }
       >
         <IdentityIcon
-          address={ name }
+          address={name}
           center
           className={
             [
@@ -56,11 +56,11 @@ export default class Layout extends Component {
             ].join(' ')
           }
         />
-        <div className={ styles.info }>
+        <div className={styles.info}>
           <Title
-            byline={ meta.description }
+            byline={meta.description}
             isOffset
-            title={ name }
+            title={name}
           />
           { children }
         </div>

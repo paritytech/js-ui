@@ -43,13 +43,13 @@ export default class DappVouchFor extends Component {
     }
 
     return (
-      <div className={ styles.tag }>
+      <div className={styles.tag}>
         <IdentityIcon
-          address={ this.store.vouchers[0] }
-          className={ styles.image }
-          alt={ `${count} identities vouch for this dapp` }
+          address={this.store.vouchers[0]}
+          className={styles.image}
+          alt={`${count} identities vouch for this dapp`}
         />
-        <div className={ styles.bubble }>
+        <div className={styles.bubble}>
           { count }
         </div>
       </div>

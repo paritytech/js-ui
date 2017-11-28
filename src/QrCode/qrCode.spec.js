@@ -34,8 +34,8 @@ let instance;
 function render (props = {}) {
   component = shallow(
     <QrCode
-      { ...DEFAULT_PROPS }
-      { ...props }
+      {...DEFAULT_PROPS}
+      {...props}
     />
   );
   instance = component.instance();

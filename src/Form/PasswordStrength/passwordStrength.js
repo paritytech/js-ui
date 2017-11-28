@@ -67,7 +67,7 @@ export default class PasswordStrength extends Component {
 
     return (
       <LabelWrapper
-        className={ styles.strength }
+        className={styles.strength}
         label={
           <FormattedMessage
             id='ui.passwordStrength.label'
@@ -76,12 +76,12 @@ export default class PasswordStrength extends Component {
         }
       >
         <Progress
-          color={ this.getStrengthBarColor(score) }
+          color={this.getStrengthBarColor(score)}
           isDeterminate
-          max={ 100 }
-          value={ score * 100 / 5 + 20 }
+          max={100}
+          value={score * 100 / 5 + 20}
         />
-        <div className={ styles.feedback }>
+        <div className={styles.feedback}>
           { this.renderFeedback(feedback) }
         </div>
       </LabelWrapper>

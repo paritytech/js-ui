@@ -76,25 +76,25 @@ export default class ConfirmViaPassword extends Component {
     const { address, isDisabled, isSending } = this.props;
 
     return (
-      <div className={ styles.confirmForm }>
+      <div className={styles.confirmForm}>
         <Form>
           { this.renderPassword() }
           { this.renderHint() }
           <div
             data-effect='solid'
-            data-for={ `transactionConfirmForm${this.id}` }
+            data-for={`transactionConfirmForm${this.id}`}
             data-place='bottom'
             data-tip
           >
             <Button
-              className={ styles.confirmButton }
-              isDisabled={ isDisabled || isSending }
+              className={styles.confirmButton}
+              isDisabled={isDisabled || isSending}
               fullWidth
               icon={
                 <IdentityIcon
-                  address={ address }
+                  address={address}
                   button
-                  className={ styles.signerIcon }
+                  className={styles.signerIcon}
                 />
               }
               label={
@@ -112,7 +112,7 @@ export default class ConfirmViaPassword extends Component {
                     />
                   )
               }
-              onClick={ this.onConfirm }
+              onClick={this.onConfirm}
             />
           </div>
           { this.renderTooltip() }
@@ -138,11 +138,11 @@ export default class ConfirmViaPassword extends Component {
             defaultMessage='Account Password'
           />
         }
-        onChange={ this.onModifyPassword }
-        onKeyDown={ this.onKeyDown }
+        onChange={this.onModifyPassword}
+        onKeyDown={this.onKeyDown}
         ref='input'
         type='password'
-        value={ password }
+        value={password}
       />
     );
   }
@@ -156,13 +156,13 @@ export default class ConfirmViaPassword extends Component {
     }
 
     return (
-      <div className={ styles.passwordHint }>
+      <div className={styles.passwordHint}>
         <FormattedMessage
           id='signer.txPendingConfirm.passwordHint'
           defaultMessage='(hint) {passwordHint}'
-          values={ {
+          values={{
             passwordHint
-          } }
+          }}
         />
       </div>
     );
@@ -174,7 +174,7 @@ export default class ConfirmViaPassword extends Component {
     }
 
     return (
-      <ReactTooltip id={ `transactionConfirmForm${this.id}` }>
+      <ReactTooltip id={`transactionConfirmForm${this.id}`}>
         <FormattedMessage
           id='signer.txPendingConfirm.tooltips.password'
           defaultMessage='Please provide a password for this account'

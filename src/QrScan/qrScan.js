@@ -28,12 +28,12 @@ const SCAN_STYLE = {
 
 export default function QrScan ({ onError, onScan }) {
   return (
-    <div className={ styles.qr }>
+    <div className={styles.qr}>
       <Reader
-        delay={ SCAN_DELAY }
-        onError={ onError }
-        onScan={ onScan }
-        style={ SCAN_STYLE }
+        delay={SCAN_DELAY}
+        onError={onError}
+        onScan={onScan}
+        style={SCAN_STYLE}
       />
     </div>
   );

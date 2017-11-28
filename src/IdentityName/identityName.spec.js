@@ -29,7 +29,7 @@ const NAME_JIMMY = 'Jimmy Test';
 function render (props) {
   return shallow(
     <IdentityName
-      { ...props }
+      {...props}
     />
   );
 }

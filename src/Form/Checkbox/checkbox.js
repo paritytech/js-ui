@@ -25,13 +25,13 @@ import Label from '../Label';
 export default function Checkbox ({ checked = false, className, label, onClick, style }) {
   return (
     <SemanticCheckbox
-      checked={ checked }
-      className={ className }
+      checked={checked}
+      className={className}
       label={
-        <Label label={ label } />
+        <Label label={label} />
       }
-      onClick={ onClick }
-      style={ style }
+      onClick={onClick}
+      style={style}
     />
   );
 }

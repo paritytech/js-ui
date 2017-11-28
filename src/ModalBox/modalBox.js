@@ -23,21 +23,21 @@ import styles from './modalBox.css';
 
 export default function ModalBox ({ children, icon, summary }) {
   return (
-    <div className={ styles.body }>
-      <div className={ styles.icon }>
+    <div className={styles.body}>
+      <div className={styles.icon}>
         { icon }
       </div>
-      <div className={ styles.content }>
+      <div className={styles.content}>
         {
           summary && (
-            <div className={ styles.summary }>
+            <div className={styles.summary}>
               { summary }
             </div>
           )
         }
         {
           children && (
-            <div className={ styles.body }>
+            <div className={styles.body}>
               { children }
             </div>
           )

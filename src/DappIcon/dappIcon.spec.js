@@ -40,7 +40,7 @@ function render (props = {}) {
   }
 
   component = shallow(
-    <DappIcon { ...props } />,
+    <DappIcon {...props} />,
     {
       context: { api: createApi() }
     }

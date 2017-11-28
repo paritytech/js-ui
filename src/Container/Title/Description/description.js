@@ -26,11 +26,11 @@ export default function Description ({ description }) {
   }
 
   return (
-    <div className={ styles.description }>
+    <div className={styles.description}>
       {
         typeof description === 'string'
           ? (
-            <span title={ description }>
+            <span title={description}>
               { description }
             </span>
           )

@@ -32,8 +32,8 @@ export default class TxHashLink extends Component {
 
     return (
       <a
-        className={ className }
-        href={ txLink(txHash, false, netVersion) }
+        className={className}
+        href={txLink(txHash, false, netVersion)}
         target='_blank'
       >
         { children || txHash }

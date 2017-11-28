@@ -81,8 +81,8 @@ export default class Portal extends Component {
     return (
       <ReactPortal isOpened>
         <div
-          className={ styles.backOverlay }
-          onClick={ this.handleClose }
+          className={styles.backOverlay}
+          onClick={this.handleClose}
         >
           <div
             className={
@@ -97,34 +97,34 @@ export default class Portal extends Component {
                 className
               ].join(' ')
             }
-            onClick={ this.handleContainerClick }
-            onKeyDown={ this.handleKeyDown }
+            onClick={this.handleContainerClick}
+            onKeyDown={this.handleKeyDown}
           >
-            <StackEventListener onKeyUp={ this.handleKeyUp } />
+            <StackEventListener onKeyUp={this.handleKeyUp} />
             {
               !hideClose && (
                 <div
-                  className={ styles.closeIcon }
-                  onClick={ this.handleClose }
+                  className={styles.closeIcon}
+                  onClick={this.handleClose}
                 >
                   <CloseIcon />
                 </div>
               )
             }
             <Title
-              activeStep={ activeStep }
-              busy={ busy }
-              busySteps={ busySteps }
-              className={ styles.titleRow }
-              steps={ steps }
-              title={ title }
+              activeStep={activeStep}
+              busy={busy}
+              busySteps={busySteps}
+              className={styles.titleRow}
+              steps={steps}
+              title={title}
             />
-            <div className={ styles.childContainer }>
+            <div className={styles.childContainer}>
               { children }
             </div>
             {
               buttons && (
-                <div className={ styles.buttonRow }>
+                <div className={styles.buttonRow}>
                   { buttons }
                 </div>
               )

@@ -53,7 +53,7 @@ function render () {
   };
 
   component = shallow(
-    <SignRequest signerStore={ signerStore } />,
+    <SignRequest signerStore={signerStore} />,
     { context }
   );
 

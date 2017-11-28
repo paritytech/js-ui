@@ -67,27 +67,27 @@ export default class Editor extends Component {
 
     return (
       <AceEditor
-        mode={ mode }
+        mode={mode}
         theme='solarized_dark'
         width='100%'
         ref='brace'
-        style={ { flex: 1 } }
-        onChange={ this.handleOnChange }
-        name={ this.name }
-        editorProps={ { $blockScrolling: Infinity } }
-        setOptions={ {
+        style={{ flex: 1 }}
+        onChange={this.handleOnChange}
+        name={this.name}
+        editorProps={{ $blockScrolling: Infinity }}
+        setOptions={{
           useWorker: false,
           fontFamily: 'monospace',
           fontSize: '0.9em'
-        } }
-        maxLines={ max }
-        enableBasicAutocompletion={ !readOnly }
-        showPrintMargin={ false }
-        annotations={ annotations }
-        value={ value }
-        commands={ commands }
-        readOnly={ readOnly }
-        className={ className }
+        }}
+        maxLines={max}
+        enableBasicAutocompletion={!readOnly}
+        showPrintMargin={false}
+        annotations={annotations}
+        value={value}
+        commands={commands}
+        readOnly={readOnly}
+        className={className}
       />
     );
   }

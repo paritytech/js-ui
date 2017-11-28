@@ -23,7 +23,7 @@ import Title from './title';
 
 function render (props) {
   return shallow(
-    <Title { ...props } />
+    <Title {...props} />
   );
 }
 

@@ -32,8 +32,8 @@ export default class ConfirmReject extends Component {
     const { className, onReject } = this.props;
 
     return (
-      <div className={ className }>
-        <div className={ styles.rejectText }>
+      <div className={className}>
+        <div className={styles.rejectText}>
           <FormattedMessage
             id='signer.txPendingReject.info'
             defaultMessage='Are you sure you want to reject the request?'
@@ -47,8 +47,8 @@ export default class ConfirmReject extends Component {
           </strong>
         </div>
         <Button
-          onClick={ onReject }
-          className={ styles.rejectButton }
+          onClick={onReject}
+          className={styles.rejectButton}
           fullWidth
           label={
             <FormattedMessage

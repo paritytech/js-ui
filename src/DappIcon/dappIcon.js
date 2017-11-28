@@ -62,8 +62,8 @@ export default function DappIcon ({ app, className, small }, { api }) {
 
   return (
     <img
-      className={ classes }
-      src={ imageSrc }
+      className={classes}
+      src={imageSrc}
     />
   );
 }

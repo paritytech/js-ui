@@ -26,7 +26,7 @@ let component;
 function render (props = {}) {
   component = shallow(
     <Waiting
-      { ...props }
+      {...props}
     />
   );
 

@@ -23,9 +23,9 @@ import styles from './item.css';
 export default function Item ({ buttons, className, description, icon, isActive, label, onClick, style }) {
   return (
     <SemanticList.Item
-      className={ `${styles.item} ${isActive ? styles.active : styles.inactive} ${className}` }
-      onClick={ onClick }
-      style={ style }
+      className={`${styles.item} ${isActive ? styles.active : styles.inactive} ${className}`}
+      onClick={onClick}
+      style={style}
     >
       {
         icon && (
@@ -35,13 +35,13 @@ export default function Item ({ buttons, className, description, icon, isActive,
         )
       }
       <SemanticList.Content>
-        <div className={ styles.label }>
+        <div className={styles.label}>
           { label }
         </div>
-        <div className={ styles.description }>
+        <div className={styles.description}>
           { description }
         </div>
-        <div className={ styles.buttons }>
+        <div className={styles.buttons}>
           { buttons }
         </div>
       </SemanticList.Content>

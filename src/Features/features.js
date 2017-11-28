@@ -51,7 +51,7 @@ export default class Features extends Component {
 
     return {
       description: (
-        <div className={ styles.description }>
+        <div className={styles.description}>
           { feature.description }
         </div>
       ),
@@ -59,8 +59,8 @@ export default class Features extends Component {
       label: (
         <div>
           <Checkbox
-            checked={ this.store.active[key] }
-            onClick={ onCheck }
+            checked={this.store.active[key]}
+            onClick={onCheck}
           />
           <span>{ feature.name }</span>
         </div>

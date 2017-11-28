@@ -67,7 +67,7 @@ export default class RequestDecrypt extends Component {
     const { className } = this.props;
 
     return (
-      <Layout className={ className }>
+      <Layout className={className}>
         { this.renderDetails() }
         { this.renderActions() }
       </Layout>
@@ -86,19 +86,19 @@ export default class RequestDecrypt extends Component {
     }
 
     return (
-      <Layout.Main className={ styles.signDetails }>
-        <div className={ styles.address }>
+      <Layout.Main className={styles.signDetails}>
+        <div className={styles.address}>
           <Account
-            accounts={ accounts }
-            address={ address }
-            balance={ balance }
-            className={ styles.account }
-            externalLink={ externalLink }
-            netVersion={ netVersion }
+            accounts={accounts}
+            address={address}
+            balance={balance}
+            className={styles.account}
+            externalLink={externalLink}
+            netVersion={netVersion}
           />
-          <Origin origin={ origin } />
+          <Origin origin={origin} />
         </div>
-        <div className={ styles.info } title={ api.util.sha3(data) }>
+        <div className={styles.info} title={api.util.sha3(data)}>
           <p>
             <FormattedMessage
               id='signer.decryptRequest.request'
@@ -106,7 +106,7 @@ export default class RequestDecrypt extends Component {
             />
           </p>
 
-          <div className={ styles.signData }>
+          <div className={styles.signData}>
             <p>{ data }</p>
           </div>
         </div>
@@ -121,8 +121,8 @@ export default class RequestDecrypt extends Component {
     if (isFinished) {
       if (status === 'confirmed') {
         return (
-          <div className={ styles.actions }>
-            <span className={ styles.isConfirmed }>
+          <div className={styles.actions}>
+            <span className={styles.isConfirmed}>
               <FormattedMessage
                 id='signer.decryptRequest.state.confirmed'
                 defaultMessage='Confirmed'
@@ -133,8 +133,8 @@ export default class RequestDecrypt extends Component {
       }
 
       return (
-        <div className={ styles.actions }>
-          <span className={ styles.isRejected }>
+        <div className={styles.actions}>
+          <span className={styles.isRejected}>
             <FormattedMessage
               id='signer.decryptRequest.state.rejected'
               defaultMessage='Rejected'
@@ -146,18 +146,18 @@ export default class RequestDecrypt extends Component {
 
     return (
       <ConfirmForm
-        account={ account }
-        address={ address }
-        confirmElement={ confirmElement }
-        id={ id }
-        isDisabled={ isDisabled }
-        isFocussed={ isFocussed }
-        isSending={ isSending }
-        netVersion={ netVersion }
-        onConfirm={ onConfirm }
-        onReject={ onReject }
-        className={ styles.actions }
-        dataToSign={ { decrypt: data } }
+        account={account}
+        address={address}
+        confirmElement={confirmElement}
+        id={id}
+        isDisabled={isDisabled}
+        isFocussed={isFocussed}
+        isSending={isSending}
+        netVersion={netVersion}
+        onConfirm={onConfirm}
+        onReject={onReject}
+        className={styles.actions}
+        dataToSign={{ decrypt: data }}
       />
     );
   }

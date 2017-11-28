@@ -103,66 +103,66 @@ export default class GasPriceSelector extends Component {
     const selectedCount = countModifier(histogram.counts[countIndex]);
 
     return (
-      <div className={ styles.chartRow }>
-        <div style={ { flex: 1, height } }>
+      <div className={styles.chartRow}>
+        <div style={{ flex: 1, height }}>
 
-          <div className={ styles.chart }>
-            <ResponsiveContainer height={ height }>
-              <ScatterChart margin={ { top: 0, right: 0, left: 0, bottom: 0 } }>
+          <div className={styles.chart}>
+            <ResponsiveContainer height={height}>
+              <ScatterChart margin={{ top: 0, right: 0, left: 0, bottom: 0 }}>
                 <Scatter
-                  data={ [
+                  data={[
                     { x: sliderValue, y: 0 },
                     { x: sliderValue, y: selectedCount },
                     { x: sliderValue, y: chartData.yDomain[1] }
-                  ] }
-                  isAnimationActive={ false }
+                  ]}
+                  isAnimationActive={false}
                   line
                   shape={
-                    <CustomShape showValue={ selectedCount } />
+                    <CustomShape showValue={selectedCount} />
                   }
                 />
                 <XAxis
                   dataKey='x'
-                  domain={ [0, 1] }
+                  domain={[0, 1]}
                   hide
-                  height={ 0 }
+                  height={0}
                 />
                 <YAxis
                   dataKey='y'
-                  domain={ chartData.yDomain }
+                  domain={chartData.yDomain}
                   hide
-                  width={ 0 }
+                  width={0}
                 />
               </ScatterChart>
             </ResponsiveContainer>
           </div>
 
-          <div className={ styles.chart }>
-            <ResponsiveContainer height={ height }>
+          <div className={styles.chart}>
+            <ResponsiveContainer height={height}>
               <BarChart
-                barCategoryGap={ 1 }
-                data={ chartData.values }
-                margin={ { top: 0, right: 0, left: 0, bottom: 0 } }
+                barCategoryGap={1}
+                data={chartData.values}
+                margin={{ top: 0, right: 0, left: 0, bottom: 0 }}
                 ref='barChart'
               >
                 <Bar
                   dataKey='value'
-                  onClick={ this.onClickprice }
-                  shape={ <CustomBar selected={ selectedIndex } onClick={ this.onClickprice } /> }stroke={ COLORS.line }
+                  onClick={this.onClickprice}
+                  shape={<CustomBar selected={selectedIndex} onClick={this.onClickprice} />}stroke={COLORS.line}
                 />
                 <Tooltip
-                  content={ this.tooltipContentRenderer }
-                  cursor={ this.renderCustomCursor() }
-                  wrapperStyle={ TOOL_STYLE }
+                  content={this.tooltipContentRenderer}
+                  cursor={this.renderCustomCursor()}
+                  wrapperStyle={TOOL_STYLE}
                 />
                 <XAxis
                   dataKey='index'
-                  domain={ chartData.xDomain }
+                  domain={chartData.xDomain}
                   hide
                   type='category'
                 />
                 <YAxis
-                  domain={ chartData.yDomain }
+                  domain={chartData.yDomain}
                   hide
                   type='number'
                 />
@@ -184,9 +184,9 @@ export default class GasPriceSelector extends Component {
 
     return (
       <CustomTooltip
-        histogram={ histogram }
-        intl={ this.context.intl }
-        { ...props }
+        histogram={histogram}
+        intl={this.context.intl}
+        {...props}
       />
     );
   }
@@ -195,14 +195,14 @@ export default class GasPriceSelector extends Component {
     const { sliderValue } = this.state;
 
     return (
-      <div className={ styles.sliderRow }>
+      <div className={styles.sliderRow}>
         <Slider
-          className={ styles.slider }
-          min={ 0.0 }
-          max={ 1.0 }
-          step={ 0.01 }
-          value={ sliderValue }
-          onChange={ this.onEditpriceSlider }
+          className={styles.slider}
+          min={0.0}
+          max={1.0}
+          step={0.01}
+          value={sliderValue}
+          onChange={this.onEditpriceSlider}
         />
       </div>
     );
@@ -214,10 +214,10 @@ export default class GasPriceSelector extends Component {
 
     return (
       <CustomCursor
-        counts={ histogram.counts }
-        getIndex={ this.getBarHoverIndex }
-        onClick={ this.onClickprice }
-        yDomain={ chartData.yDomain }
+        counts={histogram.counts}
+        getIndex={this.getBarHoverIndex}
+        onClick={this.onClickprice}
+        yDomain={chartData.yDomain}
       />
     );
   }
@@ -250,8 +250,10 @@ export default class GasPriceSelector extends Component {
     const yDomain = [0, maxGasCounts * 1.1];
 
     const chartData = {
-      values, N,
-      xDomain, yDomain
+      values,
+      N,
+      xDomain,
+      yDomain
     };
 
     this.setState({ chartData }, () => {

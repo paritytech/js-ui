@@ -26,7 +26,7 @@ function NetChain ({ className }, { api }) {
   const store = Store.get(api);
 
   return (
-    <div className={ `${styles.chain} ${styles[store.isTest ? 'test' : 'live']} ${className || ''}` }>
+    <div className={`${styles.chain} ${styles[store.isTest ? 'test' : 'live']} ${className || ''}`}>
       { store.netChain }
     </div>
   );

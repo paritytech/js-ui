@@ -36,16 +36,16 @@ export default class CustomShape extends Component {
     return (
       <g>
         <Dot
-          style={ { fill: 'rgb(129, 190, 226)' } }
-          cx={ cx }
-          cy={ cy }
-          r={ 5 }
+          style={{ fill: 'rgb(129, 190, 226)' }}
+          cx={cx}
+          cy={cy}
+          r={5}
         />
         <Dot
-          style={ { fill: 'rgb(129, 190, 226)', zIndex: '700' } }
-          cx={ cx }
-          cy={ cy }
-          r={ 3 }
+          style={{ fill: 'rgb(129, 190, 226)', zIndex: '700' }}
+          cx={cx}
+          cy={cy}
+          r={3}
         />
       </g>
     );

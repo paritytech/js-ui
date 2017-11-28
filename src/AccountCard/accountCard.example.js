@@ -55,50 +55,50 @@ export default function AccountCardExample () {
     <div>
       <PlaygroundExample name='Standard Account Card'>
         <AccountCard
-          account={ account }
-          balance={ balance }
+          account={account}
+          balance={balance}
         />
       </PlaygroundExample>
 
       <PlaygroundExample name='Small Account Card'>
-        <div style={ { width: 300 } }>
+        <div style={{ width: 300 }}>
           <AccountCard
-            account={ account }
-            balance={ balance }
+            account={account}
+            balance={balance}
           />
         </div>
       </PlaygroundExample>
 
       <PlaygroundExample name='Many Tags Account Card'>
-        <div style={ { width: 300 } }>
+        <div style={{ width: 300 }}>
           <AccountCard
-            account={ accountManyTags }
-            balance={ balance }
+            account={accountManyTags}
+            balance={balance}
           />
         </div>
       </PlaygroundExample>
 
       <PlaygroundExample name='No Tags Account Card'>
-        <div style={ { width: 300 } }>
+        <div style={{ width: 300 }}>
           <AccountCard
-            account={ accountNoTags }
-            balance={ balance }
+            account={accountNoTags}
+            balance={balance}
           />
         </div>
       </PlaygroundExample>
 
       <PlaygroundExample name='Two Account Card'>
-        <div style={ { display: 'flex' } }>
-          <div style={ { margin: '0 0.5em' } }>
+        <div style={{ display: 'flex' }}>
+          <div style={{ margin: '0 0.5em' }}>
             <AccountCard
-              account={ account }
-              balance={ balance }
+              account={account}
+              balance={balance}
             />
           </div>
-          <div style={ { margin: '0 0.5em' } }>
+          <div style={{ margin: '0 0.5em' }}>
             <AccountCard
-              account={ account }
-              balance={ balance }
+              account={account}
+              balance={balance}
             />
           </div>
         </div>

@@ -60,7 +60,7 @@ class TokenValue extends Component {
       : 'TOKENS';
 
     return (
-      <span className={ styles.tokenValue }>
+      <span className={styles.tokenValue}>
         { value.div(format).toFormat(precision) }<small> { tag }</small>
       </span>
     );

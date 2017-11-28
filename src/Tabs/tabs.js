@@ -25,17 +25,17 @@ export default function Tabs ({ activeTab, className, tabs, onChange }) {
 
   return (
     <SemanticMenu
-      className={ className }
+      className={className}
       pointing
     >
       {
         tabs.filter((tab) => tab).map((tab, index) => (
           <Tab
-            isActive={ activeTab === index }
-            index={ index }
-            key={ `tab_${index}` }
-            label={ tab.label || tab }
-            onClick={ onTabClick }
+            isActive={activeTab === index}
+            index={index}
+            key={`tab_${index}`}
+            label={tab.label || tab}
+            onClick={onTabClick}
           />
         ))
       }

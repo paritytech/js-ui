@@ -31,28 +31,28 @@ export default function QrCodeExample () {
 
       <PlaygroundExample name='Simple QRCode with margin'>
         <QrCode
-          margin={ 10 }
+          margin={10}
           value='this is a test'
         />
       </PlaygroundExample>
 
       <PlaygroundExample name='Ethereum Address QRCode'>
         <QrCode
-          margin={ 10 }
+          margin={10}
           value='0x8c30393085C8C3fb4C1fB16165d9fBac5D86E1D9'
         />
       </PlaygroundExample>
 
       <PlaygroundExample name='Bitcoin Address QRCode'>
         <QrCode
-          margin={ 10 }
+          margin={10}
           value='3J98t1WpEZ73CNmQviecrnyiWrnqRhWNLy'
         />
       </PlaygroundExample>
 
       <PlaygroundExample name='Big QRCode'>
         <QrCode
-          size={ 10 }
+          size={10}
           value='this is a test'
         />
       </PlaygroundExample>

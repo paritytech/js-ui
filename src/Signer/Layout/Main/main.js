@@ -21,7 +21,7 @@ import styles from './main.css';
 
 export default function Main ({ children, className }) {
   return (
-    <div className={ `${styles.signerMain} ${className}` }>
+    <div className={`${styles.signerMain} ${className}`}>
       { children }
     </div>
   );

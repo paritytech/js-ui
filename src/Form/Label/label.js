@@ -28,8 +28,8 @@ export default function Label ({ className, children, htmlFor, label }) {
 
   return (
     <label
-      className={ `${styles.label} ${className}` }
-      htmlFor={ htmlFor }
+      className={`${styles.label} ${className}`}
+      htmlFor={htmlFor}
     >
       { label }
       { children }

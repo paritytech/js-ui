@@ -63,21 +63,21 @@ export default class AccountCard extends Component {
 
     return (
       <Container
-        key={ address }
-        className={ classes.join(' ') }
-        onClick={ this.onClick }
-        onFocus={ this.onFocus }
-        onKeyDown={ this.handleKeyDown }
-        { ...props }
+        key={address}
+        className={classes.join(' ')}
+        onClick={this.onClick}
+        onFocus={this.onFocus}
+        onKeyDown={this.handleKeyDown}
+        {...props}
       >
-        <div className={ styles.mainContainer }>
-          <div className={ styles.infoContainer }>
-            <IdentityIcon address={ address } />
-            <div className={ styles.accountInfo }>
-              <div className={ styles.accountName }>
+        <div className={styles.mainContainer}>
+          <div className={styles.infoContainer}>
+            <IdentityIcon address={address} />
+            <div className={styles.accountInfo}>
+              <div className={styles.accountName}>
                 <IdentityName
-                  address={ address }
-                  name={ name }
+                  address={address}
+                  name={name}
                   unknown
                 />
               </div>
@@ -87,9 +87,9 @@ export default class AccountCard extends Component {
           </div>
 
           <Balance
-            address={ address }
-            balance={ balance }
-            className={ styles.balance }
+            address={address}
+            balance={balance}
+            className={styles.balance}
             showOnlyEth
           />
           { children }
@@ -98,12 +98,12 @@ export default class AccountCard extends Component {
         {
           tags && tags.length > 0
             ? (
-              <div className={ styles.tagsContainer }>
-                <div className={ styles.tags }>
+              <div className={styles.tagsContainer}>
+                <div className={styles.tags}>
                   <Tags
-                    floating={ false }
+                    floating={false}
                     horizontal
-                    tags={ tags }
+                    tags={tags}
                   />
                 </div>
               </div>
@@ -121,7 +121,7 @@ export default class AccountCard extends Component {
     }
 
     return (
-      <div className={ styles.description }>
+      <div className={styles.description}>
         <span>{ description }</span>
       </div>
     );
@@ -129,12 +129,12 @@ export default class AccountCard extends Component {
 
   renderAddress (address) {
     return (
-      <div className={ styles.addressContainer }>
+      <div className={styles.addressContainer}>
         <span
-          className={ styles.address }
-          onClick={ this.handleAddressClick }
-          ref={ `address` }
-          title={ address }
+          className={styles.address}
+          onClick={this.handleAddressClick}
+          ref={`address`}
+          title={address}
         >
           { address }
         </span>

@@ -52,7 +52,7 @@ export default class TxList extends Component {
 
   render () {
     return (
-      <table className={ styles.transactions }>
+      <table className={styles.transactions}>
         <tbody>
           { this.renderRows() }
         </tbody>
@@ -72,15 +72,15 @@ export default class TxList extends Component {
 
       return (
         <TxRow
-          key={ tx.hash }
-          tx={ tx }
-          block={ block }
-          blockNumber={ blockNumber }
-          address={ address }
-          netVersion={ netVersion }
-          editTransaction={ editTransaction }
-          cancelTransaction={ cancelTransaction }
-          killTransaction={ killTransaction }
+          key={tx.hash}
+          tx={tx}
+          block={block}
+          blockNumber={blockNumber}
+          address={address}
+          netVersion={netVersion}
+          editTransaction={editTransaction}
+          cancelTransaction={cancelTransaction}
+          killTransaction={killTransaction}
         />
       );
     });

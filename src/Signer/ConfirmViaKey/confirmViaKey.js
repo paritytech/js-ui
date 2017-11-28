@@ -79,26 +79,26 @@ export default class ConfirmViaKey extends Component {
     const isWalletOk = walletError === null && wallet !== null;
 
     return (
-      <div className={ styles.confirmForm }>
+      <div className={styles.confirmForm}>
         <Form>
           { this.renderKeyInput() }
           { this.renderPassword() }
           { this.renderHint() }
           <div
             data-effect='solid'
-            data-for={ `transactionConfirmForm${this.id}` }
+            data-for={`transactionConfirmForm${this.id}`}
             data-place='bottom'
             data-tip
           >
             <Button
-              className={ styles.confirmButton }
-              isDisabled={ isDisabled || isSending || !isWalletOk }
+              className={styles.confirmButton}
+              isDisabled={isDisabled || isSending || !isWalletOk}
               fullWidth
               icon={
                 <IdentityIcon
-                  address={ address }
+                  address={address}
                   button
-                  className={ styles.signerIcon }
+                  className={styles.signerIcon}
                 />
               }
               label={
@@ -116,7 +116,7 @@ export default class ConfirmViaKey extends Component {
                     />
                   )
               }
-              onClick={ this.onConfirm }
+              onClick={this.onConfirm}
             />
           </div>
           { this.renderTooltip() }
@@ -146,11 +146,11 @@ export default class ConfirmViaKey extends Component {
             defaultMessage='Key Password'
           />
         }
-        onChange={ this.onModifyPassword }
-        onKeyDown={ this.onKeyDown }
+        onChange={this.onModifyPassword}
+        onKeyDown={this.onKeyDown}
         ref='input'
         type='password'
-        value={ password }
+        value={password}
       />
     );
   }
@@ -165,13 +165,13 @@ export default class ConfirmViaKey extends Component {
     }
 
     return (
-      <div className={ styles.passwordHint }>
+      <div className={styles.passwordHint}>
         <FormattedMessage
           id='signer.txPendingConfirm.passwordHint'
           defaultMessage='(hint) {passwordHint}'
-          values={ {
+          values={{
             passwordHint
-          } }
+          }}
         />
       </div>
     );
@@ -182,8 +182,8 @@ export default class ConfirmViaKey extends Component {
 
     return (
       <Input
-        className={ styles.fileInput }
-        error={ walletError }
+        className={styles.fileInput}
+        error={walletError}
         hint={
           <FormattedMessage
             id='signer.txPendingConfirm.selectKey.hint'
@@ -196,7 +196,7 @@ export default class ConfirmViaKey extends Component {
             defaultMessage='Select Local Key'
           />
         }
-        onChange={ this.onKeySelect }
+        onChange={this.onKeySelect}
         type='file'
       />
     );
@@ -208,7 +208,7 @@ export default class ConfirmViaKey extends Component {
     }
 
     return (
-      <ReactTooltip id={ `transactionConfirmForm${this.id}` }>
+      <ReactTooltip id={`transactionConfirmForm${this.id}`}>
         <FormattedMessage
           id='signer.txPendingConfirm.tooltips.password'
           defaultMessage='Please provide a password for this account'

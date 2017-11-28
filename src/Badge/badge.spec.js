@@ -23,7 +23,7 @@ import Badge from './badge';
 
 function renderShallow (props) {
   return shallow(
-    <Badge { ...props } />
+    <Badge {...props} />
   );
 }
 

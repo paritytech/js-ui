@@ -29,14 +29,14 @@ let component;
 function render () {
   component = shallow(
     <Layout
-      vault={ {
+      vault={{
         isOpen: true,
         meta: {
           description: DESCRIPTION,
           passwordHint: 'some hint'
         },
         name: NAME
-      } }
+      }}
     />
   );
 

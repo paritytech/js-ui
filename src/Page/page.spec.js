@@ -31,9 +31,9 @@ let component;
 function render () {
   component = shallow(
     <Page
-      buttons={ BUTTONS }
-      className={ CLASSNAME }
-      title={ TITLE }
+      buttons={BUTTONS}
+      className={CLASSNAME}
+      title={TITLE}
     >
       <div id='testContent'>
         { TESTTEXT }

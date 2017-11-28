@@ -32,8 +32,8 @@ function render () {
 
   component = shallow(
     <QrScan
-      onError={ onError }
-      onScan={ onScan }
+      onError={onError}
+      onScan={onScan}
     />
   );
 

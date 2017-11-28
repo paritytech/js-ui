@@ -27,7 +27,7 @@ function render (props = {}) {
   }
 
   return shallow(
-    <Button { ...props } />
+    <Button {...props} />
   );
 }
 

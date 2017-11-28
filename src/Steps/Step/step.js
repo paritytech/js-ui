@@ -21,9 +21,9 @@ import { Step as SemanticStep } from 'semantic-ui-react';
 export default function Step ({ className, isActive, isCompleted, label }) {
   return (
     <SemanticStep
-      className={ className }
-      completed={ isCompleted }
-      active={ isActive }
+      className={className}
+      completed={isCompleted}
+      active={isActive}
     >
       <SemanticStep.Content>
         <SemanticStep.Title>

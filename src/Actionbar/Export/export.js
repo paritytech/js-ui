@@ -38,15 +38,15 @@ export default class ActionbarExport extends Component {
 
     return (
       <Button
-        className={ className }
-        icon={ <FileDownloadIcon /> }
+        className={className}
+        icon={<FileDownloadIcon />}
         label={
           <FormattedMessage
             id='ui.actionbar.export.button.export'
             defaultMessage='export'
           />
         }
-        onClick={ this.handleExport }
+        onClick={this.handleExport}
       />
     );
   }

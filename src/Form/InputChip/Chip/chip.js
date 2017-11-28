@@ -26,15 +26,15 @@ import styles from './chip.css';
 export default function Chip ({ className, isDisabled, isFocused, label, onClick, onDelete }) {
   return (
     <div
-      className={ `${styles.chip} ${isDisabled && styles.disabled} ${isFocused && styles.focus} ${className}` }
-      onTouchTap={ onClick }
+      className={`${styles.chip} ${isDisabled && styles.disabled} ${isFocused && styles.focus} ${className}`}
+      onTouchTap={onClick}
     >
-      <div className={ styles.label }>
+      <div className={styles.label}>
         { label }
       </div>
       <CloseIcon
-        className={ styles.delete }
-        onTouchTap={ onDelete }
+        className={styles.delete}
+        onTouchTap={onDelete}
       />
     </div>
   );

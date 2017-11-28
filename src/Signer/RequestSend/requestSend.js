@@ -103,32 +103,32 @@ export default class RequestSend extends Component {
     const account = accounts[from] || {};
 
     return (
-      <Layout className={ className }>
+      <Layout className={className}>
         <TransactionDetails
-          accounts={ accounts }
-          externalLink={ externalLink }
-          from={ from }
-          fromBalance={ fromBalance }
-          gasStore={ this.gasStore }
-          isDisabled={ isDisabled }
-          netVersion={ netVersion }
-          origin={ origin }
-          totalValue={ totalValue }
-          transaction={ transaction }
-          value={ value }
+          accounts={accounts}
+          externalLink={externalLink}
+          from={from}
+          fromBalance={fromBalance}
+          gasStore={this.gasStore}
+          isDisabled={isDisabled}
+          netVersion={netVersion}
+          origin={origin}
+          totalValue={totalValue}
+          transaction={transaction}
+          value={value}
         />
         <ConfirmForm
-          account={ account }
-          address={ from }
-          confirmElement={ confirmElement }
-          id={ id }
-          isDisabled={ isDisabled }
-          isFocussed={ isFocussed }
-          isSending={ isSending }
-          netVersion={ netVersion }
-          onConfirm={ this.onConfirm }
-          onReject={ onReject }
-          dataToSign={ { transaction } }
+          account={account}
+          address={from}
+          confirmElement={confirmElement}
+          id={id}
+          isDisabled={isDisabled}
+          isFocussed={isFocussed}
+          isSending={isSending}
+          netVersion={netVersion}
+          onConfirm={this.onConfirm}
+          onReject={onReject}
+          dataToSign={{ transaction }}
         />
       </Layout>
     );
@@ -138,8 +138,8 @@ export default class RequestSend extends Component {
     const { className } = this.props;
 
     return (
-      <Layout className={ className }>
-        <GasPriceEditor store={ this.gasStore }>
+      <Layout className={className}>
+        <GasPriceEditor store={this.gasStore}>
           <Button
             label={
               <FormattedMessage
@@ -147,7 +147,7 @@ export default class RequestSend extends Component {
                 defaultMessage='view transaction'
               />
             }
-            onClick={ this.gasStore.toggleEditing }
+            onClick={this.gasStore.toggleEditing}
           />
         </GasPriceEditor>
       </Layout>

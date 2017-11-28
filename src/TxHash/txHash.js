@@ -125,8 +125,8 @@ export default class TxHash extends Component {
     const { netVersion } = this.netChainStore;
 
     const hashLink = (
-      <a href={ txLink(hash, false, netVersion) } target='_blank'>
-        <ShortenedHash data={ hash } />
+      <a href={txLink(hash, false, netVersion)} target='_blank'>
+        <ShortenedHash data={hash} />
       </a>
     );
 
@@ -140,7 +140,7 @@ export default class TxHash extends Component {
               <FormattedMessage
                 id='ui.txHash.posted'
                 defaultMessage='The transaction has been posted to the network with a hash of {hashLink}'
-                values={ { hashLink } }
+                values={{ hashLink }}
               />
             )
         }</p>
@@ -187,9 +187,9 @@ export default class TxHash extends Component {
 
     if (!(transactionReceipt && transactionReceipt.blockNumber && transactionReceipt.blockNumber.gt(0))) {
       return (
-        <div className={ styles.confirm }>
-          <Progress className={ styles.progressbar } />
-          <div className={ styles.progressinfo }>
+        <div className={styles.confirm}>
+          <Progress className={styles.progressbar} />
+          <div className={styles.progressinfo}>
             <FormattedMessage
               id='ui.txHash.waiting'
               defaultMessage='waiting for confirmations'
@@ -209,22 +209,22 @@ export default class TxHash extends Component {
     }
 
     return (
-      <div className={ styles.confirm }>
+      <div className={styles.confirm}>
         <Progress
-          className={ styles.progressbar }
-          max={ maxConfirmations }
-          value={ value }
+          className={styles.progressbar}
+          max={maxConfirmations}
+          value={value}
           isDeterminate
         />
-        <div className={ styles.progressinfo }>
-          <abbr title={ `block #${blockNumber.toFormat(0)}` }>
+        <div className={styles.progressinfo}>
+          <abbr title={`block #${blockNumber.toFormat(0)}`}>
             <FormattedMessage
               id='ui.txHash.confirmations'
               defaultMessage='{count} {value, plural, one {confirmation} other {confirmations}}'
-              values={ {
+              values={{
                 count,
                 value
-              } }
+              }}
             />
           </abbr>
         </div>

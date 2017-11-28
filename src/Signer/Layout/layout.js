@@ -24,7 +24,7 @@ import styles from './layout.css';
 
 export default function Layout ({ className, children }) {
   return (
-    <div className={ `${styles.signerLayout} ${className}` }>
+    <div className={`${styles.signerLayout} ${className}`}>
       { children }
     </div>
   );

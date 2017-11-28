@@ -23,10 +23,10 @@ import Label from '../Label';
 
 export default function LabelWrapper ({ className, children, htmlFor, label }) {
   return (
-    <div className={ className }>
+    <div className={className}>
       <Label
-        htmlFor={ htmlFor }
-        label={ label }
+        htmlFor={htmlFor}
+        label={label}
       />
       { children }
     </div>
