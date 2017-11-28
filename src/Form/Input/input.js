@@ -32,7 +32,7 @@ const NAME_ID = ' ';
 
 export default class Input extends Component {
   static contextTypes = {
-    intl: React.PropTypes.object.isRequired
+    intl: PropTypes.object.isRequired
   };
 
   static propTypes = {
@@ -146,12 +146,12 @@ export default class Input extends Component {
           style={ style }
           tabIndex={ tabIndex }
         >
-          { this.renderCopyButton() }
+          {this.renderCopyButton()}
           <input
             type={ type }
             value={ parseI18NString(this.context, `${displayValue}`) }
           />
-          { children }
+          {children}
         </SemanticInput>
       </LabelWrapper>
     );

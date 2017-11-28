@@ -44,7 +44,7 @@ let currentId = 1;
 @observer
 class AddressSelect extends Component {
   static contextTypes = {
-    intl: React.PropTypes.object.isRequired,
+    intl: PropTypes.object.isRequired,
     api: PropTypes.object.isRequired
   };
 
@@ -121,8 +121,8 @@ class AddressSelect extends Component {
 
     return (
       <div className={ styles.main }>
-        { input }
-        { content }
+        {input}
+        {content}
       </div>
     );
   }
@@ -154,7 +154,7 @@ class AddressSelect extends Component {
 
     return (
       <div className={ styles.inputAddressContainer }>
-        { this.renderCopyButton() }
+        {this.renderCopyButton()}
         <div
           className={ styles.inputAddress }
           onBlur={ this.handleMainBlur }
@@ -164,7 +164,7 @@ class AddressSelect extends Component {
           ref='inputAddress'
           tabIndex={ 0 }
         >
-          { input }
+          {input}
         </div>
       </div>
     );
@@ -236,9 +236,9 @@ class AddressSelect extends Component {
           </LabelWrapper>
         }
       >
-        { this.renderCurrentInput() }
-        { this.renderRegistryValues() }
-        { this.renderAccounts() }
+        {this.renderCurrentInput()}
+        {this.renderRegistryValues()}
+        {this.renderAccounts()}
       </Portal>
     );
   }
@@ -259,7 +259,7 @@ class AddressSelect extends Component {
 
     return (
       <div className={ styles.container }>
-        { this.renderAccountCard({ address, index: 'currentInput_0' }) }
+        {this.renderAccountCard({ address, index: 'currentInput_0' })}
       </div>
     );
   }
@@ -280,7 +280,7 @@ class AddressSelect extends Component {
 
     return (
       <div className={ styles.container }>
-        { accounts }
+        {accounts}
       </div>
     );
   }
@@ -307,7 +307,7 @@ class AddressSelect extends Component {
 
     return (
       <div className={ styles.categories }>
-        { categories }
+        {categories}
       </div>
     );
   }
@@ -331,7 +331,7 @@ class AddressSelect extends Component {
 
       content = (
         <div className={ styles.cards }>
-          { cards }
+          {cards}
         </div>
       );
     }
@@ -339,9 +339,9 @@ class AddressSelect extends Component {
     return (
       <div className={ styles.category } key={ `${key}_${index}` }>
         <div className={ styles.title }>
-          <h3>{ label }</h3>
+          <h3>{label}</h3>
         </div>
-        { content }
+        {content}
       </div>
     );
   }
