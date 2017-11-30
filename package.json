@@ -1,7 +1,7 @@
 {
   "name": "@parity/ui",
   "description": "Parity React UI components",
-  "version": "2.2.15",
+  "version": "3.0.0",
   "main": "lib/index.js",
   "module": "src/index.js",
   "jsnext:main": "src/index.js",
@@ -20,7 +20,6 @@
   "keywords": [],
   "scripts": {
     "build": "babel src --out-dir lib --ignore *.spec.js --copy-files",
-    "ci:makeshift": "makeshift",
     "lint": "npm run lint:css && npm run lint:js",
     "lint:css": "stylelint ./src/**/*.css",
     "lint:js": "eslint src",

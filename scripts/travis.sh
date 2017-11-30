@@ -1,5 +1,4 @@
 #!/bin/bash
-# ISC, Copyright 2017 Jaco Greeff
 
 set -e
 
@@ -24,18 +23,16 @@ git config user.name "Travis CI"
 git config user.email "$COMMIT_AUTHOR_EMAIL"
 git remote set-url origin https://${GH_TOKEN}@github.com/${TRAVIS_REPO_SLUG}.git > /dev/null 2>&1
 
-if [ -n "$(git status --untracked-files=no --porcelain)" ]; then
-  echo "Adding build artifacts"
+echo "Adding build artifacts"
 
-  git add .
-  git commit -m "[CI Skip] Build artifacts"
-fi
+git checkout $TRAVIS_BRANCH
+git add .
 
 echo "Publishing to npm"
 
-npm run ci:makeshift
+npm run makeshift
 npm --no-git-tag-version version
-npm version patch -m "[CI Skip] Version bump"
+npm version patch -m "[CI Skip] %s"
 npm publish
 
 echo "Final push to GitHub"
