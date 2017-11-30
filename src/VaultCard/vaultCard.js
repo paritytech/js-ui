@@ -30,22 +30,22 @@ export default function VaultCard ({ accounts, buttons, children, hideAccounts, 
 
   return (
     <Container
-      className={ styles.container }
+      className={styles.container}
       hover={
         isOpen && (
           <Accounts
-            accounts={ accounts }
-            hideAccounts={ hideAccounts }
+            accounts={accounts}
+            hideAccounts={hideAccounts}
           />
         )
       }
     >
       <Buttons
-        buttons={ buttons }
-        hideButtons={ hideButtons }
-        vault={ vault }
+        buttons={buttons}
+        hideButtons={hideButtons}
+        vault={vault}
       />
-      <Layout vault={ vault }>
+      <Layout vault={vault}>
         { children }
       </Layout>
     </Container>

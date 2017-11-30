@@ -32,7 +32,7 @@ const NAME_ID = ' ';
 
 export default class Input extends Component {
   static contextTypes = {
-    intl: React.PropTypes.object.isRequired
+    intl: PropTypes.object.isRequired
   };
 
   static propTypes = {
@@ -120,38 +120,38 @@ export default class Input extends Component {
 
     return (
       <LabelWrapper
-        className={ `${styles.container} ${className}` }
-        label={ label }
+        className={`${styles.container} ${className}`}
+        label={label}
       >
         <SemanticInput
-          className={ styles.input }
-          disabled={ disabled }
-          error={ !!error }
+          className={styles.input}
+          disabled={disabled}
+          error={!!error}
           fluid
-          id={ NAME_ID }
-          max={ max }
-          min={ min }
-          name={ NAME_ID }
-          onBlur={ this.onBlur }
-          onChange={ this.onChange }
-          onClick={ onClick }
-          onKeyDown={ this.onKeyDown }
-          onKeyUp={ this.onKeyUp }
-          onFocus={ this.onFocus }
-          onPaste={ this.onPaste }
-          placeholder={ parseI18NString(this.context, hint) }
-          readOnly={ readOnly }
+          id={NAME_ID}
+          max={max}
+          min={min}
+          name={NAME_ID}
+          onBlur={this.onBlur}
+          onChange={this.onChange}
+          onClick={onClick}
+          onKeyDown={this.onKeyDown}
+          onKeyUp={this.onKeyUp}
+          onFocus={this.onFocus}
+          onPaste={this.onPaste}
+          placeholder={parseI18NString(this.context, hint)}
+          readOnly={readOnly}
           ref='input'
-          step={ step }
-          style={ style }
-          tabIndex={ tabIndex }
+          step={step}
+          style={style}
+          tabIndex={tabIndex}
         >
-          { this.renderCopyButton() }
+          {this.renderCopyButton()}
           <input
-            type={ type }
-            value={ parseI18NString(this.context, `${displayValue}`) }
+            type={type}
+            value={parseI18NString(this.context, `${displayValue}`)}
           />
-          { children }
+          {children}
         </SemanticInput>
       </LabelWrapper>
     );
@@ -170,8 +170,8 @@ export default class Input extends Component {
       : value.toString();
 
     return (
-      <div className={ styles.copy }>
-        <CopyToClipboard data={ text } />
+      <div className={styles.copy}>
+        <CopyToClipboard data={text} />
       </div>
     );
   }

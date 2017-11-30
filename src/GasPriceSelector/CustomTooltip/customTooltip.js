@@ -49,11 +49,11 @@ export default class CustomTooltip extends Component {
           <FormattedMessage
             id='ui.gasPriceSelector.customTooltip.transactions'
             defaultMessage='{number} {number, plural, one {transaction} other {transactions}} with gas price set from {minPrice} to {maxPrice}'
-            values={ {
+            values={{
               number: count.toNumber(),
               minPrice: <span>{ minprice.toFormat(0) }</span>,
               maxPrice: <span>{ maxprice.toFormat(0) }</span>
-            } }
+            }}
           />
         </p>
       </div>

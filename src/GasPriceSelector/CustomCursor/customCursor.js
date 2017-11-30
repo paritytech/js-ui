@@ -47,20 +47,20 @@ export default class CustomCursor extends Component {
     return (
       <g>
         <Rectangle
-          x={ x }
-          y={ 0 }
-          width={ width }
-          height={ height + y }
+          x={x}
+          y={0}
+          width={width}
+          height={height + y}
           fill='transparent'
-          onClick={ this.onClick }
+          onClick={this.onClick}
         />
         <Rectangle
-          x={ x }
-          y={ y + (height - barHeight) }
-          width={ width }
-          height={ barHeight }
-          fill={ COLORS.hover }
-          onClick={ this.onClick }
+          x={x}
+          y={y + (height - barHeight)}
+          width={width}
+          height={barHeight}
+          fill={COLORS.hover}
+          onClick={this.onClick}
         />
       </g>
     );

@@ -32,16 +32,16 @@ function shortAddress (address) {
 }
 
 export default function Name ({ accounts, address, className, externalLink, netVersion }) {
-  const name = <IdentityName address={ address } empty />;
+  const name = <IdentityName address={address} empty />;
 
   if (!name) {
     return (
       <AccountLink
-        accounts={ accounts }
-        address={ address }
-        className={ className }
-        externalLink={ externalLink }
-        netVersion={ netVersion }
+        accounts={accounts}
+        address={address}
+        className={className}
+        externalLink={externalLink}
+        netVersion={netVersion}
       >
         { shortAddress(address) }
       </AccountLink>
@@ -50,15 +50,15 @@ export default function Name ({ accounts, address, className, externalLink, netV
 
   return (
     <AccountLink
-      accounts={ accounts }
-      address={ address }
-      className={ className }
-      externalLink={ externalLink }
-      netVersion={ netVersion }
+      accounts={accounts}
+      address={address}
+      className={className}
+      externalLink={externalLink}
+      netVersion={netVersion}
     >
       <span>
-        <span className={ styles.name }>{ name }</span>
-        <span className={ styles.address }>{ tinyAddress(address) }</span>
+        <span className={styles.name}>{ name }</span>
+        <span className={styles.address}>{ tinyAddress(address) }</span>
       </span>
     </AccountLink>
   );

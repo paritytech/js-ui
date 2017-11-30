@@ -22,12 +22,12 @@ import LabelWrapper from '../LabelWrapper';
 
 export default function Toggle ({ className, label, onToggle, style, toggled }) {
   return (
-    <LabelWrapper label={ label }>
+    <LabelWrapper label={label}>
       <SemanticRadio
-        checked={ toggled }
-        className={ className }
-        onChange={ onToggle }
-        style={ style }
+        checked={toggled}
+        className={className}
+        onChange={onToggle}
+        style={style}
         toggle
       />
     </LabelWrapper>

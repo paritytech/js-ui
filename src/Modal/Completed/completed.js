@@ -21,7 +21,7 @@ import styles from './completed.css';
 
 export default function Completed ({ children }) {
   return (
-    <div className={ styles.body }>
+    <div className={styles.body}>
       { children }
     </div>
   );

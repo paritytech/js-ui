@@ -42,7 +42,7 @@ function render (props = {}) {
   }
 
   component = shallow(
-    <IdentityIcon { ...props } />,
+    <IdentityIcon {...props} />,
     { context: { api: createApi() } }
   );
 

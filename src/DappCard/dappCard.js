@@ -51,23 +51,23 @@ export default class DappCard extends Component {
         className={
           [styles.container, className].join(' ')
         }
-        link={ this.getLink(app) }
-        onClick={ onClick }
+        link={this.getLink(app)}
+        onClick={onClick}
       >
         <DappIcon
-          app={ app }
-          className={ styles.image }
+          app={app}
+          className={styles.image}
         />
-        <DappVouchFor app={ app } />
+        <DappVouchFor app={app} />
         <Tags
-          className={ styles.tags }
+          className={styles.tags}
           tags={
             showTags
               ? [app.type]
               : null
           }
         />
-        <div className={ styles.description }>
+        <div className={styles.description}>
           <ContainerTitle
             className={
               showLink
@@ -75,10 +75,10 @@ export default class DappCard extends Component {
                 : styles.title
             }
             isOffset
-            title={ app.name }
-            byline={ app.description }
+            title={app.name}
+            byline={app.description}
           />
-          <div className={ styles.author }>
+          <div className={styles.author}>
             { app.author }, v{ app.version }
           </div>
           { children }

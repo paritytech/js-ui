@@ -43,7 +43,7 @@ export default class Origin extends Component {
     const { origin } = this.props;
 
     return (
-      <div className={ styles.container }>
+      <div className={styles.container}>
         Requested { this.renderOrigin(origin) }
       </div>
     );
@@ -52,7 +52,7 @@ export default class Origin extends Component {
   renderOrigin (origin) {
     if (origin.type === 'unknown') {
       return (
-        <span className={ styles.unknown }>
+        <span className={styles.unknown}>
           <FormattedMessage
             id='signer.requestOrigin.unknownInterface'
             defaultMessage='via unknown interface'
@@ -67,9 +67,9 @@ export default class Origin extends Component {
           <FormattedMessage
             id='signer.requestOrigin.dapp'
             defaultMessage='by a dapp at {url}'
-            values={ {
+            values={{
               url: (
-                <span className={ styles.url }>
+                <span className={styles.url}>
                   {
                     origin.details || (
                       <FormattedMessage
@@ -80,7 +80,7 @@ export default class Origin extends Component {
                   }
                 </span>
               )
-            } }
+            }}
           />
         </span>
       );
@@ -92,9 +92,9 @@ export default class Origin extends Component {
           <FormattedMessage
             id='signer.requestOrigin.rpc'
             defaultMessage='via RPC {url}'
-            values={ {
+            values={{
               url: (
-                <span className={ styles.url }>
+                <span className={styles.url}>
                   ({
                     origin.details || (
                       <FormattedMessage
@@ -105,7 +105,7 @@ export default class Origin extends Component {
                   })
                 </span>
               )
-            } }
+            }}
           />
         </span>
       );
@@ -119,11 +119,11 @@ export default class Origin extends Component {
             defaultMessage='via IPC session'
           />
           <span
-            className={ styles.hash }
-            title={ origin.details }
+            className={styles.hash}
+            title={origin.details}
           >
             <IdentityIcon
-              address={ origin.details }
+              address={origin.details}
               tiny
             />
           </span>
@@ -141,7 +141,7 @@ export default class Origin extends Component {
   renderSigner (session) {
     if (session.substr(2) === this.context.api.transport.sessionHash) {
       return (
-        <span title={ session }>
+        <span title={session}>
           <FormattedMessage
             id='signer.requestOrigin.signerCurrent'
             defaultMessage='via current tab'
@@ -157,11 +157,11 @@ export default class Origin extends Component {
           defaultMessage='via UI session'
         />
         <span
-          className={ styles.hash }
-          title={ `UI Session id: ${session}` }
+          className={styles.hash}
+          title={`UI Session id: ${session}`}
         >
           <IdentityIcon
-            address={ session }
+            address={session}
             tiny
           />
         </span>

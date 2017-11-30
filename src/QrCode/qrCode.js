@@ -65,10 +65,10 @@ export default class QrCode extends Component {
 
     return (
       <div
-        className={ [styles.qr, className].join(' ') }
-        dangerouslySetInnerHTML={ {
+        className={[styles.qr, className].join(' ')}
+        dangerouslySetInnerHTML={{
           __html: image
-        } }
+        }}
       />
     );
   }

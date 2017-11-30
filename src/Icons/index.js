@@ -18,7 +18,7 @@ import React from 'react';
 import { Icon } from 'semantic-ui-react';
 
 export function createIcon (name, props = {}) {
-  return <Icon name={ name } { ...props } />;
+  return <Icon name={name} {...props} />;
 }
 
 export const AccountsIcon = (props) => createIcon('university', props);

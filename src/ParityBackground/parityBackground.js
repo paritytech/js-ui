@@ -97,13 +97,13 @@ export default class ParityBackground extends Component {
 
     return (
       <div
-        className={ className }
+        className={className}
         style={
           attachDocument
             ? {}
             : style
         }
-        onTouchTap={ onClick }
+        onTouchTap={onClick}
       >
         { children }
       </div>

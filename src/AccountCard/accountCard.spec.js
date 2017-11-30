@@ -70,9 +70,9 @@ function render (props = {}) {
 
   component = shallow(
     <AccountCard
-      { ...props }
-      onClick={ onClick }
-      onFocus={ onFocus }
+      {...props}
+      onClick={onClick}
+      onFocus={onFocus}
     />
   );
 

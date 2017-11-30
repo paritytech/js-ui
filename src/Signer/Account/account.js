@@ -27,27 +27,27 @@ import styles from './account.css';
 
 export default function Account ({ accounts, address, balance, className, isDisabled, externalLink, netVersion }) {
   return (
-    <div className={ `${styles.account} ${className}` }>
+    <div className={`${styles.account} ${className}`}>
       <AccountLink
-        accounts={ accounts }
-        address={ address }
-        externalLink={ externalLink }
-        netVersion={ netVersion }
+        accounts={accounts}
+        address={address}
+        externalLink={externalLink}
+        netVersion={netVersion}
       >
         <IdentityIcon
           center
-          disabled={ isDisabled }
-          address={ address }
+          disabled={isDisabled}
+          address={address}
         />
       </AccountLink>
       <Name
-        accounts={ accounts }
-        address={ address }
-        externalLink={ externalLink }
-        netVersion={ netVersion }
+        accounts={accounts}
+        address={address}
+        externalLink={externalLink}
+        netVersion={netVersion}
       />
       <Balance
-        value={ balance }
+        value={balance}
       />
     </div>
   );

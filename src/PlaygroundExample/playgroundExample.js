@@ -22,17 +22,17 @@ import styles from './playground.css';
 
 export default function PlaygroundExample ({ children, name }) {
   return (
-    <div className={ styles.exampleContainer }>
+    <div className={styles.exampleContainer}>
       {
         name
           ? <p>{ name }</p>
           : null
       }
-      <div className={ styles.example }>
-        <div className={ styles.code }>
+      <div className={styles.example}>
+        <div className={styles.code}>
           <code>{ reactElementToJSXString(children) }</code>
         </div>
-        <div className={ styles.component }>
+        <div className={styles.component}>
           { children }
         </div>
       </div>

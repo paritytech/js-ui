@@ -32,7 +32,7 @@ function BlockNumber ({ className, message }, { api }) {
 
   if (!store.syncing) {
     return (
-      <div className={ [styles.blockNumber, className].join(' ') }>
+      <div className={[styles.blockNumber, className].join(' ')}>
         { store.blockNumber.toFormat() }{ message }
       </div>
     );
@@ -40,13 +40,13 @@ function BlockNumber ({ className, message }, { api }) {
 
   if (store.syncing.warpChunksAmount && store.syncing.warpChunksProcessed && !store.syncing.warpChunksAmount.eq(store.syncing.warpChunksProcessed)) {
     return (
-      <div className={ styles.syncStatus }>
+      <div className={styles.syncStatus}>
         <FormattedMessage
           id='ui.blockStatus.warpRestore'
           defaultMessage='{percentage}% warp restore'
-          values={ {
+          values={{
             percentage: store.syncing.warpChunksProcessed.mul(100).div(store.syncing.warpChunksAmount).toFormat(2)
-          } }
+          }}
         />
       </div>
     );
@@ -61,10 +61,10 @@ function BlockNumber ({ className, message }, { api }) {
         <FormattedMessage
           id='ui.blockStatus.syncStatus'
           defaultMessage='{currentBlock}/{highestBlock} syncing'
-          values={ {
+          values={{
             currentBlock: store.syncing.currentBlock.toFormat(),
             highestBlock: store.syncing.highestBlock.toFormat()
-          } }
+          }}
         />
       </span>
     );
@@ -78,16 +78,16 @@ function BlockNumber ({ className, message }, { api }) {
         <FormattedMessage
           id='ui.blockStatus.warpStatus'
           defaultMessage=', {percentage}% historic'
-          values={ {
+          values={{
             percentage: first.mul(100).div(last).toFormat(2)
-          } }
+          }}
         />
       </span>
     );
   }
 
   return (
-    <div className={ styles.syncStatus }>
+    <div className={styles.syncStatus}>
       { syncStatus }
       { warpStatus }
     </div>

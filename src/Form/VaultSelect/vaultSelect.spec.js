@@ -40,9 +40,9 @@ function render () {
 
   component = shallow(
     <VaultSelect
-      onSelect={ onSelect }
+      onSelect={onSelect}
       value='initialValue'
-      vaultStore={ createVaultStore() }
+      vaultStore={createVaultStore()}
     />
   );
   instance = component.instance();

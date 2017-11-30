@@ -114,40 +114,40 @@ export default class IdentityIcon extends Component {
     if (!address) {
       return (
         <ContractIcon
-          className={ classes }
+          className={classes}
           data-address-img
-          onClick={ onClick }
-          style={ {
+          onClick={onClick}
+          style={{
             background: '#eee',
             height: size,
             width: size
-          } }
+          }}
         />
       );
     } else if (isNullAddress(address)) {
       return (
         <CancelIcon
-          className={ classes }
+          className={classes}
           data-address-img
-          onClick={ onClick }
-          style={ {
+          onClick={onClick}
+          style={{
             background: '#333',
             height: size,
             width: size
-          } }
+          }}
         />
       );
     }
 
     return (
       <img
-        alt={ alt || address }
-        className={ classes }
+        alt={alt || address}
+        className={classes}
         data-address-img
-        height={ size }
-        onClick={ onClick }
-        width={ size }
-        src={ iconsrc }
+        height={size}
+        onClick={onClick}
+        width={size}
+        src={iconsrc}
       />
     );
   }

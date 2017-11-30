@@ -58,15 +58,15 @@ export default class LanguageSelector extends Component {
             defaultMessage='UI language'
           />
         }
-        value={ this.store.locale }
-        onChange={ this.onChange }
+        value={this.store.locale}
+        onChange={this.onChange}
         options={
           this.store.locales.map((locale) => {
             return {
               key: locale,
               value: locale,
               text: locale,
-              content: <FormattedMessage id={ `languages.${locale}` } />
+              content: <FormattedMessage id={`languages.${locale}`} />
             };
           })
         }

@@ -29,7 +29,7 @@ const api = new Api({ send: sinon.stub(), on: sinon.stub() });
 function render (props) {
   return shallow(
     <TxList
-      { ...props }
+      {...props}
     />,
     { context: { api } }
   );

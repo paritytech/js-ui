@@ -24,13 +24,13 @@ export default function Slider ({ className, max, min = 0, onChange, step = 1, v
 
   return (
     <input
-      className={ `${styles.slider} ${className}` }
-      max={ max }
-      min={ min }
-      onChange={ _onChange }
-      step={ step }
+      className={`${styles.slider} ${className}`}
+      max={max}
+      min={min}
+      onChange={_onChange}
+      step={step}
       type='range'
-      value={ value }
+      value={value}
     />
   );
 }

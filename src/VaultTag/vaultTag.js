@@ -23,13 +23,13 @@ import styles from './vaultTag.css';
 
 export default function VaultTag ({ vault }) {
   return (
-    <div className={ styles.vault }>
-      <div className={ styles.vaultBody }>
+    <div className={styles.vault}>
+      <div className={styles.vaultBody}>
         <IdentityIcon
-          address={ vault }
+          address={vault}
           inline
         />
-        <div className={ styles.text }>
+        <div className={styles.text}>
           { vault }
         </div>
       </div>

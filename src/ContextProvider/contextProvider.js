@@ -53,7 +53,7 @@ export default class ContextProvider extends Component {
     const { locale, messages } = this.localeStore;
 
     return (
-      <IntlProvider locale={ locale } messages={ messages }>
+      <IntlProvider locale={locale} messages={messages}>
         { children }
       </IntlProvider>
     );

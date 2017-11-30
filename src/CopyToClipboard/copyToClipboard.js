@@ -62,16 +62,16 @@ class CopyToClipboard extends Component {
 
     return (
       <Clipboard
-        onCopy={ this.onCopy }
-        text={ data }
+        onCopy={this.onCopy}
+        text={data}
       >
         <div
-          className={ styles.icon }
-          onClick={ this.onClick }
-          style={ {
+          className={styles.icon}
+          onClick={this.onClick}
+          style={{
             height: size,
             width: size
-          } }
+          }}
         >
           <CopyIcon />
         </div>
@@ -82,13 +82,13 @@ class CopyToClipboard extends Component {
   onCopy = () => {
     const { data, onCopy, cooldown, showSnackbar } = this.props;
     const message = (
-      <div className={ styles.container }>
+      <div className={styles.container}>
         <FormattedMessage
           id='ui.copyToClipboard.copied'
           defaultMessage='copied {data} to clipboard'
-          values={ {
-            data: <code className={ styles.data }> { data } </code>
-          } }
+          values={{
+            data: <code className={styles.data}> { data } </code>
+          }}
         />
       </div>
     );

@@ -79,10 +79,10 @@ export class Balance extends Component {
 
         return (
           <TokenValue
-            key={ tokenId }
-            showOnlyEth={ showOnlyEth }
-            token={ token }
-            value={ balanceValue }
+            key={tokenId}
+            showOnlyEth={showOnlyEth}
+            token={token}
+            value={balanceValue}
           />
         );
       })
@@ -90,7 +90,7 @@ export class Balance extends Component {
 
     if (!body.length) {
       body = (
-        <div className={ styles.empty }>
+        <div className={styles.empty}>
           <FormattedMessage
             id='ui.balance.none'
             defaultMessage='No balances associated with this account'

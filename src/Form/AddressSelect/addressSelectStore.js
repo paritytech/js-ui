@@ -65,9 +65,9 @@ export default class AddressSelectStore {
           <FormattedMessage
             id='addressSelect.fromRegistry'
             defaultMessage='{name} (from registry)'
-            values={ {
+            values={{
               name
-            } }
+            }}
           />
         )
       };
@@ -94,9 +94,9 @@ export default class AddressSelectStore {
                   <FormattedMessage
                     id='addressSelect.fromEmail'
                     defaultMessage='Verified using email {email}'
-                    values={ {
+                    values={{
                       email
-                    } }
+                    }}
                   />
                 )
               };
@@ -119,9 +119,9 @@ export default class AddressSelectStore {
                   <FormattedMessage
                     id='addressSelect.fromRegistry'
                     defaultMessage='{name} (from registry)'
-                    values={ {
+                    values={{
                       name
-                    } }
+                    }}
                   />
                 )
               };
@@ -144,9 +144,9 @@ export default class AddressSelectStore {
                   <FormattedMessage
                     id='addressSelect.fromRegistry'
                     defaultMessage='{name} (from registry)'
-                    values={ {
+                    values={{
                       name
-                    } }
+                    }}
                   />
                 )
               };

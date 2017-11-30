@@ -56,7 +56,7 @@ export default class Tags extends Component {
     classes.push(className);
 
     return (
-      <div className={ classes.join(' ') }>
+      <div className={classes.join(' ')}>
         { this.renderTags() }
       </div>
     );
@@ -87,12 +87,12 @@ export default class Tags extends Component {
 
         return (
           <div
-            key={ `tag_${index}` }
-            className={ tagClasses.join(' ') }
-            onClick={ onClick }
-            ref={ setRef }
+            key={`tag_${index}`}
+            className={tagClasses.join(' ')}
+            onClick={onClick}
+            ref={setRef}
           >
-            <span className={ styles.text }>{ tag }</span>
+            <span className={styles.text}>{ tag }</span>
           </div>
         );
       });

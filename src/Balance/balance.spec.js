@@ -62,7 +62,7 @@ function render (props = {}) {
   component = shallow(
     <Balance
       className='testClass'
-      { ...props }
+      {...props}
     />,
     {
       context: { api }

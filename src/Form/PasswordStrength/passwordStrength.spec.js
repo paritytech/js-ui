@@ -27,7 +27,7 @@ const INPUT_NULL = '';
 
 function render (props) {
   return shallow(
-    <PasswordStrength { ...props } />
+    <PasswordStrength {...props} />
   ).shallow();
 }
 

@@ -31,8 +31,8 @@ function render (props) {
   onChange = sinon.stub();
   component = shallow(
     <TypedInput
-      { ...props }
-      onChange={ onChange }
+      {...props}
+      onChange={onChange}
     />
   );
 

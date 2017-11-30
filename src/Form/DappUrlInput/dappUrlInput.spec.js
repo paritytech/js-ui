@@ -34,10 +34,10 @@ function render (props = { url: 'http://some.url' }) {
 
   component = shallow(
     <DappUrlInput
-      onChange={ onChange }
-      onGoto={ onGoto }
-      onRestore={ onRestore }
-      { ...props }
+      onChange={onChange}
+      onGoto={onGoto}
+      onRestore={onRestore}
+      {...props}
     />
   );
 

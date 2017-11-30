@@ -32,11 +32,11 @@ export default class DappUrlInput extends Component {
 
     return (
       <input
-        className={ className }
-        onChange={ this.onChange }
-        onKeyDown={ this.onKeyDown }
+        className={className}
+        onChange={this.onChange}
+        onKeyDown={this.onKeyDown}
         type='text'
-        value={ url }
+        value={url}
       />
     );
   }

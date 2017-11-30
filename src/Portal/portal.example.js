@@ -34,10 +34,10 @@ export default class PortalExample extends Component {
       <div>
         <PlaygroundExample name='Standard Portal'>
           <div>
-            <button onClick={ this.handleOpen(0) }>Open</button>
+            <button onClick={this.handleOpen(0)}>Open</button>
             <Portal
-              open={ open[0] || false }
-              onClose={ this.handleClose }
+              open={open[0] || false}
+              onClose={this.handleClose}
             >
               <p>This is the first portal</p>
             </Portal>
@@ -46,11 +46,11 @@ export default class PortalExample extends Component {
 
         <PlaygroundExample name='Popover Portal'>
           <div>
-            <button onClick={ this.handleOpen(1) }>Open</button>
+            <button onClick={this.handleOpen(1)}>Open</button>
             <Portal
               isChildModal
-              open={ open[1] || false }
-              onClose={ this.handleClose }
+              open={open[1] || false}
+              onClose={this.handleClose}
             >
               <p>This is the second portal</p>
             </Portal>
@@ -59,12 +59,12 @@ export default class PortalExample extends Component {
 
         <PlaygroundExample name='Portal in Modal'>
           <div>
-            <button onClick={ this.handleOpen(2) }>Open</button>
+            <button onClick={this.handleOpen(2)}>Open</button>
 
             <Portal
               isChildModal
-              open={ open[3] || false }
-              onClose={ this.handleClose }
+              open={open[3] || false}
+              onClose={this.handleClose}
             >
               <p>This is the second portal</p>
             </Portal>
@@ -73,20 +73,20 @@ export default class PortalExample extends Component {
 
         <PlaygroundExample name='Portal with Buttons'>
           <div>
-            <button onClick={ this.handleOpen(4) }>Open</button>
+            <button onClick={this.handleOpen(4)}>Open</button>
             <Portal
-              activeStep={ 0 }
-              buttons={ [
+              activeStep={0}
+              buttons={[
                 <Button
                   key='close'
                   label='close'
-                  onClick={ this.handleClose }
+                  onClick={this.handleClose}
                 />
-              ] }
+              ]}
               isChildModal
-              open={ open[4] || false }
-              onClose={ this.handleClose }
-              steps={ [ 'step 1', 'step 2' ] }
+              open={open[4] || false}
+              onClose={this.handleClose}
+              steps={[ 'step 1', 'step 2' ]}
               title='Portal with button'
             >
               <p>This is the fourth portal</p>

@@ -23,11 +23,11 @@ import styles from './busy.css';
 
 export default function Busy ({ children, state, title }) {
   return (
-    <div className={ styles.center }>
-      <div className={ styles.title }>
+    <div className={styles.center}>
+      <div className={styles.title}>
         { title }
       </div>
-      <div className={ styles.state }>
+      <div className={styles.state}>
         { state }
       </div>
       { children }

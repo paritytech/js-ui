@@ -32,7 +32,7 @@ function NetPeers ({ className, message }, { api }) {
   const { max, connected } = store.netPeers;
 
   return (
-    <div className={ [styles.peers, className].join(' ') }>
+    <div className={[styles.peers, className].join(' ')}>
       { connected ? connected.toFormat() : '0' }/{ max ? max.toFormat() : '0' }{ message }
     </div>
   );

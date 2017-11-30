@@ -44,7 +44,7 @@ let currentId = 1;
 @observer
 class AddressSelect extends Component {
   static contextTypes = {
-    intl: React.PropTypes.object.isRequired,
+    intl: PropTypes.object.isRequired,
     api: PropTypes.object.isRequired
   };
 
@@ -120,9 +120,9 @@ class AddressSelect extends Component {
     const content = this.renderContent();
 
     return (
-      <div className={ styles.main }>
-        { input }
-        { content }
+      <div className={styles.main}>
+        {input}
+        {content}
       </div>
     );
   }
@@ -133,18 +133,18 @@ class AddressSelect extends Component {
 
     const input = (
       <InputAddress
-        accountsInfo={ accountsInfo }
-        allowCopy={ (disabled || readOnly) && allowCopy ? allowCopy : false }
-        className={ className }
-        disabled={ disabled || readOnly }
-        error={ error }
-        hint={ hint }
-        focused={ focused }
-        label={ label }
+        accountsInfo={accountsInfo}
+        allowCopy={(disabled || readOnly) && allowCopy ? allowCopy : false}
+        className={className}
+        disabled={disabled || readOnly}
+        error={error}
+        hint={hint}
+        focused={focused}
+        label={label}
         readOnly
-        tabIndex={ -1 }
+        tabIndex={-1}
         text
-        value={ value }
+        value={value}
       />
     );
 
@@ -153,18 +153,18 @@ class AddressSelect extends Component {
     }
 
     return (
-      <div className={ styles.inputAddressContainer }>
-        { this.renderCopyButton() }
+      <div className={styles.inputAddressContainer}>
+        {this.renderCopyButton()}
         <div
-          className={ styles.inputAddress }
-          onBlur={ this.handleMainBlur }
-          onClick={ this.handleFocus }
-          onFocus={ this.handleMainFocus }
-          onKeyDown={ this.handleInputAddresKeydown }
+          className={styles.inputAddress}
+          onBlur={this.handleMainBlur}
+          onClick={this.handleFocus}
+          onFocus={this.handleMainFocus}
+          onKeyDown={this.handleInputAddresKeydown}
           ref='inputAddress'
-          tabIndex={ 0 }
+          tabIndex={0}
         >
-          { input }
+          {input}
         </div>
       </div>
     );
@@ -182,8 +182,8 @@ class AddressSelect extends Component {
       : value.toString();
 
     return (
-      <div className={ styles.copy }>
-        <CopyToClipboard data={ text } />
+      <div className={styles.copy}>
+        <CopyToClipboard data={text} />
       </div>
     );
   }
@@ -201,33 +201,33 @@ class AddressSelect extends Component {
 
     return (
       <Portal
-        className={ styles.inputContainer }
+        className={styles.inputContainer}
         isChildModal
-        onClick={ this.handleClose }
-        onClose={ this.handleClose }
-        onKeyDown={ this.handleKeyDown }
-        open={ expanded }
+        onClick={this.handleClose}
+        onClose={this.handleClose}
+        onKeyDown={this.handleKeyDown}
+        open={expanded}
         title={
           <LabelWrapper
-            className={ styles.title }
-            htmlFor={ id }
-            label={ label }
+            className={styles.title}
+            htmlFor={id}
+            label={label}
           >
-            <div className={ styles.outerInput }>
+            <div className={styles.outerInput}>
               <input
-                id={ id }
-                className={ styles.input }
-                placeholder={ ilHint }
-                onBlur={ this.handleInputBlur }
-                onClick={ this.stopEvent }
-                onFocus={ this.handleInputFocus }
-                onChange={ this.handleChange }
-                ref={ this.setInputRef }
+                id={id}
+                className={styles.input}
+                placeholder={ilHint}
+                onBlur={this.handleInputBlur}
+                onClick={this.stopEvent}
+                onFocus={this.handleInputFocus}
+                onChange={this.handleChange}
+                ref={this.setInputRef}
               />
               {
                 this.store.loading && (
                   <Loading
-                    className={ styles.loader }
+                    className={styles.loader}
                     size='small'
                   />
                 )
@@ -236,9 +236,9 @@ class AddressSelect extends Component {
           </LabelWrapper>
         }
       >
-        { this.renderCurrentInput() }
-        { this.renderRegistryValues() }
-        { this.renderAccounts() }
+        {this.renderCurrentInput()}
+        {this.renderRegistryValues()}
+        {this.renderAccounts()}
       </Portal>
     );
   }
@@ -258,8 +258,8 @@ class AddressSelect extends Component {
     }
 
     return (
-      <div className={ styles.container }>
-        { this.renderAccountCard({ address, index: 'currentInput_0' }) }
+      <div className={styles.container}>
+        {this.renderAccountCard({ address, index: 'currentInput_0' })}
       </div>
     );
   }
@@ -279,8 +279,8 @@ class AddressSelect extends Component {
       });
 
     return (
-      <div className={ styles.container }>
-        { accounts }
+      <div className={styles.container}>
+        {accounts}
       </div>
     );
   }
@@ -290,8 +290,8 @@ class AddressSelect extends Component {
 
     if (values.length === 0) {
       return (
-        <div className={ styles.categories }>
-          <div className={ styles.empty }>
+        <div className={styles.categories}>
+          <div className={styles.empty}>
             <FormattedMessage
               id='addressSelect.noAccount'
               defaultMessage='No account matches this query...'
@@ -306,8 +306,8 @@ class AddressSelect extends Component {
     });
 
     return (
-      <div className={ styles.categories }>
-        { categories }
+      <div className={styles.categories}>
+        {categories}
       </div>
     );
   }
@@ -330,18 +330,18 @@ class AddressSelect extends Component {
         .map((account) => this.renderAccountCard(account));
 
       content = (
-        <div className={ styles.cards }>
-          { cards }
+        <div className={styles.cards}>
+          {cards}
         </div>
       );
     }
 
     return (
-      <div className={ styles.category } key={ `${key}_${index}` }>
-        <div className={ styles.title }>
-          <h3>{ label }</h3>
+      <div className={styles.category} key={`${key}_${index}`}>
+        <div className={styles.title}>
+          <h3>{label}</h3>
         </div>
-        { content }
+        {content}
       </div>
     );
   }
@@ -357,12 +357,12 @@ class AddressSelect extends Component {
 
     return (
       <AccountCard
-        account={ account }
-        className={ styles.account }
-        key={ `account_${index}` }
-        onClick={ this.handleClick }
-        onFocus={ this.focusItem }
-        ref={ `account_${index}` }
+        account={account}
+        className={styles.account}
+        key={`account_${index}`}
+        onClick={this.handleClick}
+        onFocus={this.focusItem}
+        ref={`account_${index}`}
       />
     );
   }

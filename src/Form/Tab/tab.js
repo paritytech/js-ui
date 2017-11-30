@@ -14,19 +14,20 @@
 // You should have received a copy of the GNU General Public License
 // along with Parity.  If not, see <http://www.gnu.org/licenses/>.
 
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
 import { Tab as SemanticTab } from 'semantic-ui-react';
 
 export default function Tab ({ activeIndex, as, defaultActiveIndex, menu, onTabChange, panes, label }) {
   return (
     <SemanticTab
-      activeIndex={ activeIndex }
-      as={ as }
-      defaultActiveIndex={ defaultActiveIndex }
-      menu={ menu }
-      onTabChange={ onTabChange }
-      panes={ panes }
+      activeIndex={activeIndex}
+      as={as}
+      defaultActiveIndex={defaultActiveIndex}
+      menu={menu}
+      onTabChange={onTabChange}
+      panes={panes}
     />
   );
 }

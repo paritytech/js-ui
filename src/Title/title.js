@@ -43,8 +43,8 @@ export default function Title ({ activeStep, busy, busySteps, byline, className,
       }
     >
       <ContainerTitle
-        byline={ byline }
-        description={ description }
+        byline={byline}
+        description={description}
         isOffset
         title={
           steps
@@ -53,15 +53,15 @@ export default function Title ({ activeStep, busy, busySteps, byline, className,
         }
       />
       <Steps
-        activeStep={ activeStep }
-        className={ styles.steps }
-        steps={ steps }
+        activeStep={activeStep}
+        className={styles.steps}
+        steps={steps}
       />
       <Waiting
-        activeStep={ activeStep }
-        busy={ busy }
-        busySteps={ busySteps }
-        className={ styles.waiting }
+        activeStep={activeStep}
+        busy={busy}
+        busySteps={busySteps}
+        className={styles.waiting}
       />
     </div>
   );

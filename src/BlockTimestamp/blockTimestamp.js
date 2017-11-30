@@ -31,7 +31,7 @@ function BlockTimestamp ({ className }, { api }) {
   }
 
   return (
-    <div className={ [styles.blockTimestamp, className].join(' ') }>
+    <div className={[styles.blockTimestamp, className].join(' ')}>
       { moment(store.blockTimestamp).calendar() }
     </div>
   );

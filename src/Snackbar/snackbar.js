@@ -78,10 +78,10 @@ export default class Snackbar extends Component {
     }
 
     return (
-      <div className={ `${styles.snacks} ${className}` }>
-        <div style={ bodyStyle }>
+      <div className={`${styles.snacks} ${className}`}>
+        <div style={bodyStyle}>
           <span>{ message }</span>
-          <span id={ styles.action } onClick={ this.hide }>{ action }</span>
+          <span id={styles.action} onClick={this.hide}>{ action }</span>
         </div>
       </div>
     );

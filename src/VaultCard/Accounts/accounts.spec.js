@@ -55,7 +55,7 @@ function createStore () {
 function render (props = {}) {
   component = shallow(
     <Accounts
-      { ...props }
+      {...props}
     />,
     {
       context: {

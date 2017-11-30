@@ -41,7 +41,7 @@ class Certifications extends Component {
     }
 
     return (
-      <div className={ [styles.certifications, className].join(' ') }>
+      <div className={[styles.certifications, className].join(' ')}>
         { certifications.map(this.renderCertification) }
       </div>
     );
@@ -62,11 +62,11 @@ class Certifications extends Component {
 
     return (
       <div
-        className={ classNames.join(' ') }
-        key={ name }
+        className={classNames.join(' ')}
+        key={name}
       >
         <img
-          className={ styles.icon }
+          className={styles.icon}
           src={
             icon
               ? `${dappsUrl}${IconCache.hashToImage(icon)}`
@@ -87,7 +87,7 @@ class Certifications extends Component {
     }
 
     return (
-      <div className={ styles.text }>
+      <div className={styles.text}>
         { title || name }
       </div>
     );

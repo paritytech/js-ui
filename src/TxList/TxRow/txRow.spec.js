@@ -54,8 +54,8 @@ const STORE = {
 function render (props) {
   return shallow(
     <TxRow
-      store={ STORE }
-      { ...props }
+      store={STORE}
+      {...props}
     />,
     { context: { api } }
   ).find('TxRow').shallow({ context: { api } });

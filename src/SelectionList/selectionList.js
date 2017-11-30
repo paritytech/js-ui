@@ -45,9 +45,9 @@ export default class SelectionList extends Component {
 
     return (
       <SectionList
-        items={ items }
-        noStretch={ noStretch }
-        renderItem={ this.renderItem }
+        items={items}
+        noStretch={noStretch}
+        renderItem={this.renderItem}
       />
     );
   }
@@ -78,11 +78,11 @@ export default class SelectionList extends Component {
       };
 
       defaultIcon = (
-        <div className={ styles.overlay }>
+        <div className={styles.overlay}>
           {
             isSelected && item.default
-              ? <StarIcon className={ styles.icon } />
-              : <StarIcon className={ styles.iconDisabled } onClick={ makeDefault } />
+              ? <StarIcon className={styles.icon} />
+              : <StarIcon className={styles.iconDisabled} onClick={makeDefault} />
           }
         </div>
       );
@@ -97,11 +97,11 @@ export default class SelectionList extends Component {
     }
 
     return (
-      <div className={ classes.join(' ') }>
+      <div className={classes.join(' ')}>
         <div
-          className={ styles.content }
-          onClick={ handleClick }
-          onDoubleClick={ handleDoubleClick }
+          className={styles.content}
+          onClick={handleClick}
+          onDoubleClick={handleDoubleClick}
         >
           { renderItem(item, index) }
         </div>

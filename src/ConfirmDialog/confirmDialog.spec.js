@@ -36,10 +36,10 @@ function render (props = {}) {
 
   component = shallow(
     <ConfirmDialog
-      { ...props }
+      {...props}
       title='test title'
-      onConfirm={ onConfirm }
-      onDeny={ onDeny }
+      onConfirm={onConfirm}
+      onDeny={onDeny}
     >
       <div id='testContent'>
         some test content

@@ -50,11 +50,11 @@ function render (address) {
 
   component = shallow(
     <ConfirmViaPassword
-      account={ ACCOUNTS[address] }
-      address={ address }
-      onConfirm={ onConfirm }
-      isSending={ false }
-      dataToSign={ {} }
+      account={ACCOUNTS[address]}
+      address={address}
+      onConfirm={onConfirm}
+      isSending={false}
+      dataToSign={{}}
     />
   );
   instance = component.instance();

@@ -25,7 +25,7 @@ function renderShallow (props) {
   return shallow(
     <Actionbar
       title='title'
-      { ...props }
+      {...props}
     />
   );
 }

@@ -21,10 +21,10 @@ import { Popup as SemanticPopup } from 'semantic-ui-react';
 export default function Popup ({ children, className, isOpen, trigger, triggerOn }) {
   return (
     <SemanticPopup
-      className={ className }
-      on={ triggerOn }
-      open={ isOpen }
-      trigger={ trigger }
+      className={className}
+      on={triggerOn}
+      open={isOpen}
+      trigger={trigger}
     >
       { children }
     </SemanticPopup>

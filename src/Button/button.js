@@ -28,19 +28,19 @@ export default function Button ({ active, animated, basic, className, color, dis
 
   return (
     <SemanticButton
-      active={ active }
-      animated={ animated }
-      basic={ basic }
-      className={ className }
-      content={ label }
-      color={ color }
-      disabled={ _isDisabled }
-      fluid={ fullWidth }
-      icon={ icon }
-      onClick={ _onClick }
-      primary={ primary }
-      size={ size }
-      toggle={ toggle }
+      active={active}
+      animated={animated}
+      basic={basic}
+      className={className}
+      content={label}
+      color={color}
+      disabled={_isDisabled}
+      fluid={fullWidth}
+      icon={icon}
+      onClick={_onClick}
+      primary={primary}
+      size={size}
+      toggle={toggle}
     />
   );
 }

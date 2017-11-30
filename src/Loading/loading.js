@@ -22,7 +22,7 @@ import styles from './loading.css';
 
 export default function Loading ({ className, size = 'medium' }) {
   return (
-    <div className={ `${styles.loading} ${className}` }>
+    <div className={`${styles.loading} ${className}`}>
       <SemanticLoader />
     </div>
   );

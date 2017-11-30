@@ -41,7 +41,7 @@ export default class StackEventListener extends Component {
     return (
       <ReactEventListener
         target='window'
-        onKeyUp={ this.handleKeyUp }
+        onKeyUp={this.handleKeyUp}
       />
     );
   }

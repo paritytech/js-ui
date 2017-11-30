@@ -69,33 +69,33 @@ export default class ActionbarSearch extends Component {
 
     return (
       <div
-        className={ styles.searchcontainer }
+        className={styles.searchcontainer}
         key='searchAccount'
       >
-        <div className={ inputContainerClasses.join(' ') }>
+        <div className={inputContainerClasses.join(' ')}>
           <InputChip
             addOnBlur
             autoFocus
-            className={ styles.input }
+            className={styles.input}
             hint={
               <FormattedMessage
                 id='ui.actionbar.search.hint'
                 defaultMessage='Enter search input...'
               />
             }
-            tokens={ tokens }
+            tokens={tokens}
 
-            onBlur={ this.handleSearchBlur }
-            onInputChange={ this.handleInputChange }
-            onTokensChange={ this.handleTokensChange }
+            onBlur={this.handleSearchBlur}
+            onInputChange={this.handleInputChange}
+            onTokensChange={this.handleTokensChange}
           />
         </div>
 
         <Button
-          className={ styles.searchButton }
-          icon={ <SearchIcon /> }
+          className={styles.searchButton}
+          icon={<SearchIcon />}
           label=''
-          onClick={ this.handleSearchClick }
+          onClick={this.handleSearchClick}
         />
       </div>
     );

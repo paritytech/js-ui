@@ -33,8 +33,8 @@ function render (props = {}) {
   component = shallow(
     <SectionList
       className='testClass'
-      items={ ITEMS }
-      renderItem={ renderItem }
+      items={ITEMS}
+      renderItem={renderItem}
       section='testSection'
     />
   );

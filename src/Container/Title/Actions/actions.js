@@ -25,7 +25,7 @@ export default function Actions ({ actions }) {
   }
 
   return (
-    <div className={ styles.actions }>
+    <div className={styles.actions}>
       { actions }
     </div>
   );

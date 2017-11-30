@@ -46,30 +46,30 @@ export default function ConfirmDialog ({ busy, children, className, disabledConf
 
   return (
     <Portal
-      buttons={ [
+      buttons={[
         <Button
-          disabled={ disabledDeny || busy }
-          icon={ iconDeny || <CancelIcon /> }
+          disabled={disabledDeny || busy}
+          icon={iconDeny || <CancelIcon />}
           key='deny'
-          label={ labelDeny || DEFAULT_NO }
-          onClick={ onDeny }
+          label={labelDeny || DEFAULT_NO}
+          onClick={onDeny}
         />,
         <Button
-          disabled={ disabledConfirm || busy }
-          icon={ iconConfirm || <CheckIcon /> }
+          disabled={disabledConfirm || busy}
+          icon={iconConfirm || <CheckIcon />}
           key='confirm'
-          label={ labelConfirm || DEFAULT_YES }
-          onClick={ onConfirm }
+          label={labelConfirm || DEFAULT_YES}
+          onClick={onConfirm}
         />
-      ] }
-      busy={ busy }
-      className={ className }
+      ]}
+      busy={busy}
+      className={className}
       isSmallModal
-      onClose={ onDeny }
-      title={ title }
+      onClose={onDeny}
+      title={title}
       open
     >
-      <div className={ styles.body }>
+      <div className={styles.body}>
         { children }
       </div>
     </Portal>

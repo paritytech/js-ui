@@ -30,9 +30,9 @@ export default function Buttons ({ buttons, hideButtons, vault }) {
   }
 
   return (
-    <div className={ styles.buttons }>
+    <div className={styles.buttons}>
       <Button
-        className={ styles.status }
+        className={styles.status}
         disabled
         icon={
           isOpen

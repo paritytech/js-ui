@@ -27,20 +27,20 @@ export default function Request ({ accounts, className, confirmElement, date, ga
 
     return (
       <RequestSign
-        accounts={ accounts }
-        address={ address }
-        className={ className }
-        confirmElement={ confirmElement }
-        data={ data }
-        id={ id }
-        isDisabled={ isDisabled }
-        isFinished={ false }
-        isFocussed={ isFocussed }
-        isSending={ isSending }
-        netVersion={ netVersion }
-        onConfirm={ onConfirm }
-        onReject={ onReject }
-        origin={ origin }
+        accounts={accounts}
+        address={address}
+        className={className}
+        confirmElement={confirmElement}
+        data={data}
+        id={id}
+        isDisabled={isDisabled}
+        isFinished={false}
+        isFocussed={isFocussed}
+        isSending={isSending}
+        netVersion={netVersion}
+        onConfirm={onConfirm}
+        onReject={onReject}
+        origin={origin}
       />
     );
   }
@@ -50,20 +50,20 @@ export default function Request ({ accounts, className, confirmElement, date, ga
 
     return (
       <RequestDecrypt
-        accounts={ accounts }
-        address={ address }
-        className={ className }
-        confirmElement={ confirmElement }
-        data={ msg }
-        id={ id }
-        isDisabled={ isDisabled }
-        isFinished={ false }
-        isFocussed={ isFocussed }
-        isSending={ isSending }
-        netVersion={ netVersion }
-        onConfirm={ onConfirm }
-        onReject={ onReject }
-        origin={ origin }
+        accounts={accounts}
+        address={address}
+        className={className}
+        confirmElement={confirmElement}
+        data={msg}
+        id={id}
+        isDisabled={isDisabled}
+        isFinished={false}
+        isFocussed={isFocussed}
+        isSending={isSending}
+        netVersion={netVersion}
+        onConfirm={onConfirm}
+        onReject={onReject}
+        origin={origin}
       />
     );
   }
@@ -73,20 +73,20 @@ export default function Request ({ accounts, className, confirmElement, date, ga
   if (transaction) {
     return (
       <RequestSend
-        accounts={ accounts }
-        className={ className }
-        confirmElement={ confirmElement }
-        date={ date }
-        id={ id }
-        gasLimit={ gasLimit }
-        isDisabled={ isDisabled }
-        isFocussed={ isFocussed }
-        isSending={ isSending }
-        netVersion={ netVersion }
-        onConfirm={ onConfirm }
-        onReject={ onReject }
-        origin={ origin }
-        transaction={ transaction }
+        accounts={accounts}
+        className={className}
+        confirmElement={confirmElement}
+        date={date}
+        id={id}
+        gasLimit={gasLimit}
+        isDisabled={isDisabled}
+        isFocussed={isFocussed}
+        isSending={isSending}
+        netVersion={netVersion}
+        onConfirm={onConfirm}
+        onReject={onReject}
+        origin={origin}
+        transaction={transaction}
       />
     );
   }

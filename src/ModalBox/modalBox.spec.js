@@ -30,9 +30,9 @@ const SUMMARY = <div id='testSummary'>testSummary</div>;
 function render () {
   component = shallow(
     <ModalBox
-      children={ CHILDREN }
-      icon={ ICON }
-      summary={ SUMMARY }
+      children={CHILDREN}
+      icon={ICON}
+      summary={SUMMARY}
     />
   );
 

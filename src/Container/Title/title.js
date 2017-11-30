@@ -31,17 +31,17 @@ export default function Title ({ actions, byline, className, description, isOffs
   }
 
   return (
-    <div className={ className }>
+    <div className={className}>
       <div>
-        <h3 className={ [styles.title, isOffset && styles.offset].join(' ') }>
-          <div className={ styles.text }>
+        <h3 className={[styles.title, isOffset && styles.offset].join(' ')}>
+          <div className={styles.text}>
             { title }
           </div>
         </h3>
-        <Byline byline={ byline } />
-        <Description description={ description } />
+        <Byline byline={byline} />
+        <Description description={description} />
       </div>
-      <Actions actions={ actions } />
+      <Actions actions={actions} />
     </div>
   );
 }

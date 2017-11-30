@@ -42,7 +42,7 @@ export function IdentityName ({ account, address, className, empty, name, shorte
   }
 
   const nullName = isNullAddress(address) ? defaultNameNull : null;
-  const addressFallback = nullName || (shorten ? (<ShortenedHash data={ address } />) : address);
+  const addressFallback = nullName || (shorten ? (<ShortenedHash data={address} />) : address);
   const fallback = unknown ? defaultName : addressFallback;
   const isUuid = account && account.name === account.uuid;
   const displayName = (name && name.toUpperCase().trim()) ||
@@ -52,7 +52,7 @@ export function IdentityName ({ account, address, className, empty, name, shorte
     );
 
   return (
-    <span className={ className }>
+    <span className={className}>
       {
         displayName && displayName.length
           ? displayName

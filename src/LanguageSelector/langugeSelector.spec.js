@@ -28,7 +28,7 @@ let component;
 
 function render (props = {}) {
   component = shallow(
-    <LanguageSelector { ...props } />
+    <LanguageSelector {...props} />
   );
 
   return component;

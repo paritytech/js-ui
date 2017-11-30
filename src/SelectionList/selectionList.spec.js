@@ -37,11 +37,11 @@ function render (props = {}) {
 
   component = shallow(
     <SelectionList
-      items={ ITEMS }
+      items={ITEMS}
       noStretch='testNoStretch'
-      onDefaultClick={ onDefaultClick }
-      onSelectClick={ onSelectClick }
-      renderItem={ renderItem }
+      onDefaultClick={onDefaultClick}
+      onSelectClick={onSelectClick}
+      renderItem={renderItem}
     />
   );
   instance = component.instance();

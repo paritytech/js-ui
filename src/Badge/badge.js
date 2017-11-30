@@ -22,8 +22,8 @@ import styles from './badge.css';
 export default function Badge ({ className, color = 'default', onClick, value }) {
   return (
     <div
-      className={ `${styles.bubble} ${styles[color]} ${className}` }
-      onClick={ onClick }
+      className={`${styles.bubble} ${styles[color]} ${className}`}
+      onClick={onClick}
     >
       { value }
     </div>

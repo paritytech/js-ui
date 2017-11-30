@@ -26,7 +26,7 @@ export default function Overlay ({ overlay }) {
   }
 
   return (
-    <div className={ styles.overlay }>
+    <div className={styles.overlay}>
       { overlay }
     </div>
   );

@@ -27,14 +27,14 @@ export default function Actionbar ({ buttons, children, className, health, title
   }
 
   return (
-    <div className={ `${styles.actionbar} ${className}` }>
-      <h3 className={ styles.title }>
+    <div className={`${styles.actionbar} ${className}`}>
+      <h3 className={styles.title}>
         { title }
       </h3>
-      <div className={ styles.children }>
+      <div className={styles.children}>
         { children }
       </div>
-      <div className={ styles.buttons }>
+      <div className={styles.buttons}>
         { buttons }
       </div>
     </div>

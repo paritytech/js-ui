@@ -38,10 +38,10 @@ export default function Container ({ children, className, compact, dappLink, hov
           ? styles.compact
           : styles.padded
       }
-      onClick={ onClick }
-      onFocus={ onFocus }
+      onClick={onClick}
+      onFocus={onFocus}
     >
-      <Title title={ title } />
+      <Title title={title} />
       { children }
     </div>
   );
@@ -49,7 +49,7 @@ export default function Container ({ children, className, compact, dappLink, hov
   const hoverCard = (
     hover
       ? (
-        <div className={ styles.hoverOverlay }>
+        <div className={styles.hoverOverlay}>
           { hover }
         </div>
       )
@@ -67,22 +67,22 @@ export default function Container ({ children, className, compact, dappLink, hov
           className
         ].join(' ')
       }
-      style={ style }
-      { ...props }
+      style={style}
+      {...props}
     >
       {
         link
           ? (
             <Link
-              isDappLink={ dappLink }
-              link={ link }
+              isDappLink={dappLink}
+              link={link}
             >
               { card }
               { hoverCard }
             </Link>
           )
           : (
-            <div className={ styles.cardContainer }>
+            <div className={styles.cardContainer}>
               { card }
               { hoverCard }
             </div>

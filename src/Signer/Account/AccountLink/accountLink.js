@@ -51,9 +51,9 @@ export default class AccountLink extends Component {
     if (externalLink) {
       return (
         <a
-          href={ this.state.link }
+          href={this.state.link}
           target='_blank'
-          className={ `${styles.container} ${className}` }
+          className={`${styles.container} ${className}`}
         >
           { children || address }
         </a>
@@ -62,8 +62,8 @@ export default class AccountLink extends Component {
 
     return (
       <Link
-        className={ `${styles.container} ${className}` }
-        to={ this.state.link }
+        className={`${styles.container} ${className}`}
+        to={this.state.link}
       >
         { children || address }
       </Link>

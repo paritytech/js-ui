@@ -28,7 +28,7 @@ let instance;
 
 function render (props = { visible: true }) {
   component = shallow(
-    <Features { ...props } />
+    <Features {...props} />
   );
   instance = component.instance();
 

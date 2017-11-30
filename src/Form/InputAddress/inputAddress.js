@@ -89,24 +89,24 @@ class InputAddress extends Component {
     }
 
     return (
-      <div className={ containerClasses.join(' ') }>
+      <div className={containerClasses.join(' ')}>
         <Input
-          allowCopy={ allowCopy && ((disabled || readOnly) ? value : false) }
-          autoFocus={ autoFocus }
-          className={ classes.join(' ') }
-          disabled={ disabled }
-          error={ error }
-          hideUnderline={ hideUnderline }
-          hint={ hint }
-          label={ label }
-          onChange={ this.onChange }
-          onClick={ onClick }
-          onFocus={ onFocus }
-          onSubmit={ this.onSubmit }
-          readOnly={ readOnly }
-          tabIndex={ tabIndex }
-          value={ displayValue }
-          { ...props }
+          allowCopy={allowCopy && ((disabled || readOnly) ? value : false)}
+          autoFocus={autoFocus}
+          className={classes.join(' ')}
+          disabled={disabled}
+          error={error}
+          hideUnderline={hideUnderline}
+          hint={hint}
+          label={label}
+          onChange={this.onChange}
+          onClick={onClick}
+          onFocus={onFocus}
+          onSubmit={this.onSubmit}
+          readOnly={readOnly}
+          tabIndex={tabIndex}
+          value={displayValue}
+          {...props}
         />
         { icon }
       </div>
@@ -135,9 +135,9 @@ class InputAddress extends Component {
     }
 
     return (
-      <div className={ classes.join(' ') }>
+      <div className={classes.join(' ')}>
         <IdentityIcon
-          address={ value }
+          address={value}
           center
           inline
         />

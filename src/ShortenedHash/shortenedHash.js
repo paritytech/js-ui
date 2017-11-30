@@ -30,7 +30,7 @@ export default function ShortenedHash ({ data }) {
   }
 
   return (
-    <abbr className={ styles.hash } title={ data }>{ shortened }</abbr>
+    <abbr className={styles.hash} title={data}>{ shortened }</abbr>
   );
 }
 

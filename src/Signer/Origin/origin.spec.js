@@ -32,40 +32,40 @@ const context = {
 describe('views/Signer/components/RequestOrigin', () => {
   it('renders unknown', () => {
     expect(shallow(
-      <RequestOrigin origin={ { type: 'unknown', details: '' } } />,
+      <RequestOrigin origin={{ type: 'unknown', details: '' }} />,
       context
     ).find('FormattedMessage').props().id).to.equal('signer.requestOrigin.unknownInterface');
   });
 
   it('renders dapps', () => {
     expect(shallow(
-      <RequestOrigin origin={ { type: 'dapp', details: 'http://parity.io' } } />,
+      <RequestOrigin origin={{ type: 'dapp', details: 'http://parity.io' }} />,
       context
     ).find('FormattedMessage').props().id).to.equal('signer.requestOrigin.dapp');
   });
 
   it('renders rpc', () => {
     expect(shallow(
-      <RequestOrigin origin={ { type: 'rpc', details: '' } } />,
+      <RequestOrigin origin={{ type: 'rpc', details: '' }} />,
       context
     ).find('FormattedMessage').props().id).to.equal('signer.requestOrigin.rpc');
   });
 
   it('renders ipc', () => {
     expect(shallow(
-      <RequestOrigin origin={ { type: 'ipc', details: '0x1234' } } />,
+      <RequestOrigin origin={{ type: 'ipc', details: '0x1234' }} />,
       context
     ).find('FormattedMessage').props().id).to.equal('signer.requestOrigin.ipc');
   });
 
   it('renders signer', () => {
     expect(shallow(
-      <RequestOrigin origin={ { type: 'signer', details: '0x12345' } } />,
+      <RequestOrigin origin={{ type: 'signer', details: '0x12345' }} />,
       context
     ).find('FormattedMessage').props().id).to.equal('signer.requestOrigin.signerUI');
 
     expect(shallow(
-      <RequestOrigin origin={ { type: 'signer', details: '0x1234' } } />,
+      <RequestOrigin origin={{ type: 'signer', details: '0x1234' }} />,
       context
     ).find('FormattedMessage').props().id).to.equal('signer.requestOrigin.signerCurrent');
   });

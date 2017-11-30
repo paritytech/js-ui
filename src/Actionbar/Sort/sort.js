@@ -50,16 +50,16 @@ export default class ActionbarSort extends Component {
 
     return (
       <Popup
-        isOpen={ this.store.menuOpen }
+        isOpen={this.store.menuOpen}
         trigger={
           <Button
-            icon={ <SortIcon /> }
-            onClick={ this.store.handleMenuOpen }
+            icon={<SortIcon />}
+            onClick={this.store.handleMenuOpen}
           />
         }
       >
         <List
-          items={ [
+          items={[
             showDefault && this.renderMenuItem('', (
               <FormattedMessage
                 id='ui.actionbar.sort.typeDefault'
@@ -84,8 +84,8 @@ export default class ActionbarSort extends Component {
                 defaultMessage='Sort by ETH'
               />
             ))
-          ].concat(this.renderSortByMetas()) }
-          onClick={ this.store.handleSortChange }
+          ].concat(this.renderSortByMetas())}
+          onClick={this.store.handleSortChange}
         />
       </Popup>
     );
@@ -99,9 +99,9 @@ export default class ActionbarSort extends Component {
         <FormattedMessage
           id='ui.actionbar.sort.sortBy'
           defaultMessage='Sort by {label}'
-          values={ {
+          values={{
             label: meta.label
-          } }
+          }}
         />
       );
 

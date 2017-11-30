@@ -28,8 +28,8 @@ let component;
 function render (props = {}) {
   component = shallow(
     <VaultCard
-      vault={ VAULT }
-      { ...props }
+      vault={VAULT}
+      {...props}
     />
   );
 

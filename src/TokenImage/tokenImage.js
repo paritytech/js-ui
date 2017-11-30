@@ -36,8 +36,8 @@ export default function TokenImage ({ token }, { api }) {
 
   return (
     <img
-      src={ imagesrc }
-      alt={ token.name }
+      src={imagesrc}
+      alt={token.name}
     />
   );
 }

@@ -88,16 +88,16 @@ export default class TxRow extends Component {
     const { address, className, historic, netVersion, tx } = this.props;
 
     return (
-      <tr className={ className || '' }>
+      <tr className={className || ''}>
         { this.renderBlockNumber(tx.blockNumber) }
         { this.renderAddress(tx.from, false) }
-        <td className={ styles.transaction }>
+        <td className={styles.transaction}>
           { this.renderEtherValue(tx.value) }
           <div>⇒</div>
           <div>
             <a
-              className={ styles.link }
-              href={ txLink(tx.hash, false, netVersion) }
+              className={styles.link}
+              href={txLink(tx.hash, false, netVersion)}
               target='_blank'
             >
               { `${tx.hash.substr(2, 6)}...${tx.hash.slice(-6)}` }
@@ -105,11 +105,11 @@ export default class TxRow extends Component {
           </div>
         </td>
         { this.renderAddress(tx.to || tx.creates, !!tx.creates) }
-        <td className={ styles.method }>
+        <td className={styles.method}>
           <MethodDecoding
-            historic={ historic }
-            address={ address }
-            transaction={ tx }
+            historic={historic}
+            address={address}
+            transaction={tx}
           />
         </td>
       </tr>
@@ -123,12 +123,12 @@ export default class TxRow extends Component {
     if (address && (!isDeploy || isKnownContract)) {
       esLink = (
         <DappLink
-          activeClassName={ styles.currentLink }
-          className={ styles.link }
-          to={ this.addressLink(address) }
+          activeClassName={styles.currentLink}
+          className={styles.link}
+          to={this.addressLink(address)}
         >
           <IdentityName
-            address={ address }
+            address={address}
             shorten
           />
         </DappLink>
@@ -136,15 +136,15 @@ export default class TxRow extends Component {
     }
 
     return (
-      <td className={ styles.address }>
-        <div className={ styles.center }>
+      <td className={styles.address}>
+        <div className={styles.center}>
           <IdentityIcon
             center
-            className={ styles.icon }
-            address={ (!isDeploy || isKnownContract) ? address : '' }
+            className={styles.icon}
+            address={(!isDeploy || isKnownContract) ? address : ''}
           />
         </div>
-        <div className={ styles.center }>
+        <div className={styles.center}>
           { esLink || 'DEPLOY' }
         </div>
       </td>
@@ -161,11 +161,11 @@ export default class TxRow extends Component {
     const value = api.util.fromWei(_value);
 
     if (value.eq(0) && !fullValue) {
-      return <div className={ styles.value }>{ ' ' }</div>;
+      return <div className={styles.value}>{ ' ' }</div>;
     }
 
     return (
-      <div className={ styles.value }>
+      <div className={styles.value}>
         { value.toFormat(5) }<small>ETH</small>
       </div>
     );
@@ -177,7 +177,7 @@ export default class TxRow extends Component {
     const isMined = !!(blockNumber && block);
 
     return (
-      <td className={ styles.timestamp }>
+      <td className={styles.timestamp}>
         <div>{ isMined ? moment(block.timestamp).fromNow() : null }</div>
         <div>{ isMined ? _blockNumber.toFormat() : this.renderCancelToggle() }</div>
       </td>
@@ -189,9 +189,9 @@ export default class TxRow extends Component {
 
     if (canceled) {
       return (
-        <div className={ styles.pending }>
+        <div className={styles.pending}>
           <FormattedMessage
-            lassName={ styles.uppercase }
+            lassName={styles.uppercase}
             id='ui.txList.txRow.canceled'
             defaultMessage='Canceled'
           />
@@ -201,8 +201,8 @@ export default class TxRow extends Component {
 
     if (editing) {
       return (
-        <div className={ styles.pending }>
-          <div className={ styles.uppercase }>
+        <div className={styles.pending}>
+          <div className={styles.uppercase}>
             <FormattedMessage
               id='ui.txList.txRow.editing'
               defaultMessage='Editing'
@@ -217,13 +217,13 @@ export default class TxRow extends Component {
       const isPending = pendingStatus === 'pending';
 
       return (
-        <div className={ styles.pending }>
+        <div className={styles.pending}>
           {
             isPending
               ? (
-                <div className={ styles.pending }>
+                <div className={styles.pending}>
                   <div />
-                  <div className={ styles.uppercase }>
+                  <div className={styles.uppercase}>
                     <FormattedMessage
                       id='ui.txList.txRow.submitting'
                       defaultMessage='Pending'
@@ -236,7 +236,7 @@ export default class TxRow extends Component {
                   <span>
                     { pendingStatus }
                   </span>
-                  <div className={ styles.uppercase }>
+                  <div className={styles.uppercase}>
                     <FormattedMessage
                       id='ui.txList.txRow.scheduled'
                       defaultMessage='Scheduled'
@@ -245,14 +245,14 @@ export default class TxRow extends Component {
                 </div>
               )
           }
-          <a onClick={ this.setEdit } className={ styles.uppercase }>
+          <a onClick={this.setEdit} className={styles.uppercase}>
             <FormattedMessage
               id='ui.txList.txRow.edit'
               defaultMessage='Edit'
             />
           </a>
           <span>{' | '}</span>
-          <a onClick={ this.setCancel } className={ styles.uppercase }>
+          <a onClick={this.setCancel} className={styles.uppercase}>
             <FormattedMessage
               id='ui.txList.txRow.cancel'
               defaultMessage='Cancel'
@@ -291,19 +291,19 @@ export default class TxRow extends Component {
     }
 
     return (
-      <div className={ styles.pending }>
+      <div className={styles.pending}>
         <div />
-        <div className={ styles.uppercase }>
+        <div className={styles.uppercase}>
           <FormattedMessage
             id='ui.txList.txRow.verify.confirm'
             defaultMessage='Are you sure?'
           />
         </div>
-        <a onClick={ (isCancelOpen) ? this.cancelTx : this.editTx }>
+        <a onClick={(isCancelOpen) ? this.cancelTx : this.editTx}>
           { which }
         </a>
         <span>{' | '}</span>
-        <a onClick={ this.revertEditCancel }>
+        <a onClick={this.revertEditCancel}>
           <FormattedMessage
             id='ui.txList.txRow.verify.nevermind'
             defaultMessage='Nevermind'
@@ -338,9 +338,9 @@ export default class TxRow extends Component {
           <FormattedMessage
             id='ui.txList.txRow.pendingStatus.time'
             defaultMessage='{time} left'
-            values={ {
+            values={{
               time: dateDifference(new Date(), time, { compact: true })
-            } }
+            }}
           />
         );
       }
@@ -353,9 +353,9 @@ export default class TxRow extends Component {
           <FormattedMessage
             id='ui.txList.txRow.pendingStatus.blocksLeft'
             defaultMessage='{blockNumber} blocks left'
-            values={ {
+            values={{
               blockNumber: block.abs().toFormat(0)
-            } }
+            }}
           />
         );
       }

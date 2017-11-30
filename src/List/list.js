@@ -29,18 +29,18 @@ export default function List ({ className, items, label, onClick, style }) {
   };
 
   return (
-    <LabelWrapper label={ label }>
-      <SemanticList className={ `${styles.list} ${className}` }>
+    <LabelWrapper label={label}>
+      <SemanticList className={`${styles.list} ${className}`}>
         {
           items.filter((item) => item).map(({ buttons, description, icon, isActive, key, label }, index) => (
             <Item
-              buttons={ buttons }
-              description={ description }
-              icon={ icon }
-              isActive={ isActive }
-              key={ key || index }
-              label={ label }
-              onClick={ wrapOnClick(key || index) }
+              buttons={buttons}
+              description={description}
+              icon={icon}
+              isActive={isActive}
+              key={key || index}
+              label={label}
+              onClick={wrapOnClick(key || index)}
             />
           ))
         }

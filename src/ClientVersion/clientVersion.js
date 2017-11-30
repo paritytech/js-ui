@@ -33,7 +33,7 @@ function ClientVersion ({ className }, { api }) {
   const [ versionNumber, versionType, , versionDate ] = (versionString || '').split('-');
 
   return (
-    <div className={ [styles.clientVersion, className].join(' ') }>
+    <div className={[styles.clientVersion, className].join(' ')}>
       { clientName } { versionNumber }-{ versionDate } { versionType }
     </div>
   );

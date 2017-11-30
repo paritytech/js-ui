@@ -31,24 +31,24 @@ export default function Dropdown ({ className, disabled = false, error, fullWidt
   const _onChange = (event, { value }) => onChange(event, value);
 
   return (
-    <LabelWrapper label={ label }>
+    <LabelWrapper label={label}>
       <SemanticDropdown
-        className={ `${styles.dropdown} ${className}` }
-        disabled={ disabled }
-        error={ !!error }
-        fluid={ fullWidth }
-        id={ NAME_ID }
-        name={ NAME_ID }
-        onBlur={ onBlur }
-        onChange={ _onChange }
-        onKeyDown={ onKeyDown }
-        options={ options }
-        placeholder={ parseI18NString(context, hint) }
+        className={`${styles.dropdown} ${className}`}
+        disabled={disabled}
+        error={!!error}
+        fluid={fullWidth}
+        id={NAME_ID}
+        name={NAME_ID}
+        onBlur={onBlur}
+        onChange={_onChange}
+        onKeyDown={onKeyDown}
+        options={options}
+        placeholder={parseI18NString(context, hint)}
         scrolling
         search
         selection
-        text={ parseI18NString(context, text) }
-        value={ value }
+        text={parseI18NString(context, text)}
+        value={value}
       />
     </LabelWrapper>
   );

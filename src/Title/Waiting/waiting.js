@@ -27,7 +27,7 @@ export default function Waiting ({ activeStep, busy, busySteps, className }) {
   }
 
   return (
-    <div className={ className }>
+    <div className={className}>
       <Progress />
     </div>
   );
