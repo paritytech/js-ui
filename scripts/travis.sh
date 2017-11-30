@@ -30,7 +30,7 @@ git add .
 
 echo "Publishing to npm"
 
-npm run makeshift
+npm makeshift
 npm --no-git-tag-version version
 npm version patch -m "[CI Skip] %s"
 npm publish
