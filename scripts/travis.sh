@@ -22,11 +22,14 @@ git config merge.ours.driver true
 git config user.name "Travis CI"
 git config user.email "$COMMIT_AUTHOR_EMAIL"
 git remote set-url origin https://${GH_TOKEN}@github.com/${TRAVIS_REPO_SLUG}.git > /dev/null 2>&1
-
-echo "Adding build artifacts"
-
 git checkout $TRAVIS_BRANCH
-git add .
+
+if [ -n "$(git status --untracked-files=no --porcelain)" ]; then
+  echo "Adding build artifacts"
+
+  git add .
+  git commit -m "[CI Skip] Build artifacts"
+fi
 
 echo "Publishing to npm"
 
