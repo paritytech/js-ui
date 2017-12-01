@@ -26,6 +26,7 @@
         "moduleName": "babel-runtime"
       }
     ],
+    "transform-semantic-ui-react-imports",
     "transform-decorators-legacy"
   ]
 }
