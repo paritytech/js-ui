@@ -15,6 +15,8 @@
 /* along with Parity.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+$labelColor: #2185D0; /* Semantic blue */
+
 .container {
   color: inherit;
   width: 100%;
@@ -50,6 +52,7 @@
 }
 
 .gasDetails {
+  color: $labelColor;
   padding-top: 0.75em;
   font-size: 0.75em;
   line-height: 1.5em;
