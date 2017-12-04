@@ -18,7 +18,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
-import ReactPortal from 'react-portal';
+import { Portal as ReactPortal } from 'react-portal';
 import keycode from 'keycode';
 import { noop } from 'lodash';
 
@@ -120,12 +120,12 @@ export default class Portal extends Component {
               title={title}
             />
             <div className={styles.childContainer}>
-              { children }
+              {children}
             </div>
             {
               buttons && (
                 <div className={styles.buttonRow}>
-                  { buttons }
+                  {buttons}
                 </div>
               )
             }
