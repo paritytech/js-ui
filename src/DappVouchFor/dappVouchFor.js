@@ -42,7 +42,7 @@ export default class DappVouchFor extends Component {
   store = new Store(this.context.api, this.props.app);
 
   render () {
-    const { className, total } = this.props;
+    const { className, maxNumber } = this.props;
     const count = this.store.vouchers.length;
 
     if (!count) {
@@ -59,7 +59,7 @@ export default class DappVouchFor extends Component {
               key={this.store.vouchers[index]}
               alt={`${count} identities vouch for this dapp`}
             />
-          ));
+          ))
         }
         <div className={styles.bubble}>
           { count }
