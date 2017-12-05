@@ -52,7 +52,7 @@ export default class DappVouchFor extends Component {
     return (
       <div className={[styles.tag, className].join(' ')}>
         {
-          new Array(Math.min(count, maxNumber)).map((_, index) => (
+          [...Array(Math.min(count, maxNumber)).keys()].map((index) => (
             <IdentityIcon
               address={this.store.vouchers[index]}
               className={styles.image}
