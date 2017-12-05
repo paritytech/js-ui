@@ -30,12 +30,19 @@ export default class DappVouchFor extends Component {
   };
 
   static propTypes = {
-    app: PropTypes.object.isRequired
+    app: PropTypes.object.isRequired,
+    className: PropTypes.string,
+    maxNumber: PropTypes.number
+  };
+
+  static defaultProps = {
+    maxNumber: 1
   };
 
   store = new Store(this.context.api, this.props.app);
 
   render () {
+    const { className, total } = this.props;
     const count = this.store.vouchers.length;
 
     if (!count) {
@@ -43,12 +50,17 @@ export default class DappVouchFor extends Component {
     }
 
     return (
-      <div className={styles.tag}>
-        <IdentityIcon
-          address={this.store.vouchers[0]}
-          className={styles.image}
-          alt={`${count} identities vouch for this dapp`}
-        />
+      <div className={[styles.tag, className].join(' ')}>
+        {
+          new Array(Math.min(count, maxNumber)).map((_, index) => (
+            <IdentityIcon
+              address={this.store.vouchers[index]}
+              className={styles.image}
+              key={this.store.vouchers[index]}
+              alt={`${count} identities vouch for this dapp`}
+            />
+          ));
+        }
         <div className={styles.bubble}>
           { count }
         </div>
