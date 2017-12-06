@@ -35,7 +35,7 @@ export default class Snackbar extends Component {
     onRequestClose: PropTypes.func
   };
 
-  defaultProps = {
+  static defaultProps = {
     autoHideDuration: 3500
   };
 
