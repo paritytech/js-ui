@@ -23,6 +23,7 @@ import { connect } from 'react-redux';
 
 import { TypedInput, InputAddress } from '../Form';
 import Loading from '../Loading';
+import TokenValue from './tokenValue';
 import MethodDecodingStore from './methodDecodingStore';
 
 import { ASCII_INPUT, TOKEN_METHODS } from './constants';
@@ -334,7 +335,7 @@ class MethodDecoding extends Component {
   }
 
   renderTokenAction () {
-    const { historic } = this.props;
+    const { historic, token } = this.props;
     const { methodSignature, methodInputs } = this.state;
     const [to, value] = methodInputs;
     const address = to.value;
@@ -351,7 +352,11 @@ class MethodDecoding extends Component {
                 historic,
                 value: (
                   <span className={styles.highlight}>
-                    { this.renderTokenValue(value.value) }
+                    <TokenValue
+                      id={token.id}
+                      token={token}
+                      value={value.value}
+                    />
                   </span>
                 ),
                 address: this.renderAddressName(address)
@@ -593,16 +598,6 @@ class MethodDecoding extends Component {
     });
 
     return inputs;
-  }
-
-  renderTokenValue (value) {
-    const { token } = this.props;
-
-    return (
-      <span className={styles.tokenValue}>
-        { value.div(token.format).toFormat(5) }<small> { token.tag }</small>
-      </span>
-    );
   }
 
   renderEtherValue (value) {
