@@ -21,7 +21,7 @@
 
   [data-address-img] {
     position: absolute;
-    bottom: 0;
+    bottom: 1px;
     left: 8px;
   }
 }
