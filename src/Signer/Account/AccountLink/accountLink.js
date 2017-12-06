@@ -16,7 +16,6 @@
 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router';
 
 import styles from './accountLink.css';
 
@@ -61,12 +60,9 @@ export default class AccountLink extends Component {
     }
 
     return (
-      <Link
-        className={`${styles.container} ${className}`}
-        to={this.state.link}
-      >
+      <div className={`${styles.container} ${className}`}>
         { children || address }
-      </Link>
+      </div>
     );
   }
 
