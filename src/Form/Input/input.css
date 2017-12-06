@@ -25,7 +25,13 @@
 }
 
 .input {
+  opacity: 1 !important;
+  position: relative;
+
+  input[disabled],
   input[readonly] {
+    border-color: transparent !important;
     cursor: text;
+    opacity: 0.5;
   }
 }

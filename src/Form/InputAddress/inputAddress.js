@@ -71,11 +71,8 @@ class InputAddress extends Component {
       ? 'null'
       : null;
 
-    // FIXME: The is not advisable, fixes the display issue, however the name should come from
-    // a common component.
-    //    account.name || (value ? 'UNNAMED' : value)
     const displayValue = text && account
-      ? (account.name || (value ? 'UNNAMED' : value))
+      ? (account.name || value)
       : (nullName || value);
 
     if (small) {
