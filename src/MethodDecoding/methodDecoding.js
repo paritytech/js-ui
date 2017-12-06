@@ -600,7 +600,7 @@ class MethodDecoding extends Component {
 
     return (
       <span className={styles.tokenValue}>
-        { value.div(token.format).toFormat(5) }<small> { token.tag }</small>
+        { value ? value.div(token.format).toFormat(5) : '0.00000' }<small> { token.tag }</small>
       </span>
     );
   }
