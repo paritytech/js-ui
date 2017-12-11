@@ -32,7 +32,7 @@ export default class Store {
   }
 
   async attachContract () {
-    const address = await Contracts.get().registry.lookupAddress('vouchfor');
+    const address = await Contracts.get(this._api).registry.lookupAddress('vouchfor');
 
     if (!address || /^0x0*$/.test(address)) {
       return null;
