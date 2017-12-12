@@ -14,7 +14,6 @@
 // You should have received a copy of the GNU General Public License
 // along with Parity.  If not, see <http://www.gnu.org/licenses/>.
 
-import Api from '@parity/api';
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -45,13 +44,9 @@ export default function DappIcon ({ app, className, small }, { api }) {
       dapphost = '';
     }
 
-    const appId = Api.util.isHex(app.id)
-      ? app.id
-      : Api.util.sha3(app.url);
-
     const fallbackSrc = window.location.protocol === 'file:'
-      ? `dapps/${appId}/icon.png`
-      : `${dapphost}/dapps/${appId}/icon.png`;
+      ? `dapps/${app.id}/icon.png`
+      : `${dapphost}/dapps/${app.id}/icon.png`;
 
     imageSrc = app.image || fallbackSrc;
   } else if (app.type === 'local') {
