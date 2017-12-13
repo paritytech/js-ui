@@ -24,22 +24,24 @@ const iconCache = IconCache.get();
 
 export default function TokenImage ({ className, token }, { api }) {
   const imageurl = token.image || iconCache.images[token.address];
-  let imagesrc = unknownImage;
+  let imageSrc = unknownImage;
+  let imageRef;
 
   if (imageurl) {
     const host = /^(\/)?api/.test(imageurl)
       ? api.dappsUrl
       : '';
 
-    imagesrc = `${host || ''}${imageurl}`;
+    imageSrc = `${host || ''}${imageurl}`;
   }
 
   return (
     <img
       alt={token.name}
       className={className}
-      onError='this.style.opacity="0"'
-      src={imagesrc}
+      onError={() => { imageRef.style.opacity = '0'; }}
+      ref={_image => { imageRef = _image; }}
+      src={imageSrc}
     />
   );
 }
