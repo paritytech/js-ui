@@ -22,7 +22,7 @@ import IconCache from '../IconCache';
 
 const iconCache = IconCache.get();
 
-export default function TokenImage ({ token }, { api }) {
+export default function TokenImage ({ className, token }, { api }) {
   const imageurl = token.image || iconCache.images[token.address];
   let imagesrc = unknownImage;
 
@@ -36,8 +36,10 @@ export default function TokenImage ({ token }, { api }) {
 
   return (
     <img
-      src={imagesrc}
       alt={token.name}
+      className={className}
+      onError='this.style.opacity="0"'
+      src={imagesrc}
     />
   );
 }
@@ -47,6 +49,7 @@ TokenImage.contextTypes = {
 };
 
 TokenImage.propTypes = {
+  className: PropTypes.string,
   token: PropTypes.shape({
     image: PropTypes.string,
     address: PropTypes.string

@@ -58,6 +58,7 @@ export default function DappIcon ({ app, className, small }, { api }) {
   return (
     <img
       className={classes}
+      onError='this.style.opacity="0"'
       src={imageSrc}
     />
   );
