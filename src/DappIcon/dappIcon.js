@@ -32,6 +32,7 @@ export default function DappIcon ({ app, className, small }, { api }) {
   }
 
   let imageSrc;
+  let imageRef;
 
   if (app.type === 'builtin' || app.type === 'view') {
     let dapphost = process.env.DAPPS_URL || (
@@ -58,6 +59,8 @@ export default function DappIcon ({ app, className, small }, { api }) {
   return (
     <img
       className={classes}
+      onError={() => { imageRef.style.opacity = '0'; }}
+      ref={_image => { imageRef = _image; }}
       src={imageSrc}
     />
   );

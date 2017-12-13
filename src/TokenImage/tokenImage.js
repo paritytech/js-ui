@@ -22,22 +22,26 @@ import IconCache from '../IconCache';
 
 const iconCache = IconCache.get();
 
-export default function TokenImage ({ token }, { api }) {
+export default function TokenImage ({ className, token }, { api }) {
   const imageurl = token.image || iconCache.images[token.address];
-  let imagesrc = unknownImage;
+  let imageSrc = unknownImage;
+  let imageRef;
 
   if (imageurl) {
     const host = /^(\/)?api/.test(imageurl)
       ? api.dappsUrl
       : '';
 
-    imagesrc = `${host || ''}${imageurl}`;
+    imageSrc = `${host || ''}${imageurl}`;
   }
 
   return (
     <img
-      src={imagesrc}
       alt={token.name}
+      className={className}
+      onError={() => { imageRef.style.opacity = '0'; }}
+      ref={_image => { imageRef = _image; }}
+      src={imageSrc}
     />
   );
 }
@@ -47,6 +51,7 @@ TokenImage.contextTypes = {
 };
 
 TokenImage.propTypes = {
+  className: PropTypes.string,
   token: PropTypes.shape({
     image: PropTypes.string,
     address: PropTypes.string
