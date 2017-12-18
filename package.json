@@ -55,6 +55,7 @@
   "dependencies": {
     "@parity/api": "2.1.x",
     "@parity/etherscan": "2.1.x",
+    "@parity/mobx": "^1.0.3",
     "@parity/shared": "2.2.x",
     "babel-runtime": "^6.26.0",
     "bignumber.js": "4.1.0",

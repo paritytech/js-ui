@@ -16,18 +16,32 @@
 */
 
 .icon {
-  border-radius: 50%;
   margin: 0 0.75em 0 0;
 }
 
+.raised {
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.15);
+  border-radius: 2px;
+  padding: 0.125em;
+}
+
 .normal {
-  height: 56px;
-  width: 56px;
+  height: 2em;
+  width: 2em;
   font-size: 49px !important;
 }
 
 .small {
-  height: 32px;
-  width: 32px;
+  height: 2em;
+  width: 2em;
   font-size: 28px !important;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+}
+
+.hidden {
+  visibility: hidden;
 }
