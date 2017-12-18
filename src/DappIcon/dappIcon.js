@@ -14,64 +14,87 @@
 // You should have received a copy of the GNU General Public License
 // along with Parity.  If not, see <http://www.gnu.org/licenses/>.
 
-import React from 'react';
+import React, { Component } from 'react';
+import { observer } from 'mobx-react';
 import PropTypes from 'prop-types';
-
-import { createIcon } from '../Icons';
+import DappsUrlStore from '@parity/mobx/lib/dapps/DappsUrlStore';
 
 import styles from './dappIcon.css';
 
-export default function DappIcon ({ app, className, small }, { api }) {
-  const { dappsUrl } = api;
-  const classes = [
-    styles.icon, styles[small ? 'small' : 'normal'], className
-  ].join(' ');
+@observer
+class DappIcon extends Component {
+  static contextTypes = {
+    api: PropTypes.object.isRequired
+  };
 
-  if (app['semantic-icon']) {
-    return createIcon(app['semantic-icon'], { className: classes });
+  static propTypes = {
+    app: PropTypes.object.isRequired,
+    className: PropTypes.string,
+    raised: PropTypes.bool,
+    size: PropTypes.oneOf(['small', 'normal'])
+  };
+
+  static defaultProps = {
+    raised: true,
+    size: 'normal'
+  };
+
+  state = {
+    hasError: false // Do not show broken image when fetching image gives error
+  };
+
+  componentWillMount () {
+    // Only these 2 types of dapps need the dappsUrl
+    if (['view', 'local'].includes(this.props.app.type)) {
+      this.dappsUrlStore = DappsUrlStore.get(this.context.api);
+    }
   }
 
-  let imageSrc;
-  let imageRef;
+  handleError = () => {
+    this.setState({ hasError: true });
+  };
 
-  if (app.type === 'builtin' || app.type === 'view') {
-    let dapphost = process.env.DAPPS_URL || (
-      process.env.NODE_ENV === 'production'
-        ? `${dappsUrl}/ui`
-        : ''
-    );
+  render () {
+    const { app, className, raised, size } = this.props;
 
-    if (dapphost === '/') {
-      dapphost = '';
+    const classes = [styles.icon, raised && styles.raised, styles[size], className].join(' ');
+
+    let imageSrc;
+
+    switch (app.type) {
+      case 'view': {
+        if (!this.dappsUrlStore.dappsUrl) return null;
+
+        const dappHost = (process.env.DAPPS_URL || `${this.dappsUrlStore.dappsUrl}/ui`).trimRight('/');
+        const fallbackSrc =
+          window.location.protocol === 'file:' ? `dapps/${app.id}/icon.png` : `${dappHost}/dapps/${app.id}/icon.png`;
+
+        imageSrc = app.image ? `${dappHost}${app.image}` : fallbackSrc;
+        break;
+      }
+      case 'local': {
+        if (!this.dappsUrlStore.dappsUrl) return null;
+
+        imageSrc = `${this.dappsUrlStore.dappsUrl}/${app.id}/${app.iconUrl}`;
+        break;
+      }
+      case 'builtin':
+      case 'network':
+      default:
+        imageSrc = app.image; // TODO: should be `${UI_URL}${app.image}` where UI_URL=http://localhost:8180
     }
 
-    const fallbackSrc = window.location.protocol === 'file:'
-      ? `dapps/${app.id}/icon.png`
-      : `${dapphost}/dapps/${app.id}/icon.png`;
-
-    imageSrc = app.image || fallbackSrc;
-  } else if (app.type === 'local') {
-    imageSrc = `${dappsUrl}/${app.id}/${app.iconUrl}`;
-  } else {
-    imageSrc = app.image;
+    return (
+      <div className={classes}>
+        <img
+          className={[styles.image, this.state.hasError && styles.hidden].join(' ')}
+          onError={this.handleError}
+          src={imageSrc}
+          alt=''
+        />
+      </div>
+    );
   }
-
-  return (
-    <img
-      className={classes}
-      onError={() => { imageRef.style.opacity = '0'; }}
-      ref={_image => { imageRef = _image; }}
-      src={imageSrc}
-    />
-  );
 }
 
-DappIcon.contextTypes = {
-  api: PropTypes.object.isRequired
-};
-
-DappIcon.propTypes = {
-  app: PropTypes.object.isRequired,
-  className: PropTypes.string,
-  small: PropTypes.bool
-};
+export default DappIcon;
