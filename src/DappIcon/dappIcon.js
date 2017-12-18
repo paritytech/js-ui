@@ -43,7 +43,12 @@ class DappIcon extends Component {
     hasError: false // Do not show broken image when fetching image gives error
   };
 
-  dappsUrlStore = DappsUrlStore.get(this.context.api);
+  componentWillMount () {
+    // Only these 2 types of dapps need the dappsUrl
+    if (['view', 'local'].includes(this.props.app.type)) {
+      this.dappsUrlStore = DappsUrlStore.get(this.context.api);
+    }
+  }
 
   handleError = () => {
     this.setState({ hasError: true });
@@ -51,27 +56,28 @@ class DappIcon extends Component {
 
   render () {
     const { app, className, raised, size } = this.props;
-    const dappHost = (process.env.DAPPS_URL || `${this.dappsUrlStore.dappsUrl}/ui`).trimRight('/');
 
     const classes = [styles.icon, raised && styles.raised, styles[size], className].join(' ');
-
-    if (!this.dappsUrlStore.dappsUrl) {
-      return <div className={classes} />; // A blank frame
-    }
 
     let imageSrc;
 
     switch (app.type) {
       case 'view': {
+        if (!this.dappsUrlStore.dappsUrl) return null;
+
+        const dappHost = (process.env.DAPPS_URL || `${this.dappsUrlStore.dappsUrl}/ui`).trimRight('/');
         const fallbackSrc =
           window.location.protocol === 'file:' ? `dapps/${app.id}/icon.png` : `${dappHost}/dapps/${app.id}/icon.png`;
 
         imageSrc = app.image ? `${dappHost}${app.image}` : fallbackSrc;
         break;
       }
-      case 'local':
+      case 'local': {
+        if (!this.dappsUrlStore.dappsUrl) return null;
+
         imageSrc = `${this.dappsUrlStore.dappsUrl}/${app.id}/${app.iconUrl}`;
         break;
+      }
       case 'builtin':
       case 'network':
       default:
