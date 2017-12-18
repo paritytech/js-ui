@@ -63,7 +63,7 @@ class DappIcon extends Component {
 
     switch (app.type) {
       case 'view': {
-        if (!this.dappsUrlStore.dappsUrl) return null;
+        if (!this.dappsUrlStore.dappsUrl) return <div className={classes} />; // Blank frame
 
         const dappHost = (process.env.DAPPS_URL || `${this.dappsUrlStore.dappsUrl}/ui`).trimRight('/');
         const fallbackSrc =
@@ -73,7 +73,7 @@ class DappIcon extends Component {
         break;
       }
       case 'local': {
-        if (!this.dappsUrlStore.dappsUrl) return null;
+        if (!this.dappsUrlStore.dappsUrl) return <div className={classes} />; // Blank frame
 
         imageSrc = `${this.dappsUrlStore.dappsUrl}/${app.id}/${app.iconUrl}`;
         break;
