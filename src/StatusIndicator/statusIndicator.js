@@ -18,15 +18,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ReactTooltip from 'react-tooltip';
 import { observer } from 'mobx-react';
-
-import Store from './store';
+import NodeHealthStore, { STATUS_BAD, STATUS_OK, STATUS_WARN } from '@parity/mobx/lib/node/NodeHealthStore';
 
 import styles from './statusIndicator.css';
 
-const statuses = ['bad', 'needsAttention', 'ok'];
+const statuses = [STATUS_BAD, STATUS_WARN, STATUS_OK];
 
 function StatusIndicator ({ className, id, status, title = [], tooltipPlacement, type = 'signal' }, { api }) {
-  const store = Store.get(api);
+  const store = NodeHealthStore.get(api);
   const checkStatus = status || store.overall.status;
   const message = title.length
     ? title
@@ -64,7 +63,7 @@ function StatusIndicator ({ className, id, status, title = [], tooltipPlacement,
               {
                 message.map((x) => (
                   <div key={x}>
-                    { x }
+                    {x}
                   </div>)
                 )
               }
@@ -95,6 +94,6 @@ StatusIndicator.contextTypes = {
 
 const ObserverComponent = observer(StatusIndicator);
 
-ObserverComponent.Store = Store;
+ObserverComponent.Store = NodeHealthStore;
 
 export default ObserverComponent;
